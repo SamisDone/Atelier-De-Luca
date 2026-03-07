@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-background relative overflow-hidden flex items-center justify-center">
-      <div className="container relative z-10 mx-auto px-6 max-w-5xl">
+      <div className="container relative z-10 mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,7 +24,7 @@ const Contact = () => {
             Have questions about our porcelain pedestal systems? Fill out the form below and our team will get back to you shortly.
           </p>
           
-          <form className="space-y-6 max-w-2xl mx-auto text-left" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-6 mx-auto text-left" onSubmit={(e) => e.preventDefault()}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium leading-none text-foreground">Name</label>

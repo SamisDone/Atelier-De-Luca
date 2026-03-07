@@ -105,7 +105,7 @@ const CalculatorContent = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="max-w-2xl mx-auto"
+          className=""
         >
           <div className="bg-card rounded-xl border border-border p-8 md:p-10">
             <Form {...form}>
