@@ -1,29 +1,103 @@
-# Project Architectural Details
+# Comprehensive Project Details: Vite to Next.js Migration
 
-This document outlines the non-obvious architectural choices and structural patterns implemented in this Next.js 16 project that are essential for understanding the codebase.
+This document provides a detailed, file-by-file breakdown of the changes applied to the Grefino landing page during its migration from a Vite/React SPA to the Next.js 16 App Router.
 
-## 1. Tailwind CSS v3 Downgrade
+## 1. Project Root & Configuration Defaults
 
-- **The Context**: Next.js 16 initializes with Tailwind v4 by default.
-- **The Decision**: We intentionally use **Tailwind v3** (`tailwind.config.ts`, `postcss.config.mjs`).
-- **The Reason**: The project relies on a deeply customized `shadcn/ui` theme with complex HSL CSS variables (`--brand`, `--primary`). Migrating this theme and 12+ components to the v4 CSS-only variable structure would require a massive rewrite. Sticking with v3 maintains 100% theme compatibility seamlessly.
-- **IDE Note**: We use a custom `.vscode/settings.json` to suppress "Unknown at rule" errors for `@import` and `@apply` caused by standard CSS validators.
+### `package.json`
 
-## 2. Global Providers & Client Boundary (`src/app/providers.tsx`)
+- **Details**: Swapped Vite dependencies for Next.js 16, React 18, and Tailwind CSS v3 dependencies. Removed Vite build scripts and implemented standard Next.js `dev`, `build`, and `start` scripts.
 
-- **The Context**: React Context cannot be used directly in Next.js Server Components.
-- **The Pattern**: We created `providers.tsx` with the `"use client"` directive to wrap the `QueryClientProvider` and `Toaster`. `layout.tsx` imports this wrapper. This isolates client-side state requirements, allowing the root `layout.tsx` to remain a Server Component.
+### `tailwind.config.ts`
 
-## 3. URL State Management (`src/components/Calculator.tsx`)
+- **Details**: Updated the `content` array to scan Next.js specific directories (`src/app/**/*.{ts,tsx}` and `src/components/**/*.{ts,tsx}`). Retained the custom CSS variable theme extending HSL color mappings for perfect compatibility with the `shadcn/ui` aesthetic.
 
-- **The Context**: The installation calculator is deeply interactive.
-- **The Pattern**: Instead of storing the form state in an opaque React `useState`, the calculator synchronizes directly with URL Query Parameters via Next.js `useSearchParams` and `useRouter`.
-- **The Reason**:
-  - **Shareability**: A user can bookmark or share an exact project estimate (e.g., `?area=50&tileSize=800x800`).
-  - **Suspense**: Because reading query parameters dynamically opts the page out of static rendering, the core `CalculatorContent` is wrapped in a `<Suspense>` boundary inside `Calculator.tsx`. This protects the static generation of the rest of the landing page.
+### `postcss.config.mjs`
 
-## 4. Component Colocation (SoC)
+- **Details**: Configured `tailwindcss` and `autoprefixer` plugins required for standard Tailwind preprocessing in Next.js.
 
-- **The Context**: Zod validation schemas are often stored in a generic `/schemas` folder at the root of a project.
-- **The Pattern**: The `calculatorSchema.ts` rests directly inside `src/components/` adjacent to `Calculator.tsx`.
-- **The Reason**: Code that changes together should live together. The schema is intrinsically tied to the exact shape of the calculator form, so they share the same directory.
+### `components.json`
+
+- **Details**: Updated the `shadcn/ui` registry configuration, setting `"rsc": true` to denote the Next.js React Server Component environment and updating alias paths to utilize `@/`.
+
+### `.vscode/settings.json`
+
+- **Details**: Added workspace settings mapping `*.css` files to `postcss` syntax parsing, actively suppressing erroneous VS Code "Unknown at rule" IDE errors for `@import` and `@apply` Tailwind directives.
+
+---
+
+## 2. Global Styles & Routing (`src/app`)
+
+### `src/app/globals.css`
+
+- **Details**: Migrated all custom CSS variables (like `--brand`, `--primary`) from the legacy Vite `index.css`. Substituted the standard `@tailwind` directives with `@import "tailwindcss/base";` syntax to ensure optimal PostCSS processing and IDE linting compliance.
+
+### `src/app/layout.tsx` (Root Layout)
+
+- **Details**: Completely replaced Vite's root `index.html`.
+  - Substituted standard `<link href="...">` webfont calls with Next.js optimized Google Fonts (`next/font/google`), importing `Inter` and `Playfair_Display`.
+  - Replaced `<title>` and `<meta>` DOM nodes with the Next.js dynamic `Metadata` semantic export for enhanced SEO.
+  - Wrapped children in the custom `<Providers>` component.
+
+### `src/app/providers.tsx`
+
+- **Details**: Created this new boundary as a strict `"use client"` module. Designed to safely initialize global state (like the `QueryClient` via a `useState` hook) and mount context providers (`QueryClientProvider`, `TooltipProvider`, `Toaster`) across the Next.js application without violating Server Component principles.
+
+### `src/app/page.tsx`
+
+- **Details**: Entirely removed `react-router-dom` `BrowserRouter` and `<Outlet />` patterns. Transformed `page.tsx` into an immediate, flattened composition that directly invokes all primary UI sections (`Navbar`, `Hero`, `SystemDetails`, `SpecsTable`, `Gallery`, `Calculator`, `Footer`).
+
+---
+
+## 3. Top-Level Page Components (`src/components`)
+
+### `Navbar.tsx`
+
+- **Details**: Converted legacy HTML anchor tags (`<a>`) to Next.js `<Link>` components for automatic prefetching. Implemented a specific design alteration to drastically enlarge the main Grefino `next/image` logo (scaled up using `w={240} h={64}` properties alongside absolute `h-14 md:h-16 w-auto object-contain` Tailwind classes).
+
+### `Hero.tsx`
+
+- **Details**: Modernized animations and image handling.
+  - Replaced manually constructed CSS `background-image: url(...)` styles with the highly optimized `next/image` component leveraging `fill` and `priority` props to combat Cumulative Layout Shift (CLS).
+  - Cleaned up repetitive inline `framer-motion` properties (e.g., hardcoded `delay: 0.2` or `delay: 0.4`) by centralizing animation logic into mapped `containerVariants` and `itemVariants`, utilizing `staggerChildren` orchestration.
+
+### `SystemDetails.tsx`
+
+- **Details**: Integrated `id="systems"` directly into the parent `<section>` element. Formatted the repeating benefits grid (iterating over the `benefits` array) and augmented it with staggered `framer-motion` variant animations.
+
+### `SpecsTable.tsx`
+
+- **Details**: Integrated `id="specifications"` directly into the parent `<section>` element. Leveraged granular `shadcn/ui/table` components to render a structured grid representing array-mapped technical properties.
+
+### `Gallery.tsx`
+
+- **Details**: Integrated `id="gallery"` directly into the parent `<section>` element. Refactored all raw `<img>` nodes into optimized `next/image` tags paired with tailored `sizes="(max-width: ..."` attributes for responsive rendering. Overhauled dynamic Tailwinds classes on portfolio filter buttons by piping ternary operations through the `cn()` utility function, yielding significantly cleaner string concatenation.
+
+### `Calculator.tsx`
+
+- **Details**: The Calculator underwent the most significant structural refactoring. Integrated `id="calculator"`.
+  - **Component Colocation**: Migrated `calculatorSchema.ts` (the Zod definition file) out of a detached root directory directly into `src/components/` side-by-side with the form it structurally defines.
+  - **URL State Initialization**: Decoupled persistent configuration logic from opaque, local `useState` bindings. The calculator now strictly queries React Hook Form `defaultValues` from Next.js URL query parameters (`searchParams.get()`).
+  - **URL State Persistence**: Form submissions now serialize data and immediately push stringified keys and values into the browser's URL using Next.js `useRouter` (`router.replace`), permitting exact estimations to be fully shareable via URL copy-paste.
+  - **Suspense Isolation**: Given that URL parameter sniffing breaks root-level Static Generation, the calculator logic (`CalculatorContent`) is wrapped in a discrete Next.js `<Suspense>` layer right inside the component default export module.
+  - **DRY Select Mapping**: Abstracted scattered `<SelectItem>` tags belonging to the pedestal height dropdowns into structured iteration logic mapping over a `pedestalHeightOptions` array.
+
+### `Footer.tsx`
+
+- **Details**: Retained its simplified static JSX layout, rendering standard timestamped company copyright information.
+
+---
+
+## 4. Shared Utilities & UI Library (`src/components/ui/`, `src/lib/`, `src/hooks/`)
+
+### `src/components/ui/*`
+
+- **Details**: Completed an aggressive component purge. The Vite source repository consisted of over 49 disparate `shadcn/ui` elements. Meticulously scanned local component dependencies and formally deleted 37 unutilized UI blocks (Pagination, Sheet, Sidebar, Carousel, etc.). Only the 12 explicitly required components (Forms, Inputs, Selects, Buttons, Sliders, Tables, etc.) currently reside here. Included minor TypeScript patches (using permissive typing properties) primarily aimed at resolving legacy internal typing definitions for the Recharts library (`chart.tsx`).
+
+### `src/lib/utils.ts`
+
+- **Details**: Ported the standard, foundational `cn` function leveraging `clsx` and `tailwind-merge` implementations for safe overriding of conflicting Tailwind utility classes inside dynamic UI scenarios.
+
+### `src/hooks/use-toast.ts` & `src/hooks/use-mobile.tsx`
+
+- **Details**: Transferred specific context-aware hooks straight out of Vite. Verified that all instances strictly execute inside files marked unambiguously as `"use client"` Next.js Client Components.
