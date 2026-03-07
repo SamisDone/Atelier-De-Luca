@@ -14,7 +14,7 @@ const Stats = () => {
     <section className="py-16 bg-brand/10 border-y border-border">
       <div className="container mx-auto px-6">
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto"
+          className="grid grid-cols-2 md:grid-cols-4 gap-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

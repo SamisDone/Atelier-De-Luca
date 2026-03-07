@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-background relative overflow-hidden flex items-center justify-center">
-      <div className="container relative z-10 mx-auto px-6 max-w-4xl">
+      <div className="container relative z-10 mx-auto px-6 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

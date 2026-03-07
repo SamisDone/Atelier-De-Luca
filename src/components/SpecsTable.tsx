@@ -48,7 +48,7 @@ const SpecsTable = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="max-w-4xl mx-auto rounded-lg border border-border overflow-hidden"
+          className="rounded-lg border border-border overflow-hidden"
         >
           <Table>
             <TableHeader>
