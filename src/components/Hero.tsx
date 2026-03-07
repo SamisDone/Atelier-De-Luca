@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
@@ -25,9 +26,16 @@ const itemVariants = {
 };
 
 const Hero = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0">
+    <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+      <motion.div style={{ y }} className="absolute inset-0 -z-10">
         <Image
           src="/images/hero-terrace.jpg"
           alt="Terrace with pedestal system"
@@ -36,7 +44,7 @@ const Hero = () => {
           sizes="100vw"
           className="object-cover object-center"
         />
-      </div>
+      </motion.div>
       <div className="absolute inset-0 bg-black/60" />
       
       <motion.div 

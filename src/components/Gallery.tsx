@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
@@ -15,6 +15,15 @@ const projects = [
 ];
 
 const categories = ["All", ...new Set(projects.map((p) => p.category))];
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { type: "spring", stiffness: 100, damping: 20 }
+  }
+};
 
 const Gallery = () => {
   const [active, setActive] = useState("All");
@@ -64,10 +73,10 @@ const Gallery = () => {
               <motion.div
                 key={project.title}
                 layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.35 }}
+                variants={itemVariants}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
                 className="group relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer"
               >
                 <Image

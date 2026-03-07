@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Quote } from "lucide-react";
 
 const testimonials = [
@@ -32,12 +32,13 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5 },
+    scale: 1,
+    transition: { type: "spring", stiffness: 100, damping: 20 },
   },
 };
 

@@ -44,10 +44,10 @@ const SpecsTable = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15 }}
+          transition={{ duration: 0.6, type: "spring", stiffness: 100, damping: 20, delay: 0.15 }}
           className="rounded-lg border border-border overflow-hidden"
         >
           <Table>

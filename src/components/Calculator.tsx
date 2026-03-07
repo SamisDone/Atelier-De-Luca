@@ -83,10 +83,10 @@ const CalculatorContent = () => {
     <section id="calculator" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, type: "spring", stiffness: 90, damping: 20 }}
           className="text-center mb-16"
         >
           <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
