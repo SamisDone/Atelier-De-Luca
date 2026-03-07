@@ -1,7 +1,4 @@
-# Comprehensive Project Details: Vite to Next.js Migration
-
-This document provides a detailed, file-by-file breakdown of the changes applied to the Grefino landing page during its migration from a Vite/React SPA to the Next.js 16 App Router.
-
+# Comprehensive Project Details
 ## 1. Project Root & Configuration Defaults
 
 ### `package.json`
