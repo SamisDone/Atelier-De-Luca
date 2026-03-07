@@ -4,6 +4,8 @@ import SystemDetails from "@/components/SystemDetails";
 import SpecsTable from "@/components/SpecsTable";
 import Gallery from "@/components/Gallery";
 import Calculator from "@/components/Calculator";
+import Features from "@/components/Features";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -12,9 +14,11 @@ export default function Home() {
       <Navbar />
       <Hero />
       <SystemDetails />
+      <Features />
       <SpecsTable />
       <Gallery />
       <Calculator />
+      <Contact />
       <Footer />
     </div>
   );

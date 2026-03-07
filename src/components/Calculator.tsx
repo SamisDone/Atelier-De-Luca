@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { calculatorSchema, type CalculatorFormValues } from "./calculatorSchema";
+import { calculatorSchema, type CalculatorFormValues } from "@/schemas/calculatorSchema";
 import {
   Form,
   FormControl,

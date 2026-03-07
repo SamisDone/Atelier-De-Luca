@@ -37,7 +37,7 @@ const Hero = () => {
           className="object-cover object-center"
         />
       </div>
-      <div className="absolute inset-0 bg-brand-tertiary/60" />
+      <div className="absolute inset-0 bg-black/60" />
       
       <motion.div 
         className="relative z-10 container mx-auto px-6 text-center"
