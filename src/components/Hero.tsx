@@ -31,11 +31,11 @@ const Hero = () => {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   return (
     <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-      <motion.div style={{ y }} className="absolute inset-0 -z-10">
+      <motion.div style={{ y }} className="absolute inset-0 -top-[20%] h-[120%] w-full z-0">
         <Image
           src="/images/hero-terrace.jpg"
           alt="Terrace with pedestal system"
@@ -45,7 +45,7 @@ const Hero = () => {
           className="object-cover object-center"
         />
       </motion.div>
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-black/60 z-0" />
       
       <motion.div 
         className="relative z-10 container mx-auto px-6 text-center"
