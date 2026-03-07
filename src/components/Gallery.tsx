@@ -28,7 +28,7 @@ const Gallery = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
           <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
             Portfolio
