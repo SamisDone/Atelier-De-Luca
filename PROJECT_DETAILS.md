@@ -101,3 +101,39 @@ This document provides a detailed, file-by-file breakdown of the changes applied
 ### `src/hooks/use-toast.ts` & `src/hooks/use-mobile.tsx`
 
 - **Details**: Transferred specific context-aware hooks straight out of Vite. Verified that all instances strictly execute inside files marked unambiguously as `"use client"` Next.js Client Components.
+
+---
+
+## 5. Architectural Best Practices Implemented
+
+### Component Colocation (Separation of Concerns)
+
+- **Location**: `src/components/calculatorSchema.ts` and `src/components/Calculator.tsx`
+- **Details**: Moved the Zod validation schema out of a detached root directory directly into the `src/components/` directory next to the form it defines. This enforces the rule that code which changes together should live together.
+
+### URL State Management (Shareability & Predictability)
+
+- **Location**: `src/components/Calculator.tsx`
+- **Details**: Replaced opaque, local React `useState` with synchronized URL query parameters (`useSearchParams` and `router.replace`). This makes specific calculator configurations fully bookmarkable and shareable via hyperlink.
+
+### Suspense Boundary Isolation (Rendering Optimization)
+
+- **Location**: `src/components/Calculator.tsx`
+- **Details**: Wrapped the `CalculatorContent` (which reads from URL parameters) inside a React `<Suspense>` boundary. Because reading query parameters dynamically opts the page out of static rendering, isolating this dynamic client rendering protects the static generation of the rest of the landing page.
+
+### DRY (Don't Repeat Yourself) Principles
+
+- **Location**: `src/components/Calculator.tsx` and `src/components/Gallery.tsx`
+- **Details**:
+  - **Array Mapping**: Abstracted scattered `<SelectItem>` tags in the calculator dropdowns into structured iteration logic mapping over a reusable `pedestalHeightOptions` array.
+  - **Dynamic Class Merging**: Overhauled dynamic Tailwind classes on the portfolio filter buttons in the gallery by piping ternary logic through the `cn()` utility function. This eliminates messy string concatenation templates.
+
+### Advanced Image Optimization (Core Web Vitals)
+
+- **Location**: `src/components/Hero.tsx` and `src/components/Gallery.tsx`
+- **Details**: Refactored all raw `<img>` nodes and CSS `background-image` declarations into native Next.js `<Image>` components. Leveraged `fill`, `priority`, and dynamic `sizes` attributes for responsive rendering and to ensure zero Cumulative Layout Shift (CLS).
+
+### Framer Motion Variant Abstraction (Animation Centralization)
+
+- **Location**: `src/components/Hero.tsx` and `src/components/SystemDetails.tsx`
+- **Details**: Eliminated repetitive inline `framer-motion` properties (e.g., manually hardcoded `delay` numeric values) by centralizing the animation orchestration logic into strict `containerVariants` and `itemVariants`, utilizing `staggerChildren` for a cleaner, heavily maintainable declarative animation approach.
