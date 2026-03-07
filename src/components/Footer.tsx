@@ -13,7 +13,7 @@ const Footer = () => {
               alt="Atelier De Luca"
               width={180}
               height={48}
-              className="h-12 w-auto object-contain brightness-150 mb-4"
+              className="h-12 w-auto object-contain brightness-0 invert opacity-90 mb-4"
             />
             <p className="text-brand-secondary/60 text-sm leading-relaxed">
               Premium porcelain tile installations on adjustable pedestal systems. Engineered for beauty, built to endure.
