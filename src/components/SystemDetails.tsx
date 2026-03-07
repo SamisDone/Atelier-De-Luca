@@ -64,7 +64,7 @@ const SystemDetails = () => {
             The System
           </p>
           <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-4">
-            Why Grefino Pedestals
+            Why Atelier De Luca Pedestals
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
             Engineered advantages that make our pedestal system the choice of architects worldwide.

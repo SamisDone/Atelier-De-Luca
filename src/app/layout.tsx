@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Grefino — Exterior Porcelain Pedestal Systems",
+  title: "Atelier De Luca — Exterior Porcelain Pedestal Systems",
   description:
     "Premium porcelain tile installations on adjustable pedestal systems. Architectural precision for outdoor living.",
 };
