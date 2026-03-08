@@ -1,4 +1,4 @@
-# Grefino - Exterior Porcelain Systems
+# Grefino - Garden Slate (Exterior Porcelain Systems)
 
 A modern, high-performance landing page for Grefino's exterior porcelain pedestal systems, built with Next.js 16, React, Tailwind CSS, and Framer Motion.
 
