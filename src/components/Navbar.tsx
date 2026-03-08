@@ -36,7 +36,9 @@ const Navbar = () => {
             alt="Atelier De Luca"
             width={300}
             height={80}
-            className="h-16 md:h-20 w-auto object-contain"
+            className={`h-16 md:h-20 w-auto object-contain transition-all duration-500 ${
+              scrolled ? "" : "brightness-0 invert"
+            }`}
           />
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
