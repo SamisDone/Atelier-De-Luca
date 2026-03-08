@@ -1,4 +1,5 @@
 # Comprehensive Project Details
+
 ## 1. Project Root & Configuration Defaults
 
 ### `package.json`
@@ -50,7 +51,7 @@
 
 ### `Navbar.tsx`
 
-- **Details**: Converted legacy HTML anchor tags (`<a>`) to Next.js `<Link>` components for automatic prefetching. Implemented a specific design alteration to drastically enlarge the main Grefino `next/image` logo (scaled up using `w={240} h={64}` properties alongside absolute `h-14 md:h-16 w-auto object-contain` Tailwind classes).
+- **Details**: Converted legacy HTML anchor tags (`<a>`) to Next.js `<Link>` components for automatic prefetching. Implemented a specific design alteration to drastically enlarge the main Atelier De Luca `next/image` logo (scaled up using `w={240} h={64}` properties alongside absolute `h-14 md:h-16 w-auto object-contain` Tailwind classes).
 
 ### `Hero.tsx`
 

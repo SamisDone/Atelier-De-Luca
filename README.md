@@ -1,6 +1,6 @@
-# Grefino - Garden Slate (Exterior Porcelain Systems)
+# Atelier De Luca (Exterior Porcelain Systems)
 
-A modern, high-performance landing page for Grefino's exterior porcelain pedestal systems, built with Next.js 16, React, Tailwind CSS, and Framer Motion.
+A modern, high-performance landing page for Atelier De Luca's exterior porcelain pedestal systems, built with Next.js 16, React, Tailwind CSS, and Framer Motion.
 
 ## Features
 
