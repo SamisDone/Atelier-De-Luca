@@ -34,9 +34,9 @@ const Navbar = () => {
           <Image
             src="/images/image-removebg-preview.png"
             alt="Atelier De Luca"
-            width={300}
-            height={80}
-            className={`h-20 md:h-28 w-auto object-contain transition-all duration-500 ${
+            width={400}
+            height={120}
+            className={`h-24 md:h-32 w-auto object-contain transition-all duration-500 ${
               scrolled ? "" : "brightness-0 invert"
             }`}
           />
