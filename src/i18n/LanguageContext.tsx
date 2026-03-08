@@ -27,10 +27,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const currentTrans = getCookie("googtrans");
     if (currentTrans === "/en/fr") {
       setLanguage("fr");
-      document.documentElement.classList.remove("notranslate");
     } else {
       setLanguage("en");
-      document.documentElement.classList.add("notranslate");
     }
 
     document.documentElement.lang = language;
@@ -39,16 +37,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const toggleLanguage = useCallback(() => {
     const nextLang = language === "en" ? "fr" : "en";
     
-    // Manage notranslate class for the engine
-    if (nextLang === "fr") {
-      document.documentElement.classList.remove("notranslate");
-    } else {
-      document.documentElement.classList.add("notranslate");
-    }
-
-    // Set Google Translate cookie
-    document.cookie = `googtrans=/en/${nextLang}; path=/; domain=${window.location.hostname}`;
-    document.cookie = `googtrans=/en/${nextLang}; path=/`; // Fallback for localhost
+    // Set Google Translate cookie - Use simple path and no domain for max compatibility
+    document.cookie = `googtrans=/en/${nextLang}; path=/`; 
     
     setLanguage(nextLang);
     
@@ -58,7 +48,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       select.value = nextLang;
       select.dispatchEvent(new Event("change"));
     } else {
-      // If not initialized yet or fails, we might need a refresh or just wait
+      // If the engine isn't ready, a reload will pick up the cookie
       window.location.reload();
     }
   }, [language]);
