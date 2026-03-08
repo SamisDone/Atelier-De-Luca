@@ -83,7 +83,7 @@ const VideoShowcase = () => {
       >
         <div
           ref={stripRef}
-          className="flex gap-1 overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+          className="flex gap-2 overflow-x-auto snap-x snap-mandatory scrollbar-hide"
         >
           {showcaseImages.map((img, i) => (
             <motion.div
