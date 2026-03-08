@@ -62,39 +62,37 @@ const VideoShowcase = () => {
         </motion.div>
       </div>
 
-      {/* Carousel with perfectly matched side gutters */}
+      {/* Full-bleed carousel — no whitespace, no arrows, auto + manual scroll */}
       <div
-        className="relative"
+        className="relative overflow-hidden"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="container mx-auto px-6 overflow-hidden">
-          <div
-            ref={stripRef}
-            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide"
-          >
-            {showcaseImages.map((img, i) => (
-              <motion.div
-                key={`${img.label}-${i}`}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: (i % 4) * 0.1 }}
-                className="relative flex-shrink-0 w-[70vw] md:w-[40vw] lg:w-[30vw] aspect-[4/5] overflow-hidden group snap-center"
-              >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                  style={{ backgroundImage: `url(${img.src})` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-tertiary/70 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6">
-                  <p className="text-brand-secondary font-serif text-xl md:text-2xl">
-                    {img.label}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        <div
+          ref={stripRef}
+          className="flex gap-0 overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+        >
+          {showcaseImages.map((img, i) => (
+            <motion.div
+              key={`${img.label}-${i}`}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: (i % 4) * 0.1 }}
+              className="relative flex-shrink-0 w-[80vw] md:w-[50vw] lg:w-[33.334vw] aspect-[4/5] overflow-hidden group snap-center"
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: `url(${img.src})` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-tertiary/70 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6">
+                <p className="text-brand-secondary font-serif text-xl md:text-2xl">
+                  {img.label}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
