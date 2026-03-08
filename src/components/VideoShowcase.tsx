@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -14,13 +14,6 @@ const showcaseImages = [
 const VideoShowcase = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const stripRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const parallaxX = useTransform(scrollYProgress, [0, 1], ["0px", "-60px"]);
 
   const scroll = useCallback((direction: "left" | "right") => {
     if (!stripRef.current) return;
@@ -74,12 +67,10 @@ const VideoShowcase = () => {
           <ChevronRight className="w-5 h-5" />
         </button>
 
-        {/* Snap-scrollable image strip with subtle parallax */}
-        <motion.div style={{ x: parallaxX }}>
-          <div
-            ref={stripRef}
-            className="flex gap-6 pl-6 pr-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4"
-          >
+        <div
+          ref={stripRef}
+          className="flex gap-6 px-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4"
+        >
             {showcaseImages.map((img, i) => (
               <motion.div
                 key={img.label}
@@ -102,7 +93,6 @@ const VideoShowcase = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
       </div>
     </section>
   );
