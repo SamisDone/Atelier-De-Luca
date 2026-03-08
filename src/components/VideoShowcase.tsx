@@ -8,10 +8,23 @@ const showcaseImages = [
   { src: "/images/gallery-rooftop.jpg", label: "Rooftop Terrace" },
   { src: "/images/gallery-patio.jpg", label: "Patio Living" },
   { src: "/images/gallery-garden.jpg", label: "Garden Retreat" },
+  { src: "/images/gallery-balcony.jpg", label: "Balcony Living" },
+  { src: "/images/gallery-commercial.jpg", label: "Commercial Space" },
+  { src: "/images/services-residential.jpg", label: "Residential Design" },
+  { src: "/images/services-pools.jpg", label: "Pool Installation" },
+  { src: "/images/hero-terrace.jpg", label: "Terrace Living" },
+  { src: "/images/about-aerial.jpg", label: "Aerial View" },
+  // Duplicates for infinite loop
   { src: "/images/gallery-pool.jpg", label: "Pool Design" },
   { src: "/images/gallery-rooftop.jpg", label: "Rooftop Terrace" },
   { src: "/images/gallery-patio.jpg", label: "Patio Living" },
   { src: "/images/gallery-garden.jpg", label: "Garden Retreat" },
+  { src: "/images/gallery-balcony.jpg", label: "Balcony Living" },
+  { src: "/images/gallery-commercial.jpg", label: "Commercial Space" },
+  { src: "/images/services-residential.jpg", label: "Residential Design" },
+  { src: "/images/services-pools.jpg", label: "Pool Installation" },
+  { src: "/images/hero-terrace.jpg", label: "Terrace Living" },
+  { src: "/images/about-aerial.jpg", label: "Aerial View" },
 ];
 
 const VideoShowcase = () => {
