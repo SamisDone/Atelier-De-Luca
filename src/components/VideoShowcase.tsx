@@ -15,13 +15,6 @@ const VideoShowcase = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const stripRef = useRef<HTMLDivElement>(null);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const parallaxX = useTransform(scrollYProgress, [0, 1], ["0px", "-60px"]);
-
   const scroll = useCallback((direction: "left" | "right") => {
     if (!stripRef.current) return;
     const cardWidth = stripRef.current.firstElementChild?.clientWidth ?? 400;
