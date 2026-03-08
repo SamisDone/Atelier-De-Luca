@@ -20,7 +20,7 @@ const VideoShowcase = () => {
     offset: ["start end", "end start"],
   });
 
-  const parallaxX = useTransform(scrollYProgress, [0, 1], ["0px", "-120px"]);
+  const parallaxX = useTransform(scrollYProgress, [0, 1], ["0px", "-60px"]);
 
   const scroll = useCallback((direction: "left" | "right") => {
     if (!stripRef.current) return;
@@ -55,7 +55,7 @@ const VideoShowcase = () => {
       </div>
 
       {/* Carousel with arrow buttons */}
-      <div className="relative">
+      <div className="relative overflow-hidden">
         {/* Left arrow */}
         <button
           onClick={() => scroll("left")}
