@@ -71,7 +71,7 @@ const Navbar = () => {
               aria-label="Toggle language"
             >
               <Globe className="w-4 h-4" />
-              {language === "en" ? "FR" : "EN"}
+              <span className="notranslate">{language === "en" ? "FR" : "EN"}</span>
             </button>
           </div>
           <div className="flex items-center gap-3 md:hidden">
@@ -85,7 +85,7 @@ const Navbar = () => {
               aria-label="Toggle language"
             >
               <Globe className="w-3.5 h-3.5" />
-              {language === "en" ? "FR" : "EN"}
+              <span className="notranslate">{language === "en" ? "FR" : "EN"}</span>
             </button>
             <button
               className="p-2"
