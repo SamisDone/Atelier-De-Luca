@@ -89,7 +89,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-brand-secondary/80 font-sans text-lg md:text-xl max-w-2xl mb-10"
         >
-          Where expert design meets flawless execution. Premium porcelain installations
+          Where expert design meets flawless execution. Complete exterior installations
           and landscape construction for discerning homeowners and architects.
         </motion.p>
 
