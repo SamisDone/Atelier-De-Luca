@@ -39,7 +39,7 @@ const SpecsTable = () => {
             Technical Specifications
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Every Atelier De Luca porcelain tile exceeds international standards for exterior applications.
+            Every Atelier De Luca installation exceeds international standards for exterior applications.
           </p>
         </motion.div>
 

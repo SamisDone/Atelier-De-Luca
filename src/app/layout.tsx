@@ -17,9 +17,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Atelier De Luca — Exterior Porcelain Pedestal Systems",
+  title: "Atelier De Luca — Exterior Design & Installation",
   description:
-    "Premium porcelain tile installations on adjustable pedestal systems. Architectural precision for outdoor living.",
+    "Expert exterior design and installation services. From terraces and driveways to commercial landscapes — craftsmanship meets precision.",
 };
 
 export default function RootLayout({
