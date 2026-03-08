@@ -43,7 +43,7 @@ const VideoShowcase = () => {
               {/* Video thumbnail using existing gallery image */}
               <div
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: "url(/images/gallery-rooftop.jpg)" }}
+                style={{ backgroundImage: "url(/images/video-thumbnail.jpg)" }}
               />
               <div className="absolute inset-0 bg-brand-tertiary/40 group-hover:bg-brand-tertiary/30 transition-colors duration-500" />
               <motion.div
