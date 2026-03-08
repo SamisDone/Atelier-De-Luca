@@ -222,7 +222,5 @@ const en: Translations = {
     privacyPolicy: "Privacy Policy",
     termsOfService: "Terms of Service",
   },
-} as const;
-
-export type Translations = typeof en;
+};
 export default en;
