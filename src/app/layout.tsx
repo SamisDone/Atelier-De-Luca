@@ -70,6 +70,9 @@ export default function RootLayout({
                 autoDisplay: false,
                 multilanguagePage: true
               }, 'google_translate_element');
+              
+              // Signal readiness
+              document.body.classList.add('google-translate-ready');
             }
           `}
         </Script>

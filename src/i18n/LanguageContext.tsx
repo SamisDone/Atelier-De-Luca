@@ -28,41 +28,46 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const currentTrans = getCookie("googtrans");
     if (currentTrans === "/en/fr") {
       setLanguage("fr");
+      document.documentElement.lang = "fr";
     } else {
       setLanguage("en");
+      document.documentElement.lang = "en";
     }
-
-    document.documentElement.lang = language;
   }, [language]);
 
   const toggleLanguage = useCallback(() => {
     const nextLang = language === "en" ? "fr" : "en";
     
-    // 1. Instant Mask
+    // 1. PHASE 1: Show Mask INSTANTLY
     setIsTransitioning(true);
     
-    // 2. Short wait to ensure the mask is painted before cookie/state change
-    setTimeout(() => {
-      // 3. Set Google Translate cookie
-      document.cookie = `googtrans=/en/${nextLang}; path=/`; 
-      
-      setLanguage(nextLang);
-      
-      // 4. Trigger Google Translate change
-      const select = document.querySelector(".goog-te-combo") as HTMLSelectElement;
-      if (select) {
-        select.value = nextLang;
-        select.dispatchEvent(new Event("change"));
+    // 2. PHASE 2: Wait for two animation frames to guarantee the mask is drawn on screen
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        // 3. PHASE 3: Set cookie and trigger engine
+        document.cookie = `googtrans=/en/${nextLang}; path=/`; 
         
-        // 5. Extended Hold - 1.5s to be absolutely sure
-        setTimeout(() => {
-          setIsTransitioning(false);
-        }, 1500); 
-      } else {
-        // Fallback for first-time session
-        window.location.reload();
-      }
-    }, 100); 
+        const select = document.querySelector(".goog-te-combo") as HTMLSelectElement;
+        if (select) {
+          select.value = nextLang;
+          select.dispatchEvent(new Event("change"));
+          
+          // Apply local state change for UI components
+          setLanguage(nextLang);
+          document.documentElement.lang = nextLang;
+
+          // 4. PHASE 4: Extended hold to let the script finish DOM work
+          // Google Translate is notoriously slow at re-rendering the whole page
+          setTimeout(() => {
+            setIsTransitioning(false);
+          }, 1800); // Robust hold
+        } else {
+          // If the engine isn't ready at all, we must reload
+          // The overlay will remain visible during reload if we handle it in layout
+          window.location.reload();
+        }
+      });
+    });
   }, [language]);
 
   return (
@@ -74,6 +79,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         toggleLanguage,
       }}
     >
+      {/* Permanent overlay, opacity controlled by class */}
       <div className={`lang-transition-overlay notranslate ${isTransitioning ? "active" : ""}`} />
       {children}
     </LanguageContext.Provider>

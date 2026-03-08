@@ -157,11 +157,21 @@ body {
   z-index: 10001;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.5s ease-out;
+  transition: opacity 0.5s ease;
 }
 
 .lang-transition-overlay.active {
   opacity: 1;
   pointer-events: all;
   transition: none !important;
+}
+
+/* Flash Prevention for Translated Sessions */
+html[lang="fr"] body:not(.google-translate-ready) {
+  opacity: 0;
+}
+
+body.google-translate-ready {
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
