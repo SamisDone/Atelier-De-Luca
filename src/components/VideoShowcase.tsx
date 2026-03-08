@@ -41,30 +41,32 @@ const VideoShowcase = () => {
         </motion.div>
       </div>
 
-      {/* Scrolling image strip */}
-      <motion.div style={{ x }} className="flex gap-6 pl-6">
-        {showcaseImages.map((img, i) => (
-          <motion.div
-            key={img.label}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: i * 0.1 }}
-            className="relative flex-shrink-0 w-[70vw] md:w-[40vw] lg:w-[30vw] aspect-[4/5] rounded-2xl overflow-hidden group"
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-              style={{ backgroundImage: `url(${img.src})` }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-tertiary/70 via-transparent to-transparent" />
-            <div className="absolute bottom-6 left-6">
-              <p className="text-brand-secondary font-serif text-xl md:text-2xl">
-                {img.label}
-              </p>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
+      {/* Scrolling image strip — supports both scroll-driven parallax and manual horizontal scroll */}
+      <div className="overflow-x-auto scrollbar-hide">
+        <motion.div style={{ x }} className="flex gap-6 pl-6 pr-6 w-max">
+          {showcaseImages.map((img, i) => (
+            <motion.div
+              key={img.label}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="relative flex-shrink-0 w-[70vw] md:w-[40vw] lg:w-[30vw] aspect-[4/5] rounded-2xl overflow-hidden group"
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: `url(${img.src})` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-tertiary/70 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6">
+                <p className="text-brand-secondary font-serif text-xl md:text-2xl">
+                  {img.label}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 };
