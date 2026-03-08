@@ -92,7 +92,7 @@ const VideoShowcase = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: (i % 4) * 0.1 }}
-              className="relative flex-shrink-0 w-[80vw] md:w-[50vw] lg:w-[33.334vw] aspect-[4/5] overflow-hidden group snap-center"
+              className="relative flex-shrink-0 w-[60vw] md:w-[35vw] lg:w-[25vw] aspect-[4/5] overflow-hidden group snap-center"
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
