@@ -48,52 +48,52 @@ const VideoShowcase = () => {
       </div>
 
       {/* Carousel with arrow buttons */}
-      <div className="relative overflow-hidden">
-        {/* Left arrow */}
-        <button
-          onClick={() => scroll("left")}
-          aria-label="Scroll left"
-          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center rounded-full bg-background/80 backdrop-blur-sm border border-border text-foreground hover:bg-brand hover:text-primary-foreground hover:border-brand transition-all duration-300 shadow-lg"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
+      <div className="container mx-auto px-6">
+        <div className="relative overflow-hidden">
+          {/* Left arrow */}
+          <button
+            onClick={() => scroll("left")}
+            aria-label="Scroll left"
+            className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center rounded-full bg-background/80 backdrop-blur-sm border border-border text-foreground hover:bg-brand hover:text-primary-foreground hover:border-brand transition-all duration-300 shadow-lg"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
 
-        {/* Right arrow */}
-        <button
-          onClick={() => scroll("right")}
-          aria-label="Scroll right"
-          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center rounded-full bg-background/80 backdrop-blur-sm border border-border text-foreground hover:bg-brand hover:text-primary-foreground hover:border-brand transition-all duration-300 shadow-lg"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
+          {/* Right arrow */}
+          <button
+            onClick={() => scroll("right")}
+            aria-label="Scroll right"
+            className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center rounded-full bg-background/80 backdrop-blur-sm border border-border text-foreground hover:bg-brand hover:text-primary-foreground hover:border-brand transition-all duration-300 shadow-lg"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
 
-        <div
-          ref={stripRef}
-          className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4"
-        >
-          <div className="flex-shrink-0 w-6" aria-hidden />
-          {showcaseImages.map((img, i) => (
-            <motion.div
-              key={img.label}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="relative flex-shrink-0 w-[70vw] md:w-[40vw] lg:w-[30vw] aspect-[4/5] rounded-2xl overflow-hidden group snap-center"
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: `url(${img.src})` }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-tertiary/70 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6">
-                <p className="text-brand-secondary font-serif text-xl md:text-2xl">
-                  {img.label}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-          <div className="flex-shrink-0 w-6" aria-hidden />
+          <div
+            ref={stripRef}
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 px-0"
+          >
+            {showcaseImages.map((img, i) => (
+              <motion.div
+                key={img.label}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="relative flex-shrink-0 w-[70vw] md:w-[40vw] lg:w-[30vw] aspect-[4/5] rounded-2xl overflow-hidden group snap-center"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${img.src})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-tertiary/70 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6">
+                  <p className="text-brand-secondary font-serif text-xl md:text-2xl">
+                    {img.label}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
