@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, useMotionValue, useSpring, PanInfo } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 const showcaseImages = [
   { src: "/images/gallery-pool.jpg", label: "Pool Design" },
@@ -12,12 +12,53 @@ const showcaseImages = [
 
 const VideoShowcase = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const stripRef = useRef<HTMLDivElement>(null);
+  const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
+  const scrollX = useTransform(scrollYProgress, [0, 1], [0, -300]);
+  const dragX = useMotionValue(0);
+  const combinedX = useSpring(0, { stiffness: 100, damping: 30 });
+
+  // Update combined position from both scroll parallax and drag
+  useEffect(() => {
+    const unsubScroll = scrollX.on("change", (v) => {
+      combinedX.set(v + dragX.get());
+    });
+    const unsubDrag = dragX.on("change", (v) => {
+      combinedX.set(scrollX.get() + v);
+    });
+    return () => {
+      unsubScroll();
+      unsubDrag();
+    };
+  }, [scrollX, dragX, combinedX]);
+
+  // Calculate drag constraints based on strip width
+  useEffect(() => {
+    const updateConstraints = () => {
+      if (stripRef.current) {
+        const stripWidth = stripRef.current.scrollWidth;
+        const viewportWidth = window.innerWidth;
+        setDragConstraints({
+          left: -(stripWidth - viewportWidth + 24),
+          right: 100,
+        });
+      }
+    };
+    updateConstraints();
+    window.addEventListener("resize", updateConstraints);
+    return () => window.removeEventListener("resize", updateConstraints);
+  }, []);
+
+  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    // Keep the drag offset where the user left it
+    dragX.set(dragX.get() + info.offset.x);
+  };
 
   return (
     <section ref={containerRef} className="py-24 bg-background overflow-hidden">
@@ -41,32 +82,38 @@ const VideoShowcase = () => {
         </motion.div>
       </div>
 
-      {/* Scrolling image strip — supports both scroll-driven parallax and manual horizontal scroll */}
-      <div className="overflow-x-auto scrollbar-hide">
-        <motion.div style={{ x }} className="flex gap-6 pl-6 pr-6 w-max">
-          {showcaseImages.map((img, i) => (
-            <motion.div
-              key={img.label}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="relative flex-shrink-0 w-[70vw] md:w-[40vw] lg:w-[30vw] aspect-[4/5] rounded-2xl overflow-hidden group"
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: `url(${img.src})` }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-tertiary/70 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6">
-                <p className="text-brand-secondary font-serif text-xl md:text-2xl">
-                  {img.label}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+      {/* Draggable + scroll-parallax image strip */}
+      <motion.div
+        ref={stripRef}
+        style={{ x: combinedX }}
+        drag="x"
+        dragConstraints={dragConstraints}
+        dragElastic={0.1}
+        onDragEnd={handleDragEnd}
+        className="flex gap-6 pl-6 pr-6 cursor-grab active:cursor-grabbing"
+      >
+        {showcaseImages.map((img, i) => (
+          <motion.div
+            key={img.label}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: i * 0.1 }}
+            className="relative flex-shrink-0 w-[70vw] md:w-[40vw] lg:w-[30vw] aspect-[4/5] rounded-2xl overflow-hidden group pointer-events-none"
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style={{ backgroundImage: `url(${img.src})` }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-tertiary/70 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6">
+              <p className="text-brand-secondary font-serif text-xl md:text-2xl">
+                {img.label}
+              </p>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 };
