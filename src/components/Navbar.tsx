@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
-const navItems = ["Services", "About", "Gallery", "Contact"];
+const navItems = ["Services", "About", "Gallery", "Testimonials", "Contact"];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
