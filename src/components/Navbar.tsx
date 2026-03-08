@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
-const navItems = ["Services", "About", "Gallery", "Contact"];
+const navItems = ["Services", "About", "Gallery", "Testimonials", "Contact"];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -36,7 +36,7 @@ const Navbar = () => {
             alt="Atelier De Luca"
             width={300}
             height={80}
-            className={`h-16 md:h-20 w-auto object-contain transition-all duration-500 ${
+            className={`h-20 md:h-28 w-auto object-contain transition-all duration-500 ${
               scrolled ? "" : "brightness-0 invert"
             }`}
           />
