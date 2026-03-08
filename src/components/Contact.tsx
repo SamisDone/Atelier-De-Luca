@@ -15,13 +15,13 @@ const Contact = () => {
           className="bg-card rounded-3xl p-8 md:p-12 shadow-xl border border-border/50 text-center"
         >
           <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
-            Get In Touch
+            Start Your Project
           </p>
           <h2 className="font-serif text-4xl mb-6 text-foreground">
-            Contact Our Experts
+            Request a Free Consultation
           </h2>
           <p className="text-muted-foreground mb-10 max-w-xl mx-auto">
-            Have questions about our porcelain pedestal systems? Fill out the form below and our team will get back to you shortly.
+            Ready to transform your outdoor space? Tell us about your project and our team will schedule a site visit to discuss your landscaping and installation needs.
           </p>
           
           <form className="space-y-6 mx-auto text-left" onSubmit={(e) => e.preventDefault()}>
@@ -59,7 +59,7 @@ const Contact = () => {
             
             <div className="text-center pt-2">
               <Button type="submit" size="lg" className="w-full sm:w-auto px-12 text-base">
-                Send Message
+                Request Consultation
               </Button>
             </div>
           </form>

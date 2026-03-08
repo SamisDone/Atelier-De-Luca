@@ -6,21 +6,21 @@ import { Quote } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "Atelier De Luca's pedestal system transformed our rooftop terrace into a stunning outdoor retreat. The precision and quality are unmatched.",
+      "Atelier De Luca completely transformed our backyard. From the initial design consultation to the final walkthrough, their team was professional and the craftsmanship is outstanding.",
     author: "Maria Hansen",
-    role: "Architect, Studio Verte",
+    role: "Homeowner, Munich",
   },
   {
     quote:
-      "We've specified Atelier De Luca on over 20 commercial projects. Their technical support and product reliability make them our go-to choice.",
+      "We hired them for a large commercial plaza installation and they delivered on time, on budget, and with incredible attention to detail. Our go-to landscaping partner.",
     author: "James Carter",
-    role: "Project Manager, UrbanScape Construction",
+    role: "Project Manager, UrbanScape Development",
   },
   {
     quote:
-      "The installation was seamless and the end result exceeded our client's expectations. Truly a premium product.",
+      "Their landscape design brought our vision to life — the patio, pool deck, and garden pathways all flow together beautifully. A truly full-service team.",
     author: "Sofia Müller",
-    role: "Landscape Designer, Atelier Grün",
+    role: "Homeowner, Berlin",
   },
 ];
 
@@ -57,10 +57,10 @@ const Testimonials = () => {
             Client Stories
           </p>
           <h2 className="font-serif text-4xl md:text-5xl text-brand-secondary mb-4">
-            Trusted by Professionals
+            Trusted by Homeowners & Builders
           </h2>
           <p className="text-brand-secondary/60 max-w-xl mx-auto">
-            Hear from the architects, designers, and builders who rely on Atelier De Luca for their most demanding projects.
+            Hear from the clients who trusted us to design and build their outdoor spaces.
           </p>
         </motion.div>
 
