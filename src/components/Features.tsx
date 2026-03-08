@@ -1,23 +1,28 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { Hammer, Leaf, SunDim } from "lucide-react";
+import { Ruler, ShieldCheck, Clock, Users } from "lucide-react";
 
 const features = [
   {
-    icon: Hammer,
-    title: "Unmatched Durability",
-    description: "Built to withstand extreme weather, heavy loads, and everyday wear, ensuring a long-lasting outdoor space.",
+    icon: Ruler,
+    title: "Precision Craftsmanship",
+    description: "Every project is executed with meticulous attention to detail — from grading and drainage to the final tile placement.",
   },
   {
-    icon: Leaf,
-    title: "Eco-Friendly Materials",
-    description: "Manufactured using sustainable practices, our porcelain tiles are 100% recyclable and environmentally conscious.",
+    icon: ShieldCheck,
+    title: "Built to Last",
+    description: "We use only premium materials and proven construction techniques, ensuring your outdoor space endures for decades.",
   },
   {
-    icon: SunDim,
-    title: "Fade Resistance",
-    description: "UV-resistant technology keeps the vibrant colors of your tiles looking fresh and new, year after year.",
+    icon: Clock,
+    title: "On-Time Delivery",
+    description: "Our experienced crews follow tight project timelines, keeping you informed at every stage from excavation to completion.",
+  },
+  {
+    icon: Users,
+    title: "Full-Service Team",
+    description: "Landscape architects, skilled installers, and project managers work together so you have a single point of contact.",
   },
 ];
 
@@ -51,18 +56,18 @@ const Features = () => {
           className="text-center mb-16"
         >
           <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
-            Superior Quality
+            Why Choose Us
           </p>
           <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-4">
-            Why Choose Our Materials
+            Expert Installation & Landscaping
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Our porcelain paver systems combine elegant aesthetics with robust engineering, providing the perfect foundation for any outdoor project.
+            We don&apos;t sell products — we design, build, and install complete outdoor living spaces tailored to your vision.
           </p>
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

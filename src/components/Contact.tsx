@@ -59,7 +59,7 @@ const Contact = () => {
             
             <div className="text-center pt-2">
               <Button type="submit" size="lg" className="w-full sm:w-auto px-12 text-base">
-                Send Message
+                Request Consultation
               </Button>
             </div>
           </form>
