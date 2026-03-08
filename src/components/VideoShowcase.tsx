@@ -17,7 +17,7 @@ const showcaseImages = [
 const VideoShowcase = () => {
   const stripRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number>(undefined);
 
   const animate = useCallback(() => {
     if (!stripRef.current || isHovered) {
