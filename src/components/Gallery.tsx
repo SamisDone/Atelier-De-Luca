@@ -37,16 +37,16 @@ const Gallery = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-4"
         >
           <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
-            Portfolio
+            Our Work
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-4">
-            Exterior Design Gallery
+          <h2 className="font-serif text-4xl md:text-6xl text-foreground mb-4">
+            Featured Projects
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Explore our featured installations across residential and commercial projects.
+          <p className="text-muted-foreground max-w-xl mx-auto mb-12">
+            Explore our featured landscaping and installation projects across residential and commercial spaces.
           </p>
         </motion.div>
 
@@ -84,9 +84,9 @@ const Gallery = () => {
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-tertiary/80 via-brand-tertiary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-tertiary/80 via-brand-tertiary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                   <p className="text-brand-accent text-xs tracking-widest uppercase mb-1">
                     {project.category}
                   </p>
