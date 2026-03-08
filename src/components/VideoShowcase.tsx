@@ -55,7 +55,7 @@ const VideoShowcase = () => {
       </div>
 
       {/* Carousel with arrow buttons */}
-      <div className="relative">
+      <div className="relative overflow-hidden">
         {/* Left arrow */}
         <button
           onClick={() => scroll("left")}
