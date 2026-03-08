@@ -38,31 +38,31 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const toggleLanguage = useCallback(() => {
     const nextLang = language === "en" ? "fr" : "en";
     
-    // 1. Start transition immediately
+    // 1. Instant Mask
     setIsTransitioning(true);
     
-    // 2. Wait for overlay to become fully opaque
+    // 2. Short wait to ensure the mask is painted before cookie/state change
     setTimeout(() => {
       // 3. Set Google Translate cookie
       document.cookie = `googtrans=/en/${nextLang}; path=/`; 
       
       setLanguage(nextLang);
       
-      // 4. Trigger Google Translate change if initialized
+      // 4. Trigger Google Translate change
       const select = document.querySelector(".goog-te-combo") as HTMLSelectElement;
       if (select) {
         select.value = nextLang;
         select.dispatchEvent(new Event("change"));
         
-        // 5. Wait for translation engine to work before revealing
+        // 5. Extended Hold - 1.5s to be absolutely sure
         setTimeout(() => {
           setIsTransitioning(false);
-        }, 1200); // Generous hold time to ensure DOM is updated
+        }, 1500); 
       } else {
-        // Fallback for first-time init
+        // Fallback for first-time session
         window.location.reload();
       }
-    }, 250); // Buffer to ensure opacity: 1
+    }, 100); 
   }, [language]);
 
   return (
@@ -74,7 +74,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         toggleLanguage,
       }}
     >
-      <div className={`lang-transition-overlay ${isTransitioning ? "active" : ""}`} />
+      <div className={`lang-transition-overlay notranslate ${isTransitioning ? "active" : ""}`} />
       {children}
     </LanguageContext.Provider>
   );
