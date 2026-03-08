@@ -21,7 +21,7 @@ const Contact = () => {
             Request a Free Consultation
           </h2>
           <p className="text-muted-foreground mb-10 max-w-xl mx-auto">
-            Ready to transform your outdoor space? Tell us about your project and our team will schedule a site visit to discuss your landscaping and installation needs.
+            Ready to transform your outdoor space? Tell us about your project and our team will schedule a site visit to discuss your design and installation needs.
           </p>
           
           <form className="space-y-6 mx-auto text-left" onSubmit={(e) => e.preventDefault()}>

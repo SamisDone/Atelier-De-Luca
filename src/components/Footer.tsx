@@ -15,14 +15,14 @@ const Footer = () => {
               className="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-90 mb-6"
             />
             <p className="text-brand-secondary/60 text-sm leading-relaxed">
-              Premium landscaping and porcelain installation. Where expert design meets flawless execution.
+              Exterior design and installation. Where expert vision meets flawless execution.
             </p>
           </div>
 
           <div>
             <h4 className="font-serif text-lg mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {["Services", "About", "Features", "Gallery", "Contact"].map((item) => (
+              {["Services", "About", "Gallery", "Contact"].map((item) => (
                 <li key={item}>
                   <Link
                     href={`#${item.toLowerCase()}`}
@@ -38,10 +38,10 @@ const Footer = () => {
           <div>
             <h4 className="font-serif text-lg mb-4">Our Services</h4>
             <ul className="space-y-2 text-brand-secondary/60 text-sm">
-              <li>Pool & Water Features</li>
-              <li>Residential Landscaping</li>
-              <li>Rooftop Terraces</li>
-              <li>Patio Installations</li>
+              <li>Exterior Design</li>
+              <li>Residential Installations</li>
+              <li>Driveways & Patios</li>
+              <li>Pool Surrounds & Terraces</li>
               <li>Commercial Projects</li>
             </ul>
           </div>

@@ -5,21 +5,21 @@ import Image from "next/image";
 
 const services = [
   {
-    title: "Custom Pools",
+    title: "Design",
     description:
-      "We design and build custom concrete pools with a dedicated in-house team. From private estates to rooftop installations, we focus on structural integrity, durability, and flawless execution.",
+      "From initial concept to detailed plans, our design team creates tailored exterior environments that balance aesthetics, functionality, and the unique character of every site.",
     image: "/images/services-pools.jpg",
   },
   {
     title: "Residential",
     description:
-      "We create stunning, functional landscapes for residential properties, combining craftsmanship with cutting-edge design. Our team collaborates closely with clients to bring each vision to life.",
+      "Complete exterior transformations for homes — driveways, patios, terraces, garden landscaping, pool surrounds, and every type of outdoor surface installation.",
     image: "/images/services-residential.jpg",
   },
   {
     title: "Commercial & Municipal",
     description:
-      "We specialize in large-scale landscaping and construction, delivering durable, high-quality builds for public spaces, corporate plazas, and commercial developments.",
+      "Large-scale exterior design and installation for public spaces, corporate plazas, hospitality venues, and commercial developments — built to last.",
     image: "/images/services-commercial.jpg",
   },
 ];

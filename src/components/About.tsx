@@ -48,10 +48,10 @@ const About = () => {
               Who We Are
             </h2>
             <p className="text-brand-secondary/80 text-lg leading-relaxed mb-6">
-              Atelier De Luca is a premier landscaping and porcelain installation firm with a team of over 50 skilled professionals. We specialize in crafting exceptional outdoor environments — from private gardens and pool decks to large-scale commercial landscapes.
+              Atelier De Luca is a premier exterior design and installation firm with a team of over 50 skilled professionals. We design and build exceptional outdoor environments — from private gardens and terraces to large-scale commercial landscapes.
             </p>
             <p className="text-brand-secondary/70 text-base leading-relaxed">
-              Every project is driven by a commitment to craftsmanship, quality, and timeless design — executed by our dedicated team of landscape architects, builders, and installation specialists.
+              Every project is driven by a commitment to craftsmanship, quality, and timeless design — executed by our dedicated team of designers, landscape architects, builders, and installation specialists.
             </p>
           </motion.div>
         </div>

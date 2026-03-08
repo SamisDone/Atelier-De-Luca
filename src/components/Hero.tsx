@@ -39,7 +39,7 @@ const Hero = () => {
       <motion.div style={{ y }} className="absolute inset-0 -top-[20%] h-[120%] w-full z-0">
         <Image
           src="/images/hero-terrace.jpg"
-          alt="Premium landscaping and porcelain installation"
+          alt="Premium exterior design and installation"
           fill
           priority
           sizes="100vw"
@@ -59,7 +59,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-brand-accent font-sans text-sm tracking-[0.3em] uppercase mb-6"
         >
-          Landscaping & Porcelain Installation
+          Design & Exterior Installation
         </motion.p>
 
         <motion.h1
@@ -89,7 +89,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-brand-secondary/80 font-sans text-lg md:text-xl max-w-2xl mb-10"
         >
-          Where expert design meets flawless execution. Premium porcelain installations
+          Where expert design meets flawless execution. Complete exterior installations
           and landscape construction for discerning homeowners and architects.
         </motion.p>
 
