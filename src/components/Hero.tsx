@@ -68,7 +68,7 @@ const Hero = () => {
             visible: {
               opacity: 1,
               y: 0,
-              transition: { duration: 1, ease: [0.25, 0.46, 0.45, 0.94] },
+              transition: { duration: 1 },
             },
           }}
           className="font-serif text-5xl md:text-7xl lg:text-8xl text-brand-secondary leading-[1.1] mb-8"
