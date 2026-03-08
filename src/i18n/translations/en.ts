@@ -231,12 +231,12 @@ const en: Translations = {
       "Explore our featured landscaping and installation projects across residential and commercial spaces.",
     filterAll: "All",
     projects: [
-      { title: "Proma XL Patio", category: "Landscape", location: "Montreal" },
-      { title: "Zuko Flex Driveway", category: "Landscape", location: "Westmount" },
-      { title: "Ora Step Garden", category: "Landscape", location: "Outremont" },
-      { title: "Clayden Stone Wall", category: "Masonry", location: "Laval" },
-      { title: "Roxton Exterior", category: "Masonry", location: "Brossard" },
-      { title: "Alonso Retaining Wall", category: "Alternative Masonry", location: "Mount Royal" },
+      { title: "Modern Estate Patio", category: "Landscape", location: "Montreal • Proma XL" },
+      { title: "Grand Entrance Driveway", category: "Landscape", location: "Westmount • Zuko Flex" },
+      { title: "Terraced Garden Retreat", category: "Landscape", location: "Outremont • Ora Step" },
+      { title: "Classic Stone Facade", category: "Masonry", location: "Laval • Clayden" },
+      { title: "Contemporary Exterior", category: "Masonry", location: "Brossard • Roxton" },
+      { title: "Multi-Level Retaining Wall", category: "Alternative Masonry", location: "Mount Royal • Alonso" },
     ],
   },
 
