@@ -2,20 +2,18 @@
 
 import { motion } from "framer-motion";
 import { useRef, useEffect, useCallback, useState } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const baseImages = [
-  { src: "/images/gallery-pool.jpg", label: "Pool Design" },
-  { src: "/images/gallery-rooftop.jpg", label: "Rooftop Terrace" },
-  { src: "/images/gallery-patio.jpg", label: "Patio Living" },
-  { src: "/images/gallery-garden.jpg", label: "Garden Retreat" },
-  { src: "/images/gallery-balcony.jpg", label: "Balcony Living" },
-  { src: "/images/gallery-commercial.jpg", label: "Commercial Space" },
-  { src: "/images/services-residential.jpg", label: "Residential Design" },
-  { src: "/images/services-pools.jpg", label: "Pool Installation" },
+const baseSrcs = [
+  "/images/gallery-pool.jpg",
+  "/images/gallery-rooftop.jpg",
+  "/images/gallery-patio.jpg",
+  "/images/gallery-garden.jpg",
+  "/images/gallery-balcony.jpg",
+  "/images/gallery-commercial.jpg",
+  "/images/services-residential.jpg",
+  "/images/services-pools.jpg",
 ];
-
-// Duplicate for infinite loop
-const showcaseImages = [...baseImages, ...baseImages];
 
 const VideoShowcase = () => {
   const stripRef = useRef<HTMLDivElement>(null);
@@ -24,8 +22,14 @@ const VideoShowcase = () => {
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeftStart = useRef(0);
+  const { t } = useLanguage();
 
-  // Auto-scroll animation
+  const baseImages = baseSrcs.map((src, i) => ({
+    src,
+    label: t.videoShowcase.labels[i],
+  }));
+  const showcaseImages = [...baseImages, ...baseImages];
+
   const animate = useCallback(() => {
     if (!stripRef.current || !isAutoScrolling) {
       animationRef.current = requestAnimationFrame(animate);
@@ -46,7 +50,6 @@ const VideoShowcase = () => {
     };
   }, [animate]);
 
-  // Drag-to-scroll handlers
   const handlePointerDown = useCallback((e: React.PointerEvent) => {
     if (!stripRef.current) return;
     isDragging.current = true;
@@ -68,7 +71,6 @@ const VideoShowcase = () => {
     isDragging.current = false;
     stripRef.current.releasePointerCapture(e.pointerId);
     stripRef.current.style.cursor = "grab";
-    // Resume auto-scroll after a short delay
     setTimeout(() => setIsAutoScrolling(true), 2000);
   }, []);
 
@@ -83,18 +85,17 @@ const VideoShowcase = () => {
           className="text-center"
         >
           <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
-            See Our Work
+            {t.videoShowcase.tagline}
           </p>
           <h2 className="font-serif text-4xl md:text-6xl text-foreground mb-4">
-            Craftsmanship in Motion
+            {t.videoShowcase.title}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            A glimpse into the spaces we've brought to life.
+            {t.videoShowcase.description}
           </p>
         </motion.div>
       </div>
 
-      {/* Full-bleed carousel — drag + touch + auto-scroll */}
       <div
         ref={stripRef}
         className="flex gap-3 overflow-x-auto scrollbar-hide select-none"

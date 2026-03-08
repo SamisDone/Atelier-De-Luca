@@ -4,17 +4,16 @@ import { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const projects = [
-  { title: "Skyline Rooftop Terrace", category: "Rooftop", location: "Manhattan, NY", image: "/images/gallery-rooftop.jpg" },
-  { title: "Villa Garden Patio", category: "Patio", location: "Provence, France", image: "/images/gallery-patio.jpg" },
-  { title: "Penthouse Balcony", category: "Balcony", location: "London, UK", image: "/images/gallery-balcony.jpg" },
-  { title: "Mediterranean Pool Deck", category: "Pool", location: "Mallorca, Spain", image: "/images/gallery-pool.jpg" },
-  { title: "Corporate Plaza Entrance", category: "Commercial", location: "Berlin, Germany", image: "/images/gallery-commercial.jpg" },
-  { title: "Modern Garden Pathway", category: "Garden", location: "Kyoto, Japan", image: "/images/gallery-garden.jpg" },
+const projectImages = [
+  "/images/gallery-rooftop.jpg",
+  "/images/gallery-patio.jpg",
+  "/images/gallery-balcony.jpg",
+  "/images/gallery-pool.jpg",
+  "/images/gallery-commercial.jpg",
+  "/images/gallery-garden.jpg",
 ];
-
-const categories = ["All", ...new Set(projects.map((p) => p.category))];
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, scale: 0.9 },
@@ -27,7 +26,15 @@ const itemVariants: Variants = {
 
 const Gallery = () => {
   const [active, setActive] = useState("All");
-  const filtered = active === "All" ? projects : projects.filter((p) => p.category === active);
+  const { t } = useLanguage();
+
+  const projects = t.gallery.projects.map((p, i) => ({
+    ...p,
+    image: projectImages[i],
+  }));
+
+  const categories = [t.gallery.filterAll, ...new Set(projects.map((p) => p.category))];
+  const filtered = active === t.gallery.filterAll ? projects : projects.filter((p) => p.category === active);
 
   return (
     <section id="gallery" className="py-24 bg-card">
@@ -40,13 +47,13 @@ const Gallery = () => {
           className="text-center mb-4"
         >
           <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
-            Our Work
+            {t.gallery.tagline}
           </p>
           <h2 className="font-serif text-4xl md:text-6xl text-foreground mb-4">
-            Featured Projects
+            {t.gallery.title}
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto mb-12">
-            Explore our featured landscaping and installation projects across residential and commercial spaces.
+            {t.gallery.description}
           </p>
         </motion.div>
 

@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -27,6 +28,7 @@ const itemVariants = {
 
 const Hero = () => {
   const ref = useRef(null);
+  const { t } = useLanguage();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -59,7 +61,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-brand-accent font-sans text-sm tracking-[0.3em] uppercase mb-6"
         >
-          Design & Exterior Installation
+          {t.hero.tagline}
         </motion.p>
 
         <motion.h1
@@ -73,7 +75,7 @@ const Hero = () => {
           }}
           className="font-serif text-5xl md:text-7xl lg:text-8xl text-brand-secondary leading-[1.1] mb-8"
         >
-          Pioneering the Future of
+          {t.hero.titleLine1}
           <br />
           <motion.span
             className="text-brand inline-block"
@@ -81,7 +83,7 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
           >
-            Outdoor Living
+            {t.hero.titleLine2}
           </motion.span>
         </motion.h1>
 
@@ -89,8 +91,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-brand-secondary/80 font-sans text-lg md:text-xl max-w-2xl mb-10"
         >
-          Where expert design meets flawless execution. Complete exterior installations
-          and landscape construction for discerning homeowners and architects.
+          {t.hero.description}
         </motion.p>
 
         <motion.div
@@ -98,7 +99,7 @@ const Hero = () => {
           className="flex flex-col sm:flex-row gap-4"
         >
           <Button variant="hero" size="lg" className="text-base px-10" asChild>
-            <a href="#gallery">View Projects</a>
+            <a href="#gallery">{t.hero.viewProjects}</a>
           </Button>
           <Button
             variant="hero-outline"
@@ -106,7 +107,7 @@ const Hero = () => {
             className="text-base px-10 border-brand-secondary text-brand-secondary hover:bg-brand-secondary hover:text-brand-tertiary"
             asChild
           >
-            <a href="#contact">Contact Us</a>
+            <a href="#contact">{t.hero.contactUs}</a>
           </Button>
         </motion.div>
       </motion.div>
@@ -123,7 +124,7 @@ const Hero = () => {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="text-brand-secondary/40 text-xs tracking-widest uppercase">Scroll</span>
+          <span className="text-brand-secondary/40 text-xs tracking-widest uppercase">{t.hero.scroll}</span>
           <div className="w-6 h-10 border-2 border-brand-secondary/30 rounded-full flex items-start justify-center p-2">
             <motion.div
               animate={{ y: [0, 12, 0] }}
