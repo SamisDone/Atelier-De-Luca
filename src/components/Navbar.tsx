@@ -43,7 +43,7 @@ const Navbar = () => {
             alt="Atelier De Luca"
             width={400}
             height={120}
-            className={`h-24 md:h-32 w-auto object-contain transition-all duration-500 ${
+            className={`h-24 md:h-32 w-auto object-contain transition-all duration-500 notranslate ${
               scrolled ? "" : "brightness-0 invert"
             }`}
           />

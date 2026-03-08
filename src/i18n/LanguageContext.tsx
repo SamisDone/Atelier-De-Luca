@@ -1,8 +1,7 @@
 "use client";
 
-import { createContext, useContext, useState, useCallback, ReactNode } from "react";
+import { createContext, useContext, useState, useCallback, ReactNode, useEffect } from "react";
 import en, { type Translations } from "./translations/en";
-import fr from "./translations/fr";
 
 type Language = "en" | "fr";
 
@@ -12,23 +11,54 @@ interface LanguageContextType {
   setLanguage: (lang: Language) => void;
   toggleLanguage: () => void;
 }
-
-const translations: Record<Language, Translations> = { en, fr };
-
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("en");
 
+  // Sync with googtrans cookie and HTML lang
+  useEffect(() => {
+    const getCookie = (name: string) => {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop()?.split(";").shift();
+    };
+
+    const currentTrans = getCookie("googtrans");
+    if (currentTrans === "/en/fr") {
+      setLanguage("fr");
+    } else {
+      setLanguage("en");
+    }
+
+    document.documentElement.lang = language;
+  }, [language]);
+
   const toggleLanguage = useCallback(() => {
-    setLanguage((prev) => (prev === "en" ? "fr" : "en"));
-  }, []);
+    const nextLang = language === "en" ? "fr" : "en";
+    
+    // Set Google Translate cookie
+    document.cookie = `googtrans=/en/${nextLang}; path=/; domain=${window.location.hostname}`;
+    document.cookie = `googtrans=/en/${nextLang}; path=/`; // Fallback for localhost
+    
+    setLanguage(nextLang);
+    
+    // Trigger Google Translate change if initialized
+    const select = document.querySelector(".goog-te-combo") as HTMLSelectElement;
+    if (select) {
+      select.value = nextLang;
+      select.dispatchEvent(new Event("change"));
+    } else {
+      // If not initialized yet or fails, we might need a refresh or just wait
+      window.location.reload();
+    }
+  }, [language]);
 
   return (
     <LanguageContext.Provider
       value={{
         language,
-        t: translations[language],
+        t: en, // Always provide English keys; Google translates the DOM
         setLanguage,
         toggleLanguage,
       }}

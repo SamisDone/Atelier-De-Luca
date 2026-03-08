@@ -1,28 +1,63 @@
-interface TranslationItem {
+export interface TranslationItem {
   title: string;
   description: string;
 }
 
-interface StatItem {
+export interface StatItem {
   value: string;
   label: string;
 }
 
-interface ProjectItem {
+export interface ProjectItem {
   title: string;
   category: string;
   location: string;
 }
 
-interface TestimonialItem {
+export interface TestimonialItem {
   quote: string;
   author: string;
   role: string;
 }
 
+export interface SpecItem {
+  property: string;
+  value: string;
+  standard: string;
+  rating: string;
+}
+
+export interface SystemBenefit {
+  title: string;
+  description: string;
+}
+
+/**
+ * SOURCE OF TRUTH: English Dictionary
+ * All UI strings should be defined here. 
+ * Note: French (fr.ts) is automatically kept in sync via AI-managed automation.
+ */
 export interface Translations {
   nav: { services: string; about: string; gallery: string; testimonials: string; contact: string };
   hero: { tagline: string; titleLine1: string; titleLine2: string; description: string; viewProjects: string; contactUs: string; scroll: string };
+  systems: { tagline: string; title: string; description: string; items: SystemBenefit[] };
+  specs: { tagline: string; title: string; description: string; columns: { property: string; value: string; standard: string; rating: string }; items: SpecItem[] };
+  calculator: {
+    tagline: string;
+    title: string;
+    description: string;
+    areaLabel: string;
+    areaPlaceholder: string;
+    tileLabel: string;
+    tilePlaceholder: string;
+    heightLabel: string;
+    heightPlaceholder: string;
+    wastageLabel: string;
+    submit: string;
+    resultTiles: string;
+    resultPedestals: string;
+    loading: string;
+  };
   services: { tagline: string; items: TranslationItem[] };
   about: { tagline: string; title: string; description1: string; description2: string; stats: StatItem[] };
   features: { tagline: string; title: string; description: string; items: TranslationItem[] };
@@ -53,6 +88,72 @@ const en: Translations = {
     viewProjects: "View Projects",
     contactUs: "Contact Us",
     scroll: "Scroll",
+  },
+
+  // Systems
+  systems: {
+    tagline: "The System",
+    title: "Why Atelier De Luca Pedestals",
+    description: "Engineered advantages that make our pedestal system the choice of architects worldwide.",
+    items: [
+      {
+        title: "Superior Drainage",
+        description: "The elevated pedestal system creates a void beneath tiles, allowing rainwater to flow freely to drainage points — eliminating pooling and surface damage.",
+      },
+      {
+        title: "Precision Leveling",
+        description: "Adjustable pedestals compensate for uneven substrates, delivering a perfectly flat finished surface with slope correction up to 5%.",
+      },
+      {
+        title: "Thermal Insulation",
+        description: "The air gap beneath tiles acts as natural insulation, reducing heat transfer to the structure below and keeping surfaces cooler underfoot.",
+      },
+      {
+        title: "Zero-Maintenance Access",
+        description: "Individual tiles lift out for easy access to waterproofing membranes, cables, and drainage — no demolition required.",
+      },
+    ],
+  },
+
+  // Specs
+  specs: {
+    tagline: "Performance Data",
+    title: "Technical Specifications",
+    description: "Every Atelier De Luca installation exceeds international standards for exterior applications.",
+    columns: {
+      property: "Property",
+      value: "Value",
+      standard: "Standard",
+      rating: "Rating",
+    },
+    items: [
+      { property: "Tile Thickness", value: "20mm", standard: "EN 14411", rating: "Class BIa" },
+      { property: "Load-Bearing Capacity", value: "≥ 1,000 kg", standard: "ISO 10545-4", rating: "Superior" },
+      { property: "Slip Resistance", value: "R11 / C", standard: "DIN 51130", rating: "Anti-slip" },
+      { property: "Water Absorption", value: "< 0.5%", standard: "ISO 10545-3", rating: "Frost-proof" },
+      { property: "Flexural Strength", value: "≥ 45 N/mm²", standard: "ISO 10545-4", rating: "Heavy duty" },
+      { property: "Abrasion Resistance", value: "Class 5", standard: "ISO 10545-7", rating: "Maximum" },
+      { property: "Chemical Resistance", value: "UA / ULA", standard: "ISO 10545-13", rating: "Highest" },
+      { property: "Thermal Shock", value: "Resistant", standard: "ISO 10545-9", rating: "All climates" },
+    ],
+  },
+
+  // Calculator
+  calculator: {
+    tagline: "Project Planning",
+    title: "Installation Calculator",
+    description: "Estimate the tiles and pedestals required for your exterior project.",
+    areaLabel: "Project Area (m²)",
+    areaPlaceholder: "e.g. 50",
+    tileLabel: "Tile Size",
+    tilePlaceholder: "Select tile size",
+    heightLabel: "Pedestal Height Range",
+    heightPlaceholder: "Select height",
+    wastageLabel: "Wastage Allowance",
+    submit: "Calculate Requirements",
+    resultTiles: "Tiles Required",
+    resultPedestals: "Pedestals Required",
+    loading: "Loading Calculator...",
   },
 
   // Services

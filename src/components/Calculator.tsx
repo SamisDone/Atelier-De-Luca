@@ -1,4 +1,5 @@
 "use client";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 import { useState, Suspense } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
@@ -41,6 +42,7 @@ const pedestalHeightOptions = [
 ];
 
 const CalculatorContent = () => {
+  const { t } = useLanguage();
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -90,13 +92,13 @@ const CalculatorContent = () => {
           className="text-center mb-16"
         >
           <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
-            Project Planning
+            {t.calculator.tagline}
           </p>
           <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-4">
-            Installation Calculator
+            {t.calculator.title}
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Estimate the tiles and pedestals required for your exterior project.
+            {t.calculator.description}
           </p>
         </motion.div>
 
@@ -115,14 +117,14 @@ const CalculatorContent = () => {
                   name="area"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground">Project Area (m²)</FormLabel>
+                      <FormLabel className="text-foreground">{t.calculator.areaLabel}</FormLabel>
                       <FormControl>
                         <Input
-                          type="number"
-                          placeholder="e.g. 50"
-                          {...field}
-                          onChange={(e) => field.onChange(parseFloat(e.target.value) || 0)}
-                          className="bg-background border-border"
+                           type="number"
+                           placeholder={t.calculator.areaPlaceholder}
+                           {...field}
+                           onChange={(e) => field.onChange(parseFloat(e.target.value) || 0)}
+                           className="bg-background border-border"
                         />
                       </FormControl>
                       <FormMessage />
@@ -135,11 +137,11 @@ const CalculatorContent = () => {
                   name="tileSize"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground">Tile Size</FormLabel>
+                      <FormLabel className="text-foreground">{t.calculator.tileLabel}</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger className="bg-background border-border">
-                            <SelectValue placeholder="Select tile size" />
+                            <SelectValue placeholder={t.calculator.tilePlaceholder} />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -160,11 +162,11 @@ const CalculatorContent = () => {
                   name="pedestalHeight"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground">Pedestal Height Range</FormLabel>
+                      <FormLabel className="text-foreground">{t.calculator.heightLabel}</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger className="bg-background border-border">
-                            <SelectValue placeholder="Select height" />
+                            <SelectValue placeholder={t.calculator.heightPlaceholder} />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -186,7 +188,7 @@ const CalculatorContent = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-foreground">
-                        Wastage Allowance: {field.value}%
+                        {t.calculator.wastageLabel}: {field.value}%
                       </FormLabel>
                       <FormControl>
                         <Slider
@@ -204,7 +206,7 @@ const CalculatorContent = () => {
                 />
 
                 <Button type="submit" variant="hero" size="lg" className="w-full text-base">
-                  Calculate Requirements
+                  {t.calculator.submit}
                 </Button>
               </form>
             </Form>
@@ -214,15 +216,15 @@ const CalculatorContent = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="mt-8 grid grid-cols-2 gap-4"
+                className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4"
               >
                 <div className="bg-brand/10 rounded-lg p-6 text-center">
                   <p className="text-3xl font-serif text-brand-tertiary font-bold">{result.tiles}</p>
-                  <p className="text-sm text-muted-foreground mt-1">Tiles Required</p>
+                  <p className="text-sm text-muted-foreground mt-1">{t.calculator.resultTiles}</p>
                 </div>
                 <div className="bg-brand-accent/20 rounded-lg p-6 text-center">
                   <p className="text-3xl font-serif text-brand-tertiary font-bold">{result.pedestals}</p>
-                  <p className="text-sm text-muted-foreground mt-1">Pedestals Required</p>
+                  <p className="text-sm text-muted-foreground mt-1">{t.calculator.resultPedestals}</p>
                 </div>
               </motion.div>
             )}
@@ -234,8 +236,9 @@ const CalculatorContent = () => {
 };
 
 const Calculator = () => {
+  const { t } = useLanguage();
   return (
-    <Suspense fallback={<div className="py-24 bg-background text-center">Loading Calculator...</div>}>
+    <Suspense fallback={<div className="py-24 bg-background text-center">{t.calculator.loading}</div>}>
       <CalculatorContent />
     </Suspense>
   );

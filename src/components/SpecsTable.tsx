@@ -9,19 +9,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-
-const specs = [
-  { property: "Tile Thickness", value: "20mm", standard: "EN 14411", rating: "Class BIa" },
-  { property: "Load-Bearing Capacity", value: "≥ 1,000 kg", standard: "ISO 10545-4", rating: "Superior" },
-  { property: "Slip Resistance", value: "R11 / C", standard: "DIN 51130", rating: "Anti-slip" },
-  { property: "Water Absorption", value: "< 0.5%", standard: "ISO 10545-3", rating: "Frost-proof" },
-  { property: "Flexural Strength", value: "≥ 45 N/mm²", standard: "ISO 10545-4", rating: "Heavy duty" },
-  { property: "Abrasion Resistance", value: "Class 5", standard: "ISO 10545-7", rating: "Maximum" },
-  { property: "Chemical Resistance", value: "UA / ULA", standard: "ISO 10545-13", rating: "Highest" },
-  { property: "Thermal Shock", value: "Resistant", standard: "ISO 10545-9", rating: "All climates" },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
+import { type SpecItem } from "@/i18n/translations/en";
 
 const SpecsTable = () => {
+  const { t } = useLanguage();
   return (
     <section id="specifications" className="py-24 bg-card">
       <div className="container mx-auto px-6">
@@ -33,13 +25,13 @@ const SpecsTable = () => {
           className="text-center mb-16"
         >
           <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
-            Performance Data
+            {t.specs.tagline}
           </p>
           <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-4">
-            Technical Specifications
+            {t.specs.title}
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Every Atelier De Luca installation exceeds international standards for exterior applications.
+            {t.specs.description}
           </p>
         </motion.div>
 
@@ -53,14 +45,14 @@ const SpecsTable = () => {
           <Table>
             <TableHeader>
               <TableRow className="bg-brand-tertiary/5">
-                <TableHead className="text-brand-tertiary font-semibold">Property</TableHead>
-                <TableHead className="text-brand-tertiary font-semibold">Value</TableHead>
-                <TableHead className="text-brand-tertiary font-semibold hidden md:table-cell">Standard</TableHead>
-                <TableHead className="text-brand-tertiary font-semibold text-right">Rating</TableHead>
+                <TableHead className="text-brand-tertiary font-semibold">{t.specs.columns.property}</TableHead>
+                <TableHead className="text-brand-tertiary font-semibold">{t.specs.columns.value}</TableHead>
+                <TableHead className="text-brand-tertiary font-semibold hidden md:table-cell">{t.specs.columns.standard}</TableHead>
+                <TableHead className="text-brand-tertiary font-semibold text-right">{t.specs.columns.rating}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {specs.map((spec, i) => (
+              {t.specs.items.map((spec: SpecItem, i: number) => (
                 <motion.tr
                   key={spec.property}
                   initial={{ opacity: 0, x: -10 }}
