@@ -15,8 +15,6 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("en");
-  // We keep the state for React tree consistency, but we won't rely on it for the instant animation
-  const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Sync with googtrans cookie and HTML lang
   useEffect(() => {
@@ -39,41 +37,21 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const toggleLanguage = useCallback(() => {
     const nextLang = language === "en" ? "fr" : "en";
     
-    // 1. DIRECT DOM MANIPULATION: Bypass React's render cycle completely for instant visual feedback.
-    const overlay = document.querySelector('.lang-transition-overlay');
-    if (overlay) {
-      overlay.classList.add('active');
-    }
+    // Set cookie
+    document.cookie = `googtrans=/en/${nextLang}; path=/`; 
     
-    // Keep React state in sync 
-    setIsTransitioning(true);
-    
-    // 2. YIELD TO BROWSER: Use a solid timeout to yield to the browser's paint thread. 
-    // This absolutely guarantees the 'active' class is painted on screen before we lock the thread with translation work.
-    setTimeout(() => {
-      // 3. Set cookie
-      document.cookie = `googtrans=/en/${nextLang}; path=/`; 
-      
-      const select = document.querySelector(".goog-te-combo") as HTMLSelectElement;
-      if (select) {
-        // 4. Trigger the heavy translation work
-        select.value = nextLang;
-        select.dispatchEvent(new Event("change"));
-        
-        setLanguage(nextLang);
-        document.documentElement.lang = nextLang;
+    // Manage state
+    setLanguage(nextLang);
+    document.documentElement.lang = nextLang;
 
-        // 5. EXTENDED HOLD: Wait 1.5 seconds to ensure the DOM is completely rewritten by Google
-        setTimeout(() => {
-          if (overlay) {
-            overlay.classList.remove('active');
-          }
-          setIsTransitioning(false);
-        }, 1500); 
-      } else {
-        window.location.reload();
-      }
-    }, 150); // 150ms is more than enough for a modern browser to paint a solid color div
+    // Trigger Google Translate engine
+    const select = document.querySelector(".goog-te-combo") as HTMLSelectElement;
+    if (select) {
+      select.value = nextLang;
+      select.dispatchEvent(new Event("change"));
+    } else {
+      window.location.reload();
+    }
   }, [language]);
 
   return (
@@ -85,7 +63,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         toggleLanguage,
       }}
     >
-      <div className={`lang-transition-overlay notranslate ${isTransitioning ? "active" : ""}`} />
       {children}
     </LanguageContext.Provider>
   );
