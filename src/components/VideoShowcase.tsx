@@ -74,12 +74,10 @@ const VideoShowcase = () => {
           <ChevronRight className="w-5 h-5" />
         </button>
 
-        {/* Snap-scrollable image strip with subtle parallax */}
-        <motion.div style={{ x: parallaxX }}>
-          <div
-            ref={stripRef}
-            className="flex gap-6 pl-6 pr-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4"
-          >
+        <div
+          ref={stripRef}
+          className="flex gap-6 px-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4"
+        >
             {showcaseImages.map((img, i) => (
               <motion.div
                 key={img.label}
