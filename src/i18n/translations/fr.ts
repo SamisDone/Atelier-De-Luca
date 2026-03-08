@@ -189,6 +189,6 @@ const fr: Translations = {
     privacyPolicy: "Politique de Confidentialité",
     termsOfService: "Conditions d'Utilisation",
   },
-} as const;
+};
 
 export default fr;
