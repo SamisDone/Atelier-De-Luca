@@ -15,7 +15,7 @@ const Footer = () => {
               className="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-90 mb-6"
             />
             <p className="text-brand-secondary/60 text-sm leading-relaxed">
-              Premium landscaping and porcelain installation. Where expert design meets flawless execution.
+              Exterior design and installation. Where expert vision meets flawless execution.
             </p>
           </div>
 
