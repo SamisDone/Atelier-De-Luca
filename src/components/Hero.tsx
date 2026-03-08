@@ -39,7 +39,7 @@ const Hero = () => {
       <motion.div style={{ y }} className="absolute inset-0 -top-[20%] h-[120%] w-full z-0">
         <Image
           src="/images/hero-terrace.jpg"
-          alt="Premium landscaping and porcelain installation"
+          alt="Premium exterior design and installation"
           fill
           priority
           sizes="100vw"

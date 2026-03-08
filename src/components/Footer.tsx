@@ -38,10 +38,10 @@ const Footer = () => {
           <div>
             <h4 className="font-serif text-lg mb-4">Our Services</h4>
             <ul className="space-y-2 text-brand-secondary/60 text-sm">
-              <li>Pool & Water Features</li>
-              <li>Residential Landscaping</li>
-              <li>Rooftop Terraces</li>
-              <li>Patio Installations</li>
+              <li>Exterior Design</li>
+              <li>Residential Installations</li>
+              <li>Driveways & Patios</li>
+              <li>Pool Surrounds & Terraces</li>
               <li>Commercial Projects</li>
             </ul>
           </div>
