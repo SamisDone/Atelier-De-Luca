@@ -84,11 +84,11 @@ const Hero = () => {
           variants={itemVariants}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <Button variant="hero" size="lg" className="text-base px-10">
-            Explore Systems
+          <Button variant="hero" size="lg" className="text-base px-10" asChild>
+            <a href="#systems">Explore Systems</a>
           </Button>
-          <Button variant="hero-outline" size="lg" className="text-base px-10 border-brand-secondary text-brand-secondary hover:bg-brand-secondary hover:text-brand-tertiary">
-            Get a Quote
+          <Button variant="hero-outline" size="lg" className="text-base px-10 border-brand-secondary text-brand-secondary hover:bg-brand-secondary hover:text-brand-tertiary" asChild>
+            <a href="#contact">Get a Quote</a>
           </Button>
         </motion.div>
       </motion.div>
