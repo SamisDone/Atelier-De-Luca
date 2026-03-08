@@ -8,7 +8,7 @@ const testimonials = [
     quote:
       "Atelier De Luca completely transformed our backyard. From the initial design consultation to the final walkthrough, their team was professional and the craftsmanship is outstanding.",
     author: "Maria Hansen",
-    role: "Homeowner, Munich",
+    role: "Homeowner, Westmount, Montreal",
   },
   {
     quote:
