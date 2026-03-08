@@ -1,10 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef, useCallback } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef, useEffect, useCallback, useState } from "react";
 
 const showcaseImages = [
+  { src: "/images/gallery-pool.jpg", label: "Pool Design" },
+  { src: "/images/gallery-rooftop.jpg", label: "Rooftop Terrace" },
+  { src: "/images/gallery-patio.jpg", label: "Patio Living" },
+  { src: "/images/gallery-garden.jpg", label: "Garden Retreat" },
   { src: "/images/gallery-pool.jpg", label: "Pool Design" },
   { src: "/images/gallery-rooftop.jpg", label: "Rooftop Terrace" },
   { src: "/images/gallery-patio.jpg", label: "Patio Living" },
@@ -12,21 +15,33 @@ const showcaseImages = [
 ];
 
 const VideoShowcase = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const stripRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const animationRef = useRef<number>();
 
-  const scroll = useCallback((direction: "left" | "right") => {
-    if (!stripRef.current) return;
-    const cardWidth = stripRef.current.firstElementChild?.clientWidth ?? 400;
-    const scrollAmount = cardWidth + 24; // card width + gap
-    stripRef.current.scrollBy({
-      left: direction === "right" ? scrollAmount : -scrollAmount,
-      behavior: "smooth",
-    });
-  }, []);
+  const animate = useCallback(() => {
+    if (!stripRef.current || isHovered) {
+      animationRef.current = requestAnimationFrame(animate);
+      return;
+    }
+    const el = stripRef.current;
+    el.scrollLeft += 0.5;
+    // Loop: when scrolled past half (duplicate set), reset
+    if (el.scrollLeft >= el.scrollWidth / 2) {
+      el.scrollLeft = 0;
+    }
+    animationRef.current = requestAnimationFrame(animate);
+  }, [isHovered]);
+
+  useEffect(() => {
+    animationRef.current = requestAnimationFrame(animate);
+    return () => {
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    };
+  }, [animate]);
 
   return (
-    <section ref={containerRef} className="py-24 bg-background overflow-hidden">
+    <section className="py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-6 mb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -47,53 +62,37 @@ const VideoShowcase = () => {
         </motion.div>
       </div>
 
-      {/* Carousel with arrow buttons */}
-      <div className="container mx-auto px-6">
-        <div className="relative overflow-hidden">
-          {/* Left arrow */}
-          <button
-            onClick={() => scroll("left")}
-            aria-label="Scroll left"
-            className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center rounded-full bg-background/80 backdrop-blur-sm border border-border text-foreground hover:bg-brand hover:text-primary-foreground hover:border-brand transition-all duration-300 shadow-lg"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-
-          {/* Right arrow */}
-          <button
-            onClick={() => scroll("right")}
-            aria-label="Scroll right"
-            className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center rounded-full bg-background/80 backdrop-blur-sm border border-border text-foreground hover:bg-brand hover:text-primary-foreground hover:border-brand transition-all duration-300 shadow-lg"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-
-          <div
-            ref={stripRef}
-            className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 px-0"
-          >
-            {showcaseImages.map((img, i) => (
-              <motion.div
-                key={img.label}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="relative flex-shrink-0 w-[70vw] md:w-[40vw] lg:w-[30vw] aspect-[4/5] rounded-2xl overflow-hidden group snap-center"
-              >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                  style={{ backgroundImage: `url(${img.src})` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-tertiary/70 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6">
-                  <p className="text-brand-secondary font-serif text-xl md:text-2xl">
-                    {img.label}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+      {/* Full-bleed carousel — no side whitespace, no arrows */}
+      <div
+        className="relative overflow-hidden"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div
+          ref={stripRef}
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+        >
+          {showcaseImages.map((img, i) => (
+            <motion.div
+              key={`${img.label}-${i}`}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: (i % 4) * 0.1 }}
+              className="relative flex-shrink-0 w-[70vw] md:w-[40vw] lg:w-[30vw] aspect-[4/5] overflow-hidden group snap-center"
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: `url(${img.src})` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-tertiary/70 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6">
+                <p className="text-brand-secondary font-serif text-xl md:text-2xl">
+                  {img.label}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
