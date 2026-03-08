@@ -30,7 +30,7 @@ const Navbar = () => {
             : "bg-transparent"
         }`}
       >
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="container mx-auto px-6 h-24 md:h-28 flex items-center justify-between">
           <Image
             src="/images/image-removebg-preview.png"
             alt="Atelier De Luca"
