@@ -4,19 +4,26 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const navItems = ["Services", "About", "Gallery", "Testimonials", "Contact"];
+const navKeys = ["services", "about", "gallery", "testimonials", "contact"] as const;
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { t, language, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navItems = navKeys.map((key) => ({
+    label: t.nav[key],
+    href: `#${key}`,
+  }));
 
   return (
     <>
@@ -43,29 +50,55 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.href}
+                href={item.href}
                 className={`text-sm font-sans tracking-wide transition-colors duration-200 ${
                   scrolled
                     ? "text-foreground/80 hover:text-foreground"
                     : "text-brand-secondary/80 hover:text-brand-secondary"
                 }`}
               >
-                {item}
+                {item.label}
               </Link>
             ))}
+            <button
+              onClick={toggleLanguage}
+              className={`flex items-center gap-1.5 text-sm font-sans tracking-wide transition-colors duration-200 px-3 py-1.5 rounded-full border ${
+                scrolled
+                  ? "text-foreground/80 hover:text-foreground border-border"
+                  : "text-brand-secondary/80 hover:text-brand-secondary border-brand-secondary/30"
+              }`}
+              aria-label="Toggle language"
+            >
+              <Globe className="w-4 h-4" />
+              {language === "en" ? "FR" : "EN"}
+            </button>
           </div>
-          <button
-            className="md:hidden p-2"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? (
-              <X className={`w-6 h-6 ${scrolled ? "text-foreground" : "text-brand-secondary"}`} />
-            ) : (
-              <Menu className={`w-6 h-6 ${scrolled ? "text-foreground" : "text-brand-secondary"}`} />
-            )}
-          </button>
+          <div className="flex items-center gap-3 md:hidden">
+            <button
+              onClick={toggleLanguage}
+              className={`flex items-center gap-1 text-sm font-sans px-2.5 py-1 rounded-full border ${
+                scrolled
+                  ? "text-foreground/80 border-border"
+                  : "text-brand-secondary/80 border-brand-secondary/30"
+              }`}
+              aria-label="Toggle language"
+            >
+              <Globe className="w-3.5 h-3.5" />
+              {language === "en" ? "FR" : "EN"}
+            </button>
+            <button
+              className="p-2"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? (
+                <X className={`w-6 h-6 ${scrolled ? "text-foreground" : "text-brand-secondary"}`} />
+              ) : (
+                <Menu className={`w-6 h-6 ${scrolled ? "text-foreground" : "text-brand-secondary"}`} />
+              )}
+            </button>
+          </div>
         </div>
       </motion.nav>
 
@@ -82,17 +115,17 @@ const Navbar = () => {
             <nav className="flex flex-col gap-6">
               {navItems.map((item, idx) => (
                 <motion.div
-                  key={item}
+                  key={item.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.08 }}
                 >
                   <Link
-                    href={`#${item.toLowerCase()}`}
+                    href={item.href}
                     className="font-serif text-3xl text-foreground hover:text-brand transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >
-                    {item}
+                    {item.label}
                   </Link>
                 </motion.div>
               ))}

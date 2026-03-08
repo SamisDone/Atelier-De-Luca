@@ -1,7 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/i18n/LanguageContext";
+
+const footerNavKeys = ["services", "about", "gallery", "contact"] as const;
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-brand-tertiary text-brand-secondary">
       <div className="container mx-auto px-6 py-16">
@@ -15,20 +22,20 @@ const Footer = () => {
               className="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-90 mb-6"
             />
             <p className="text-brand-secondary/60 text-sm leading-relaxed">
-              Exterior design and installation. Where expert vision meets flawless execution.
+              {t.footer.tagline}
             </p>
           </div>
 
           <div>
-            <h4 className="font-serif text-lg mb-4">Quick Links</h4>
+            <h4 className="font-serif text-lg mb-4">{t.footer.quickLinks}</h4>
             <ul className="space-y-2">
-              {["Services", "About", "Gallery", "Contact"].map((item) => (
-                <li key={item}>
+              {footerNavKeys.map((key) => (
+                <li key={key}>
                   <Link
-                    href={`#${item.toLowerCase()}`}
+                    href={`#${key}`}
                     className="text-brand-secondary/60 hover:text-brand-secondary text-sm transition-colors duration-200"
                   >
-                    {item}
+                    {t.nav[key]}
                   </Link>
                 </li>
               ))}
@@ -36,36 +43,34 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-serif text-lg mb-4">Our Services</h4>
+            <h4 className="font-serif text-lg mb-4">{t.footer.ourServices}</h4>
             <ul className="space-y-2 text-brand-secondary/60 text-sm">
-              <li>Exterior Design</li>
-              <li>Residential Installations</li>
-              <li>Driveways & Patios</li>
-              <li>Pool Surrounds & Terraces</li>
-              <li>Commercial Projects</li>
+              {t.footer.servicesList.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="font-serif text-lg mb-4">Contact</h4>
+            <h4 className="font-serif text-lg mb-4">{t.footer.contactTitle}</h4>
             <ul className="space-y-2 text-brand-secondary/60 text-sm">
-              <li>info@atelierdeluca.com</li>
-              <li>+49 123 456 7890</li>
-              <li>Berlin, Germany</li>
+              <li>{t.footer.contactInfo.email}</li>
+              <li>{t.footer.contactInfo.phone}</li>
+              <li>{t.footer.contactInfo.address}</li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-brand-secondary/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-brand-secondary/40 text-xs">
-            © {new Date().getFullYear()} Atelier De Luca. All rights reserved.
+            {t.footer.copyright.replace("{year}", new Date().getFullYear().toString())}
           </p>
           <div className="flex gap-6">
             <Link href="#" className="text-brand-secondary/40 hover:text-brand-secondary/70 text-xs transition-colors">
-              Privacy Policy
+              {t.footer.privacyPolicy}
             </Link>
             <Link href="#" className="text-brand-secondary/40 hover:text-brand-secondary/70 text-xs transition-colors">
-              Terms of Service
+              {t.footer.termsOfService}
             </Link>
           </div>
         </div>

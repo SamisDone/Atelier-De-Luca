@@ -2,27 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { Quote } from "lucide-react";
-
-const testimonials = [
-  {
-    quote:
-      "Atelier De Luca completely transformed our backyard. From the initial design consultation to the final walkthrough, their team was professional and the craftsmanship is outstanding.",
-    author: "Maria Hansen",
-    role: "Homeowner, Westmount, Montreal",
-  },
-  {
-    quote:
-      "We hired them for a large commercial plaza installation and they delivered on time, on budget, and with incredible attention to detail. Our go-to landscaping partner.",
-    author: "James Carter",
-    role: "Project Manager, Griffintown, Montreal",
-  },
-  {
-    quote:
-      "Their landscape design brought our vision to life — the patio, pool deck, and garden pathways all flow together beautifully. A truly full-service team.",
-    author: "Sofia Müller",
-    role: "Homeowner, Outremont, Montreal",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -43,6 +23,8 @@ const itemVariants: Variants = {
 };
 
 const Testimonials = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="testimonials" className="py-24 bg-brand-tertiary text-brand-secondary">
       <div className="container mx-auto px-6">
@@ -54,13 +36,13 @@ const Testimonials = () => {
           className="text-center mb-16"
         >
           <p className="text-brand-accent font-sans text-sm tracking-[0.3em] uppercase mb-4">
-            Client Stories
+            {t.testimonials.tagline}
           </p>
           <h2 className="font-serif text-4xl md:text-5xl text-brand-secondary mb-4">
-            Trusted by Homeowners & Builders
+            {t.testimonials.title}
           </h2>
           <p className="text-brand-secondary/60 max-w-xl mx-auto">
-            Hear from the clients who trusted us to design and build their outdoor spaces.
+            {t.testimonials.description}
           </p>
         </motion.div>
 
@@ -71,7 +53,7 @@ const Testimonials = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {testimonials.map((t, idx) => (
+          {t.testimonials.items.map((item, idx) => (
             <motion.div
               key={idx}
               variants={itemVariants}
@@ -79,14 +61,14 @@ const Testimonials = () => {
             >
               <Quote className="w-8 h-8 text-brand-accent mb-6 opacity-60" />
               <p className="text-brand-secondary/80 text-sm leading-relaxed italic flex-1 mb-6">
-                &ldquo;{t.quote}&rdquo;
+                &ldquo;{item.quote}&rdquo;
               </p>
               <div>
                 <p className="font-serif text-lg text-brand-secondary">
-                  {t.author}
+                  {item.author}
                 </p>
                 <p className="text-brand-secondary/50 text-xs mt-1">
-                  {t.role}
+                  {item.role}
                 </p>
               </div>
             </motion.div>

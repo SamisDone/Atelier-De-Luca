@@ -2,29 +2,17 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const services = [
-  {
-    title: "Design",
-    description:
-      "From initial concept to detailed plans, our design team creates tailored exterior environments that balance aesthetics, functionality, and the unique character of every site.",
-    image: "/images/services-pools.jpg",
-  },
-  {
-    title: "Residential",
-    description:
-      "Complete exterior transformations for homes — driveways, patios, terraces, garden landscaping, pool surrounds, and every type of outdoor surface installation.",
-    image: "/images/services-residential.jpg",
-  },
-  {
-    title: "Commercial & Municipal",
-    description:
-      "Large-scale exterior design and installation for public spaces, corporate plazas, hospitality venues, and commercial developments — built to last.",
-    image: "/images/services-commercial.jpg",
-  },
+const serviceImages = [
+  "/images/services-pools.jpg",
+  "/images/services-residential.jpg",
+  "/images/services-commercial.jpg",
 ];
 
 const Services = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="services" className="py-24 bg-card">
       <div className="container mx-auto px-6">
@@ -36,14 +24,14 @@ const Services = () => {
           className="text-center mb-4"
         >
           <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
-            Our Services
+            {t.services.tagline}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {services.map((service, idx) => (
+          {t.services.items.map((service, idx) => (
             <motion.div
-              key={service.title}
+              key={idx}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -52,7 +40,7 @@ const Services = () => {
             >
               <div className="relative aspect-video rounded-xl overflow-hidden mb-6">
                 <Image
-                  src={service.image}
+                  src={serviceImages[idx]}
                   alt={service.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
