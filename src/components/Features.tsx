@@ -62,7 +62,7 @@ const Features = () => {
             Expert Installation & Landscaping
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            We don&apos;t sell products — we design, build, and install complete outdoor living spaces tailored to your vision.
+            From concept to completion, our dedicated team handles every detail of your outdoor transformation.
           </p>
         </motion.div>
 
