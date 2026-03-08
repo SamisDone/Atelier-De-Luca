@@ -1,12 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import SystemDetails from "@/components/SystemDetails";
+import Services from "@/components/Services";
+import About from "@/components/About";
 import Features from "@/components/Features";
 import Stats from "@/components/Stats";
-import SpecsTable from "@/components/SpecsTable";
+import VideoShowcase from "@/components/VideoShowcase";
 import Gallery from "@/components/Gallery";
+import ProcessTimeline from "@/components/ProcessTimeline";
 import Testimonials from "@/components/Testimonials";
-import Calculator from "@/components/Calculator";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -15,13 +16,14 @@ export default function Home() {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
       <Hero />
-      <SystemDetails />
+      <Services />
+      <About />
       <Features />
       <Stats />
-      <SpecsTable />
+      <VideoShowcase />
       <Gallery />
+      <ProcessTimeline />
       <Testimonials />
-      <Calculator />
       <Contact />
       <Footer />
     </div>
