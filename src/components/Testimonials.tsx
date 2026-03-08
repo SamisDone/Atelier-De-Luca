@@ -44,7 +44,7 @@ const itemVariants: Variants = {
 
 const Testimonials = () => {
   return (
-    <section className="py-24 bg-brand-tertiary text-brand-secondary">
+    <section id="testimonials" className="py-24 bg-brand-tertiary text-brand-secondary">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
