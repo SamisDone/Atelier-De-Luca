@@ -38,30 +38,31 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const toggleLanguage = useCallback(() => {
     const nextLang = language === "en" ? "fr" : "en";
     
-    // Start transition
+    // 1. Start transition immediately
     setIsTransitioning(true);
     
+    // 2. Wait for overlay to become fully opaque
     setTimeout(() => {
-      // Set Google Translate cookie
+      // 3. Set Google Translate cookie
       document.cookie = `googtrans=/en/${nextLang}; path=/`; 
       
       setLanguage(nextLang);
       
-      // Trigger Google Translate change if initialized
+      // 4. Trigger Google Translate change if initialized
       const select = document.querySelector(".goog-te-combo") as HTMLSelectElement;
       if (select) {
         select.value = nextLang;
         select.dispatchEvent(new Event("change"));
         
-        // Wait for translation engine to work before revealing
+        // 5. Wait for translation engine to work before revealing
         setTimeout(() => {
           setIsTransitioning(false);
-        }, 600);
+        }, 1200); // Generous hold time to ensure DOM is updated
       } else {
-        // If the engine isn't ready, a reload will happen (natural transition)
+        // Fallback for first-time init
         window.location.reload();
       }
-    }, 300);
+    }, 250); // Buffer to ensure opacity: 1
   }, [language]);
 
   return (
