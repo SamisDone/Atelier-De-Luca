@@ -69,30 +69,32 @@ const VideoShowcase = () => {
 
         <div
           ref={stripRef}
-          className="flex gap-6 px-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4"
+          className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4"
         >
-            {showcaseImages.map((img, i) => (
-              <motion.div
-                key={img.label}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="relative flex-shrink-0 w-[70vw] md:w-[40vw] lg:w-[30vw] aspect-[4/5] rounded-2xl overflow-hidden group snap-center"
-              >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                  style={{ backgroundImage: `url(${img.src})` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-tertiary/70 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6">
-                  <p className="text-brand-secondary font-serif text-xl md:text-2xl">
-                    {img.label}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <div className="flex-shrink-0 w-6" aria-hidden />
+          {showcaseImages.map((img, i) => (
+            <motion.div
+              key={img.label}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="relative flex-shrink-0 w-[70vw] md:w-[40vw] lg:w-[30vw] aspect-[4/5] rounded-2xl overflow-hidden group snap-center"
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: `url(${img.src})` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-tertiary/70 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6">
+                <p className="text-brand-secondary font-serif text-xl md:text-2xl">
+                  {img.label}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+          <div className="flex-shrink-0 w-6" aria-hidden />
+        </div>
       </div>
     </section>
   );
