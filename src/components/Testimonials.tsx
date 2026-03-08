@@ -8,19 +8,19 @@ const testimonials = [
     quote:
       "Atelier De Luca completely transformed our backyard. From the initial design consultation to the final walkthrough, their team was professional and the craftsmanship is outstanding.",
     author: "Maria Hansen",
-    role: "Homeowner, Westmount, Montrealunt, Montreal",
+    role: "Homeowner, Westmount, Montrealunt, Montrealunt, Montreal",
   },
   {
     quote:
       "We hired them for a large commercial plaza installation and they delivered on time, on budget, and with incredible attention to detail. Our go-to landscaping partner.",
     author: "James Carter",
-    role: "ProjGriffintown, Montreale Development",
+  Griffintown, Montrealwn, Montreale Development",
   },
   {
     quote:
       "Their landscape design brought our vision to life — the patio, pool deck, and garden pathways all flow together beautifully. A truly full-service team.",
     author: "Sofia Müller",
-    role: "Homeowner, Berlin",
+    role: Outremont, Montrealwner, Berlin",
   },
 ];
 
