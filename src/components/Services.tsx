@@ -5,9 +5,9 @@ import Image from "next/image";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const serviceImages = [
-  "/images/curated-landscape-2.jpg",
-  "/images/curated-masonry-1.jpg",
-  "/images/curated-alternative-2.jpg",
+  "/images/venza.jpg",
+  "/images/oslo.jpg",
+  "/images/striato.jpg",
 ];
 
 const Services = () => {

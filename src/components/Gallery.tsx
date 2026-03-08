@@ -7,12 +7,12 @@ import { cn } from "@/lib/utils";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const projectImages = [
-  "/images/curated-alternative-3.jpg",
-  "/images/curated-landscape-3.jpg",
-  "/images/curated-masonry-2.jpg",
-  "/images/curated-masonry-3.jpg",
-  "/images/hero-terrace.jpg",
-  "/images/about-aerial.jpg",
+  "/images/proma-xl.jpg",
+  "/images/zuko-flex.jpg",
+  "/images/ora-step.jpg",
+  "/images/clayden.jpg",
+  "/images/roxton.jpg",
+  "/images/alonso.jpg",
 ];
 
 const itemVariants: Variants = {

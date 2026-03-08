@@ -18,7 +18,7 @@ const About = () => {
     <section ref={ref} id="about" className="relative overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0 -top-[15%] h-[130%] w-full z-0">
         <Image
-          src="/images/curated-alternative-1.jpg"
+          src="/images/londana.jpg"
           alt="Aerial view of landscaping project"
           fill
           sizes="100vw"

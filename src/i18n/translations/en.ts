@@ -231,12 +231,12 @@ const en: Translations = {
       "Explore our featured landscaping and installation projects across residential and commercial spaces.",
     filterAll: "All",
     projects: [
-      { title: "Skyline Rooftop Terrace", category: "Rooftop", location: "Manhattan, NY" },
-      { title: "Villa Garden Patio", category: "Patio", location: "Provence, France" },
-      { title: "Penthouse Balcony", category: "Balcony", location: "London, UK" },
-      { title: "Mediterranean Pool Deck", category: "Pool", location: "Mallorca, Spain" },
-      { title: "Corporate Plaza Entrance", category: "Commercial", location: "Berlin, Germany" },
-      { title: "Modern Garden Pathway", category: "Garden", location: "Kyoto, Japan" },
+      { title: "Proma XL Patio", category: "Landscape", location: "Montreal" },
+      { title: "Zuko Flex Driveway", category: "Landscape", location: "Westmount" },
+      { title: "Ora Step Garden", category: "Landscape", location: "Outremont" },
+      { title: "Clayden Stone Wall", category: "Masonry", location: "Laval" },
+      { title: "Roxton Exterior", category: "Masonry", location: "Brossard" },
+      { title: "Alonso Retaining Wall", category: "Alternative Masonry", location: "Mount Royal" },
     ],
   },
 

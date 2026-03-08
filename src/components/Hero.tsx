@@ -40,7 +40,7 @@ const Hero = () => {
     <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-28 md:pt-32">
       <motion.div style={{ y }} className="absolute inset-0 -top-[20%] h-[120%] w-full z-0">
         <Image
-          src="/images/curated-landscape-1.jpg"
+          src="/images/nolita.jpg"
           alt="Premium exterior design and installation"
           fill
           priority
