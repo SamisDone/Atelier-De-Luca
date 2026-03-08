@@ -35,7 +35,7 @@ const Hero = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+    <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-28 md:pt-32">
       <motion.div style={{ y }} className="absolute inset-0 -top-[20%] h-[120%] w-full z-0">
         <Image
           src="/images/hero-terrace.jpg"
