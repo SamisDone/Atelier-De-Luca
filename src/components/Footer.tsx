@@ -22,7 +22,7 @@ const Footer = () => {
           <div>
             <h4 className="font-serif text-lg mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {["Services", "About", "Features", "Gallery", "Contact"].map((item) => (
+              {["Services", "About", "Gallery", "Contact"].map((item) => (
                 <li key={item}>
                   <Link
                     href={`#${item.toLowerCase()}`}
