@@ -1,4 +1,39 @@
-const en = {
+interface TranslationItem {
+  title: string;
+  description: string;
+}
+
+interface StatItem {
+  value: string;
+  label: string;
+}
+
+interface ProjectItem {
+  title: string;
+  category: string;
+  location: string;
+}
+
+interface TestimonialItem {
+  quote: string;
+  author: string;
+  role: string;
+}
+
+export interface Translations {
+  nav: { services: string; about: string; gallery: string; testimonials: string; contact: string };
+  hero: { tagline: string; titleLine1: string; titleLine2: string; description: string; viewProjects: string; contactUs: string; scroll: string };
+  services: { tagline: string; items: TranslationItem[] };
+  about: { tagline: string; title: string; description1: string; description2: string; stats: StatItem[] };
+  features: { tagline: string; title: string; description: string; items: TranslationItem[] };
+  gallery: { tagline: string; title: string; description: string; filterAll: string; projects: ProjectItem[] };
+  videoShowcase: { tagline: string; title: string; description: string; labels: string[] };
+  testimonials: { tagline: string; title: string; description: string; items: TestimonialItem[] };
+  contact: { tagline: string; title: string; description: string; nameLabel: string; namePlaceholder: string; emailLabel: string; emailPlaceholder: string; messageLabel: string; messagePlaceholder: string; submit: string };
+  footer: { tagline: string; quickLinks: string; ourServices: string; contactTitle: string; servicesList: string[]; contactInfo: { email: string; phone: string; address: string }; copyright: string; privacyPolicy: string; termsOfService: string };
+}
+
+const en: Translations = {
   // Navbar
   nav: {
     services: "Services",
