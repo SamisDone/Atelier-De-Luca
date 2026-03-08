@@ -15,6 +15,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("en");
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Sync with googtrans cookie and HTML lang
   useEffect(() => {
@@ -37,20 +38,30 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const toggleLanguage = useCallback(() => {
     const nextLang = language === "en" ? "fr" : "en";
     
-    // Set Google Translate cookie - Use simple path and no domain for max compatibility
-    document.cookie = `googtrans=/en/${nextLang}; path=/`; 
+    // Start transition
+    setIsTransitioning(true);
     
-    setLanguage(nextLang);
-    
-    // Trigger Google Translate change if initialized
-    const select = document.querySelector(".goog-te-combo") as HTMLSelectElement;
-    if (select) {
-      select.value = nextLang;
-      select.dispatchEvent(new Event("change"));
-    } else {
-      // If the engine isn't ready, a reload will pick up the cookie
-      window.location.reload();
-    }
+    setTimeout(() => {
+      // Set Google Translate cookie
+      document.cookie = `googtrans=/en/${nextLang}; path=/`; 
+      
+      setLanguage(nextLang);
+      
+      // Trigger Google Translate change if initialized
+      const select = document.querySelector(".goog-te-combo") as HTMLSelectElement;
+      if (select) {
+        select.value = nextLang;
+        select.dispatchEvent(new Event("change"));
+        
+        // Wait for translation engine to work before revealing
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 600);
+      } else {
+        // If the engine isn't ready, a reload will happen (natural transition)
+        window.location.reload();
+      }
+    }, 300);
   }, [language]);
 
   return (
@@ -62,6 +73,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         toggleLanguage,
       }}
     >
+      <div className={`lang-transition-overlay ${isTransitioning ? "active" : ""}`} />
       {children}
     </LanguageContext.Provider>
   );
