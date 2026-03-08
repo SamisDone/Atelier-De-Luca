@@ -20,7 +20,7 @@ const VideoShowcase = () => {
     offset: ["start end", "end start"],
   });
 
-  const parallaxX = useTransform(scrollYProgress, [0, 1], ["0px", "-120px"]);
+  const parallaxX = useTransform(scrollYProgress, [0, 1], ["0px", "-60px"]);
 
   const scroll = useCallback((direction: "left" | "right") => {
     if (!stripRef.current) return;
