@@ -59,7 +59,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-brand-accent font-sans text-sm tracking-[0.3em] uppercase mb-6"
         >
-          Landscaping & Porcelain Installation
+          Design & Exterior Installation
         </motion.p>
 
         <motion.h1
