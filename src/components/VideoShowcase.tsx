@@ -5,14 +5,14 @@ import { useRef, useEffect, useCallback, useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const baseSrcs = [
-  "/images/gallery-pool.jpg",
-  "/images/gallery-rooftop.jpg",
-  "/images/gallery-patio.jpg",
-  "/images/gallery-garden.jpg",
-  "/images/gallery-balcony.jpg",
-  "/images/gallery-commercial.jpg",
-  "/images/services-residential.jpg",
-  "/images/services-pools.jpg",
+  "/images/proma-xl.jpg",
+  "/images/zuko-flex.jpg",
+  "/images/clayden.jpg",
+  "/images/oslo.jpg",
+  "/images/striato.jpg",
+  "/images/roxton.jpg",
+  "/images/alonso.jpg",
+  "/images/venza.jpg",
 ];
 
 const VideoShowcase = () => {
