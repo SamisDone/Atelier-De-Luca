@@ -62,7 +62,7 @@ const VideoShowcase = () => {
         </motion.div>
       </div>
 
-      {/* Full-bleed carousel — no side whitespace, no arrows */}
+      {/* Carousel with equal side whitespace */}
       <div
         className="relative overflow-hidden"
         onMouseEnter={() => setIsHovered(true)}
@@ -70,7 +70,7 @@ const VideoShowcase = () => {
       >
         <div
           ref={stripRef}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-6"
         >
           {showcaseImages.map((img, i) => (
             <motion.div
