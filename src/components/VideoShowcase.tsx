@@ -100,7 +100,6 @@ const VideoShowcase = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
       </div>
     </section>
   );
