@@ -27,8 +27,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const currentTrans = getCookie("googtrans");
     if (currentTrans === "/en/fr") {
       setLanguage("fr");
+      document.documentElement.classList.remove("notranslate");
     } else {
       setLanguage("en");
+      document.documentElement.classList.add("notranslate");
     }
 
     document.documentElement.lang = language;
@@ -37,6 +39,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const toggleLanguage = useCallback(() => {
     const nextLang = language === "en" ? "fr" : "en";
     
+    // Manage notranslate class for the engine
+    if (nextLang === "fr") {
+      document.documentElement.classList.remove("notranslate");
+    } else {
+      document.documentElement.classList.add("notranslate");
+    }
+
     // Set Google Translate cookie
     document.cookie = `googtrans=/en/${nextLang}; path=/; domain=${window.location.hostname}`;
     document.cookie = `googtrans=/en/${nextLang}; path=/`; // Fallback for localhost

@@ -48,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="notranslate">
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
         <SkipToContent />
         <Providers>
@@ -67,7 +67,8 @@ export default function RootLayout({
                 pageLanguage: 'en',
                 includedLanguages: 'en,fr',
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
+                autoDisplay: false,
+                multilanguagePage: true
               }, 'google_translate_element');
             }
           `}
