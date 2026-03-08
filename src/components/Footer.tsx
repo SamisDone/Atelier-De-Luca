@@ -6,7 +6,6 @@ const Footer = () => {
     <footer className="bg-brand-tertiary text-brand-secondary">
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
           <div className="md:col-span-1">
             <Image
               src="/images/image-removebg-preview.png"
@@ -16,15 +15,14 @@ const Footer = () => {
               className="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-90 mb-6"
             />
             <p className="text-brand-secondary/60 text-sm leading-relaxed">
-              Premium porcelain tile installations on adjustable pedestal systems. Engineered for beauty, built to endure.
+              Premium landscaping and porcelain installation. Where expert design meets flawless execution.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="font-serif text-lg mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {["Systems", "Features", "Specifications", "Gallery", "Calculator", "Contact"].map((item) => (
+              {["Services", "About", "Features", "Gallery", "Contact"].map((item) => (
                 <li key={item}>
                   <Link
                     href={`#${item.toLowerCase()}`}
@@ -37,19 +35,17 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services */}
           <div>
             <h4 className="font-serif text-lg mb-4">Our Services</h4>
             <ul className="space-y-2 text-brand-secondary/60 text-sm">
-              <li>Rooftop Terrace Systems</li>
+              <li>Pool & Water Features</li>
+              <li>Residential Landscaping</li>
+              <li>Rooftop Terraces</li>
               <li>Patio Installations</li>
-              <li>Pool Surrounds</li>
-              <li>Balcony Solutions</li>
               <li>Commercial Projects</li>
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
             <h4 className="font-serif text-lg mb-4">Contact</h4>
             <ul className="space-y-2 text-brand-secondary/60 text-sm">
@@ -70,9 +66,6 @@ const Footer = () => {
             </Link>
             <Link href="#" className="text-brand-secondary/40 hover:text-brand-secondary/70 text-xs transition-colors">
               Terms of Service
-            </Link>
-            <Link href="#" className="text-brand-secondary/40 hover:text-brand-secondary/70 text-xs transition-colors">
-              Imprint
             </Link>
           </div>
         </div>
