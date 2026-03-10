@@ -82,7 +82,6 @@
   /* tailwindcss v3 base layers */
   html {
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
     overscroll-behavior-y: none;
   }
   body {

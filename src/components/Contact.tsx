@@ -8,7 +8,7 @@ const Contact = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="h-[100svh] w-full flex-shrink-0 snap-start bg-background relative overflow-hidden flex flex-col items-center justify-center">
+    <section id="contact" className="min-h-[100svh] w-full bg-background relative overflow-hidden flex flex-col items-center justify-center">
       <div className="container relative z-10 mx-auto px-6 h-full flex flex-col justify-center pt-28 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.95 }}

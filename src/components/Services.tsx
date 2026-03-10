@@ -34,7 +34,7 @@ const Services = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="services" className="relative h-[100svh] w-full flex-shrink-0 snap-start flex flex-col items-center justify-center overflow-hidden bg-card">
+    <section id="services" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden bg-card">
       <div className="container mx-auto px-6 h-full w-full flex flex-col justify-around pt-28 pb-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

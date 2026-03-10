@@ -27,7 +27,7 @@ const Testimonials = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="testimonials" className="relative h-[100svh] w-full flex-shrink-0 snap-start flex flex-col items-center justify-center overflow-hidden bg-brand-tertiary text-brand-secondary">
+    <section id="testimonials" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden bg-brand-tertiary text-brand-secondary">
       {/* Skewed top divider */}
       <div
         className="absolute top-0 left-0 right-0 h-20 bg-background z-10"

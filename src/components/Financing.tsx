@@ -69,7 +69,7 @@ export default function Financing() {
   const t = content[language as keyof typeof content] || content.en;
 
   return (
-    <section ref={sectionRef} id="financing" className="relative h-[100svh] w-full flex-shrink-0 snap-start flex flex-col items-center justify-center overflow-hidden bg-brand-tertiary text-brand-secondary">
+    <section ref={sectionRef} id="financing" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden bg-brand-tertiary text-brand-secondary">
       {/* Skewed top divider */}
       <div
         className="absolute top-0 left-0 right-0 h-24 bg-background z-10"
