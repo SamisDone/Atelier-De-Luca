@@ -38,7 +38,7 @@ export interface SystemBenefit {
  * Note: French (fr.ts) is automatically kept in sync via AI-managed automation.
  */
 export interface Translations {
-  nav: { services: string; about: string; gallery: string; financing: string; testimonials: string; contact: string };
+  nav: { services: string; about: string; gallery: string; videos: string; financing: string; testimonials: string; contact: string };
   hero: { tagline: string; titleLine1: string; titleLine2: string; description: string; viewProjects: string; contactUs: string; scroll: string };
   systems: { tagline: string; title: string; description: string; items: SystemBenefit[] };
   specs: { tagline: string; title: string; description: string; columns: { property: string; value: string; standard: string; rating: string }; items: SpecItem[] };
@@ -74,6 +74,7 @@ const en: Translations = {
     services: "Services",
     about: "About",
     gallery: "Gallery",
+    videos: "Craftsmanship",
     financing: "Financing",
     testimonials: "Testimonials",
     contact: "Contact",

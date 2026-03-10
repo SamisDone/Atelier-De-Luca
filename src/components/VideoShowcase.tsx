@@ -22,6 +22,7 @@ const VideoShowcase = () => {
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeftStart = useRef(0);
+  const currentScroll = useRef(0);
   const { t } = useLanguage();
 
   const baseImages = baseSrcs.map((src, i) => ({
@@ -36,10 +37,11 @@ const VideoShowcase = () => {
       return;
     }
     const el = stripRef.current;
-    el.scrollLeft += 0.5;
-    if (el.scrollLeft >= el.scrollWidth / 2) {
-      el.scrollLeft = 0;
+    currentScroll.current += 1;
+    if (currentScroll.current >= el.scrollWidth / 2) {
+      currentScroll.current = 0;
     }
+    el.scrollLeft = currentScroll.current;
     animationRef.current = requestAnimationFrame(animate);
   }, [isAutoScrolling]);
 
@@ -64,6 +66,7 @@ const VideoShowcase = () => {
     if (!isDragging.current || !stripRef.current) return;
     const dx = e.clientX - startX.current;
     stripRef.current.scrollLeft = scrollLeftStart.current - dx;
+    currentScroll.current = stripRef.current.scrollLeft;
   }, []);
 
   const handlePointerUp = useCallback((e: React.PointerEvent) => {

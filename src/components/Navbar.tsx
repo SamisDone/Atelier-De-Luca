@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Menu, X, Globe } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const navKeys = ["about", "services", "gallery", "financing", "testimonials", "contact"] as const;
+const navKeys = ["about", "services", "gallery", "videos", "financing", "testimonials", "contact"] as const;
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
