@@ -17,16 +17,8 @@ const About = () => {
 
   return (
     <section ref={ref} id="about" className="relative overflow-hidden min-h-[90svh] flex items-center">
-      <motion.div style={{ y }} className="absolute inset-0 -top-[15%] h-[130%] w-full z-0">
-        <Image
-          src="/images/londana.jpg"
-          alt="Aerial view of landscaping project"
-          fill
-          sizes="100vw"
-          className="object-cover"
-        />
-      </motion.div>
-      <div className="absolute inset-0 bg-brand-tertiary/60 z-0" />
+      <div className="absolute inset-0 bg-brand-primary z-0" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-0" />
 
       <div className="relative z-10 container mx-auto px-6 py-32">
         {/* Asymmetric two-column editorial layout */}
@@ -47,10 +39,10 @@ const About = () => {
               }, 100);
             }}
           >
-            <p className="text-brand-accent font-sans text-sm tracking-[0.4em] uppercase mb-6">
+            <p className="text-brand-tertiary/70 font-sans text-sm tracking-[0.4em] uppercase mb-6">
               {t.about.tagline}
             </p>
-            <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl text-brand-secondary leading-[0.9] tracking-tight ink-reveal transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]"
+            <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl text-brand-tertiary leading-[0.9] tracking-tight ink-reveal transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]"
                 {...( { "data-in-view": true } as object ) /* Hack to trigger revealed class from motion parent */}
             >
               {t.about.title}
@@ -65,10 +57,10 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
           >
-            <p className="text-brand-secondary/85 text-xl leading-relaxed mb-8 font-sans">
+            <p className="text-brand-tertiary/85 text-xl leading-relaxed mb-8 font-sans">
               {t.about.description1}
             </p>
-            <p className="text-brand-secondary/65 text-base leading-relaxed font-sans">
+            <p className="text-brand-tertiary/65 text-base leading-relaxed font-sans">
               {t.about.description2}
             </p>
           </motion.div>
@@ -76,7 +68,7 @@ const About = () => {
 
         {/* Stats row with staggered reveal */}
         <motion.div
-          className="grid grid-cols-3 gap-8 border-t border-brand-secondary/15 pt-14"
+          className="grid grid-cols-3 gap-8 border-t border-brand-tertiary/15 pt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -99,10 +91,10 @@ const About = () => {
               } as any}
               className="text-center"
             >
-              <p className="font-serif text-5xl md:text-7xl text-brand-secondary font-bold mb-3 tracking-tight">
+              <p className="font-serif text-5xl md:text-7xl text-brand-tertiary font-bold mb-3 tracking-tight">
                 {stat.value}
               </p>
-              <p className="text-brand-secondary/45 text-sm font-sans tracking-widest uppercase">
+              <p className="text-brand-tertiary/45 text-sm font-sans tracking-widest uppercase">
                 {stat.label}
               </p>
             </motion.div>

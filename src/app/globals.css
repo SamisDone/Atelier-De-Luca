@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 20 14.3% 4.1%;
-  --card: 0 0% 100%;
-  --card-foreground: 20 14.3% 4.1%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 20 14.3% 4.1%;
+  /* Set root background to brand-primary (Burgundy) */
+  --background: 355 37% 18%; 
+  /* Set root foreground to brand-tertiary (Cream) */
+  --foreground: 60 4.8% 95.9%;
+  
+  --card: 355 37% 18%;
+  --card-foreground: 60 4.8% 95.9%;
+  --popover: 355 37% 18%;
+  --popover-foreground: 60 4.8% 95.9%;
   --primary: 355 37% 18%;
   --primary-foreground: 60 9.1% 97.8%;
   --secondary: 60 4.8% 95.9%;

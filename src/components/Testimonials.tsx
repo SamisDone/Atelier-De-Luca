@@ -27,10 +27,10 @@ const Testimonials = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="testimonials" className="relative py-28 bg-brand-tertiary text-brand-secondary overflow-hidden min-h-[80svh] flex items-center">
+    <section id="testimonials" className="relative py-28 bg-brand-primary text-brand-tertiary overflow-hidden min-h-[80svh] flex items-center">
       {/* Skewed top divider */}
       <div
-        className="absolute top-0 left-0 right-0 h-20 bg-card z-10"
+        className="absolute top-0 left-0 right-0 h-20 bg-brand-primary z-10"
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 40%)" }}
       />
 
@@ -42,14 +42,14 @@ const Testimonials = () => {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <p className="text-brand-accent font-sans text-sm tracking-[0.4em] uppercase mb-4">
+          <p className="text-brand-tertiary/70 font-sans text-sm tracking-[0.4em] uppercase mb-4">
             {t.testimonials.tagline}
           </p>
           {/* Editorial oversized heading */}
-          <h2 className="font-serif text-5xl md:text-7xl text-brand-secondary mb-4 tracking-tight leading-[0.95]">
+          <h2 className="font-serif text-5xl md:text-7xl text-brand-tertiary mb-4 tracking-tight leading-[0.95]">
             {t.testimonials.title}
           </h2>
-          <p className="text-brand-secondary/55 max-w-xl text-lg">
+          <p className="text-brand-tertiary/60 max-w-xl text-lg">
             {t.testimonials.description}
           </p>
         </motion.div>
@@ -66,17 +66,17 @@ const Testimonials = () => {
               key={idx}
               variants={itemVariants}
               data-cursor="READ"
-              className="bg-white/5 border border-white/8 rounded-2xl p-8 flex flex-col hover:bg-white/8 hover:border-primary/30 transition-all duration-500"
+              className="bg-white/5 border border-white/8 rounded-2xl p-8 flex flex-col hover:bg-white/10 hover:border-brand-tertiary/30 transition-all duration-500"
             >
-              <Quote className="w-8 h-8 text-brand-accent mb-6 opacity-40" />
-              <p className="text-brand-secondary/80 text-sm leading-relaxed italic flex-1 mb-8 font-sans">
+              <Quote className="w-8 h-8 text-brand-tertiary/40 mb-6" />
+              <p className="text-brand-tertiary/80 text-sm leading-relaxed italic flex-1 mb-8 font-sans">
                 &ldquo;{item.quote}&rdquo;
               </p>
-              <div className="border-t border-brand-secondary/10 pt-5">
-                <p className="font-serif text-lg text-brand-secondary">
+              <div className="border-t border-brand-tertiary/10 pt-5">
+                <p className="font-serif text-lg text-brand-tertiary">
                   {item.author}
                 </p>
-                <p className="text-brand-secondary/45 text-xs mt-1 tracking-wide uppercase">
+                <p className="text-brand-tertiary/45 text-xs mt-1 tracking-wide uppercase">
                   {item.role}
                 </p>
               </div>

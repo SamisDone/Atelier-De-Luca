@@ -69,17 +69,17 @@ export default function Financing() {
   const t = content[language as keyof typeof content] || content.en;
 
   return (
-    <section ref={sectionRef} id="financing" className="relative py-28 bg-brand-tertiary text-brand-secondary overflow-hidden min-h-[90svh] flex items-center">
+    <section ref={sectionRef} id="financing" className="relative py-28 bg-brand-primary text-brand-tertiary overflow-hidden min-h-[90svh] flex items-center">
       {/* Skewed top divider */}
       <div
-        className="absolute top-0 left-0 right-0 h-24 bg-background z-10"
+        className="absolute top-0 left-0 right-0 h-24 bg-brand-primary z-10"
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 60%, 0 100%)" }}
       />
 
       {/* Dynamic parallax background glow */}
       <motion.div className="absolute inset-0 opacity-15 pointer-events-none" style={{ y: bgY }}>
-        <div className="absolute top-1/3 -left-32 w-[500px] h-[500px] bg-primary/40 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/30 rounded-full blur-[120px] animate-pulse" />
+        <div className="absolute top-1/3 -left-32 w-[500px] h-[500px] bg-brand-tertiary/10 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-brand-tertiary/10 rounded-full blur-[120px] animate-pulse" />
       </motion.div>
       
       <div className="container mx-auto px-6 relative z-10 pt-8">
@@ -98,11 +98,11 @@ export default function Financing() {
                 }, 100);
               }}
             >
-              <span className="text-brand-accent font-sans text-sm tracking-[0.4em] uppercase mb-6 block">
+              <span className="text-brand-tertiary/70 font-sans text-sm tracking-[0.4em] uppercase mb-6 block">
                 {t.tagline}
               </span>
               {/* Editorial oversized heading */}
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif text-brand-secondary leading-[0.95] tracking-tight ink-reveal transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]"
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif text-brand-tertiary leading-[0.95] tracking-tight ink-reveal transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]"
                   {...( { "data-in-view": true } as object )}
               >
                 {t.title}
@@ -114,7 +114,7 @@ export default function Financing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg md:text-xl text-brand-secondary/80 font-sans max-w-2xl leading-relaxed"
+              className="text-lg md:text-xl text-brand-tertiary/80 font-sans max-w-2xl leading-relaxed"
             >
               {t.description}
             </motion.p>
@@ -125,12 +125,12 @@ export default function Financing() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <button className="group relative px-10 py-4 bg-primary text-primary-foreground text-sm font-sans tracking-widest uppercase overflow-hidden mt-4 rounded-full">
+              <button className="group relative px-10 py-4 bg-brand-tertiary text-brand-primary text-sm font-sans tracking-widest uppercase overflow-hidden mt-4 rounded-full">
                 <span className="relative z-10 flex items-center gap-3">
                   {t.cta}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
                 </span>
-                <div className="absolute inset-0 bg-white/15 transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out z-0 rounded-full" />
+                <div className="absolute inset-0 bg-black/10 transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out z-0 rounded-full" />
               </button>
             </motion.div>
           </div>
@@ -146,13 +146,13 @@ export default function Financing() {
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: 0.3 + index * 0.12 }}
-                  className={`bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 ${index === 2 ? 'sm:col-span-2' : ''}`}
+                  className={`bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 hover:border-brand-tertiary/40 hover:shadow-2xl hover:shadow-black/50 transition-all duration-500 ${index === 2 ? 'sm:col-span-2' : ''}`}
                 >
-                  <div className="w-14 h-14 rounded-xl bg-brand-accent/15 flex items-center justify-center mb-6">
-                    <Icon className="w-7 h-7 text-brand-accent" />
+                  <div className="w-14 h-14 rounded-xl bg-brand-tertiary/10 flex items-center justify-center mb-6">
+                    <Icon className="w-7 h-7 text-brand-tertiary" />
                   </div>
-                  <h3 className="text-xl font-serif text-brand-secondary mb-3">{feature.title}</h3>
-                  <p className="text-brand-secondary/65 font-sans text-sm leading-relaxed">
+                  <h3 className="text-xl font-serif text-brand-tertiary mb-3">{feature.title}</h3>
+                  <p className="text-brand-tertiary/65 font-sans text-sm leading-relaxed">
                     {feature.description}
                   </p>
                 </motion.div>
@@ -164,7 +164,7 @@ export default function Financing() {
 
       {/* Skewed bottom divider */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-24 bg-card z-10"
+        className="absolute bottom-0 left-0 right-0 h-24 bg-brand-primary z-10"
         style={{ clipPath: "polygon(0 40%, 100% 0, 100% 100%, 0 100%)" }}
       />
     </section>
