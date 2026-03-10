@@ -7,18 +7,27 @@ import Link from "next/link";
 import { Menu, X, Globe } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
+import { useScrollContainer } from "./ScrollContainerContext";
+
 const navKeys = ["about", "services", "gallery", "financing", "testimonials", "contact"] as const;
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t, language, toggleLanguage } = useLanguage();
+  const containerRef = useScrollContainer();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const container = containerRef?.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      setScrolled(container.scrollTop > 50);
+    };
+
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, [containerRef]);
 
   const navItems = navKeys.map((key) => ({
     label: t.nav[key],

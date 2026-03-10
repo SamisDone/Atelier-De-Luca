@@ -9,9 +9,11 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
+import { ScrollContainerProvider } from "@/components/ScrollContainerContext";
+
 export default function Home() {
   return (
-    <div className="h-[100svh] w-full overflow-y-scroll overflow-x-hidden snap-y snap-mandatory bg-background relative scroll-smooth scrollbar-hide">
+    <ScrollContainerProvider>
       <Navbar />
       <Hero />
       <About />
@@ -22,6 +24,6 @@ export default function Home() {
       <Testimonials />
       <Contact />
       <Footer />
-    </div>
+    </ScrollContainerProvider>
   );
 }

@@ -2,6 +2,8 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 
+import { useScrollContainer } from "./ScrollContainerContext";
+
 const sections = [
   { id: "about", label: "About" },
   { id: "services", label: "Services" },
@@ -12,8 +14,12 @@ const sections = [
 ];
 
 export default function ScrollProgress() {
-  const { scrollYProgress } = useScroll();
+  const containerRef = useScrollContainer();
+  const { scrollYProgress } = useScroll({ container: containerRef as any });
   const iconY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+  // Need to render out if ref isn't ready
+  if (!containerRef) return null;
 
   return (
     <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center h-[50vh] mix-blend-difference text-white">
