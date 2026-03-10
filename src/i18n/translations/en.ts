@@ -38,7 +38,7 @@ export interface SystemBenefit {
  * Note: French (fr.ts) is automatically kept in sync via AI-managed automation.
  */
 export interface Translations {
-  nav: { services: string; about: string; gallery: string; testimonials: string; contact: string };
+  nav: { services: string; about: string; gallery: string; financing: string; testimonials: string; contact: string };
   hero: { tagline: string; titleLine1: string; titleLine2: string; description: string; viewProjects: string; contactUs: string; scroll: string };
   systems: { tagline: string; title: string; description: string; items: SystemBenefit[] };
   specs: { tagline: string; title: string; description: string; columns: { property: string; value: string; standard: string; rating: string }; items: SpecItem[] };
@@ -74,6 +74,7 @@ const en: Translations = {
     services: "Services",
     about: "About",
     gallery: "Gallery",
+    financing: "Financing",
     testimonials: "Testimonials",
     contact: "Contact",
   },
@@ -93,7 +94,7 @@ const en: Translations = {
   // Systems
   systems: {
     tagline: "The System",
-    title: "Why Atelier De Luca Pedestals",
+    title: "Why PIERRA Pedestals",
     description: "Engineered advantages that make our pedestal system the choice of architects worldwide.",
     items: [
       {
@@ -119,7 +120,7 @@ const en: Translations = {
   specs: {
     tagline: "Performance Data",
     title: "Technical Specifications",
-    description: "Every Atelier De Luca installation exceeds international standards for exterior applications.",
+    description: "Every PIERRA installation exceeds international standards for exterior applications.",
     columns: {
       property: "Property",
       value: "Value",
@@ -166,9 +167,9 @@ const en: Translations = {
           "From initial concept to detailed plans, our design team creates tailored exterior environments that balance aesthetics, functionality, and the unique character of every site.",
       },
       {
-        title: "Residential",
+        title: "Residential Landscaping",
         description:
-          "Complete exterior transformations for homes — driveways, patios, terraces, garden landscaping, pool surrounds, and every type of outdoor surface installation.",
+          "Complete exterior transformations for homes — specialized in driveways, walkways, pools, roof-top terrasses, garden landscaping, and tailored outdoor surfaces.",
       },
       {
         title: "Commercial & Municipal",
@@ -183,7 +184,7 @@ const en: Translations = {
     tagline: "About Us",
     title: "Who We Are",
     description1:
-      "Atelier De Luca is a premier exterior design and installation firm with a team of over 50 skilled professionals. We design and build exceptional outdoor environments — from private gardens and terraces to large-scale commercial landscapes.",
+      "PIERRA is a premier exterior design and installation firm with a team of skilled professionals. We design and build exceptional outdoor environments — from private gardens and roof-top terrasses to large-scale commercial landscapes.",
     description2:
       "Every project is driven by a commitment to craftsmanship, quality, and timeless design — executed by our dedicated team of designers, landscape architects, builders, and installation specialists.",
     stats: [
@@ -231,12 +232,12 @@ const en: Translations = {
       "Explore our featured landscaping and installation projects across residential and commercial spaces.",
     filterAll: "All",
     projects: [
-      { title: "Modern Estate Patio", category: "Landscape", location: "Montreal • Proma XL" },
-      { title: "Grand Entrance Driveway", category: "Landscape", location: "Westmount • Zuko Flex" },
-      { title: "Terraced Garden Retreat", category: "Landscape", location: "Outremont • Ora Step" },
-      { title: "Classic Stone Facade", category: "Masonry", location: "Laval • Clayden" },
-      { title: "Contemporary Exterior", category: "Masonry", location: "Brossard • Roxton" },
-      { title: "Multi-Level Retaining Wall", category: "Alternative Masonry", location: "Mount Royal • Alonso" },
+      { title: "Modern Estate Patio", category: "Pool", location: "Montreal" },
+      { title: "Grand Entrance Driveway", category: "Driveway", location: "Westmount" },
+      { title: "Terraced Garden Retreat", category: "Walkway", location: "Outremont" },
+      { title: "Classic Stone Facade", category: "Roof", location: "Laval" },
+      { title: "Contemporary Exterior", category: "Top Terrasse", location: "Brossard" },
+      { title: "Multi-Level Retaining Wall", category: "Landscape", location: "Mount Royal" },
     ],
   },
 
@@ -246,14 +247,14 @@ const en: Translations = {
     title: "Craftsmanship in Motion",
     description: "A glimpse into the spaces we've brought to life.",
     labels: [
-      "Proma XL",
-      "Zuko Flex",
-      "Clayden",
-      "Oslo",
-      "Striato",
-      "Roxton",
-      "Alonso",
-      "Venza",
+      "Driveway",
+      "Walkway",
+      "Pool",
+      "Roof",
+      "Top Terrasse",
+      "Custom Patios",
+      "Retaining Walls",
+      "Exterior Living",
     ],
   },
 
@@ -266,7 +267,7 @@ const en: Translations = {
     items: [
       {
         quote:
-          "Atelier De Luca completely transformed our backyard. From the initial design consultation to the final walkthrough, their team was professional and the craftsmanship is outstanding.",
+          "PIERRA completely transformed our backyard. From the initial design consultation to the final walkthrough, their team was professional and the craftsmanship is outstanding.",
         author: "Maria Hansen",
         role: "Homeowner, Westmount, Montreal",
       },
@@ -309,17 +310,17 @@ const en: Translations = {
     contactTitle: "Contact",
     servicesList: [
       "Exterior Design",
-      "Residential Installations",
-      "Driveways & Patios",
-      "Pool Surrounds & Terraces",
-      "Commercial Projects",
+      "Residential Landscaping",
+      "Driveways & Walkways",
+      "Pools & Terraces",
+      "Roofs & Top Terrasses",
     ],
     contactInfo: {
-      email: "info@atelierdeluca.com",
+      email: "info@pierra.com",
       phone: "+1 514 555 1234",
       address: "Montreal, Canada",
     },
-    copyright: "© {year} Atelier De Luca. All rights reserved.",
+    copyright: "© {year} PIERRA. All rights reserved.",
     privacyPolicy: "Privacy Policy",
     termsOfService: "Terms of Service",
   },

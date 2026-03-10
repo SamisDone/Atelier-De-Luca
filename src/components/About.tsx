@@ -13,6 +13,7 @@ const About = () => {
     offset: ["start end", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
 
   return (
     <section ref={ref} id="about" className="relative overflow-hidden">
@@ -25,64 +26,95 @@ const About = () => {
           className="object-cover"
         />
       </motion.div>
-      <div className="absolute inset-0 bg-brand-tertiary/75 z-0" />
+      <div className="absolute inset-0 bg-brand-tertiary/80 z-0" />
 
-      <div className="relative z-10 container mx-auto px-6 py-28">
-        <div className="max-w-3xl mb-20">
+      <div className="relative z-10 container mx-auto px-6 py-32">
+        {/* Asymmetric two-column editorial layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start mb-24">
+          {/* Left column — tagline & large heading */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="lg:col-span-5 [&_[data-in-view]]:revealed"
+            style={{ y: textY }}
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            onViewportEnter={() => {
+              // Add revealed class to children with ink-reveal
+              setTimeout(() => {
+                const els = document.querySelectorAll('#about .ink-reveal');
+                els.forEach(el => el.classList.add('revealed'));
+              }, 100);
+            }}
           >
-            <p className="text-brand-accent font-sans text-sm tracking-[0.3em] uppercase mb-4">
+            <p className="text-brand-accent font-sans text-sm tracking-[0.4em] uppercase mb-6">
               {t.about.tagline}
             </p>
-            <h2 className="font-serif text-4xl md:text-6xl text-brand-secondary mb-8 leading-tight">
+            <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl text-brand-secondary leading-[0.9] tracking-tight ink-reveal transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]"
+                {...( { "data-in-view": true } as object ) /* Hack to trigger revealed class from motion parent */}
+            >
               {t.about.title}
             </h2>
-            <p className="text-brand-secondary/80 text-lg leading-relaxed mb-6">
+          </motion.div>
+
+          {/* Right column — descriptions, offset downward for asymmetry */}
+          <motion.div
+            className="lg:col-span-7 lg:pt-20"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+          >
+            <p className="text-brand-secondary/85 text-xl leading-relaxed mb-8 font-sans">
               {t.about.description1}
             </p>
-            <p className="text-brand-secondary/70 text-base leading-relaxed">
+            <p className="text-brand-secondary/65 text-base leading-relaxed font-sans">
               {t.about.description2}
             </p>
           </motion.div>
         </div>
 
+        {/* Stats row with staggered reveal */}
         <motion.div
-          className="grid grid-cols-3 gap-8 border-t border-brand-secondary/20 pt-12"
+          className="grid grid-cols-3 gap-8 border-t border-brand-secondary/15 pt-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={{
             hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+            visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
           }}
         >
           {t.about.stats.map((stat, idx) => (
             <motion.div
               key={idx}
               variants={{
-                hidden: { opacity: 0, y: 20 },
+                hidden: { opacity: 0, y: 30, scale: 0.9 },
                 visible: {
                   opacity: 1,
                   y: 0,
-                  transition: { type: "spring", stiffness: 100, damping: 15 },
+                  scale: 1,
+                  transition: { type: "spring", stiffness: 80, damping: 15 },
                 },
               } as any}
               className="text-center"
             >
-              <p className="font-serif text-4xl md:text-6xl text-brand-secondary font-bold mb-2">
+              <p className="font-serif text-5xl md:text-7xl text-brand-secondary font-bold mb-3 tracking-tight">
                 {stat.value}
               </p>
-              <p className="text-brand-secondary/50 text-sm font-sans tracking-wide uppercase">
+              <p className="text-brand-secondary/45 text-sm font-sans tracking-widest uppercase">
                 {stat.label}
               </p>
             </motion.div>
           ))}
         </motion.div>
       </div>
+
+      {/* Skewed bottom divider */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-24 bg-background z-20"
+        style={{ clipPath: "polygon(0 60%, 100% 0, 100% 100%, 0 100%)" }}
+      />
     </section>
   );
 };

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Menu, X, Globe } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const navKeys = ["services", "about", "gallery", "testimonials", "contact"] as const;
+const navKeys = ["services", "about", "gallery", "financing", "testimonials", "contact"] as const;
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -38,15 +38,23 @@ const Navbar = () => {
         }`}
       >
         <div className="container mx-auto px-6 h-24 md:h-28 flex items-center justify-between">
-          <Image
-            src="/images/image-removebg-preview.png"
-            alt="Atelier De Luca"
-            width={400}
-            height={120}
-            className={`h-24 md:h-32 w-auto object-contain transition-all duration-500 notranslate ${
-              scrolled ? "" : "brightness-0 invert"
+          <Link
+            href="/"
+            className={`flex flex-col items-center justify-center transition-colors duration-500 notranslate ${
+              scrolled ? "text-primary hover:text-primary/80" : "text-brand-secondary hover:text-brand-secondary/80"
             }`}
-          />
+          >
+            <Image
+              src="/images/pierra-logo.png"
+              alt="PIERRA"
+              width={280}
+              height={100}
+              className={`h-20 md:h-24 w-auto object-contain transition-all duration-500 mb-0.5 brightness-0 ${
+                scrolled ? "" : "invert"
+              }`}
+            />
+            
+          </Link>
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link

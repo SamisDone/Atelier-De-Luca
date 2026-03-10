@@ -7,7 +7,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 const footerNavKeys = ["services", "about", "gallery", "contact"] as const;
 
 const Footer = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <footer className="bg-brand-tertiary text-brand-secondary">
@@ -15,12 +15,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-1">
             <Image
-              src="/images/image-removebg-preview.png"
-              alt="Atelier De Luca"
-              width={300}
-              height={80}
-              className="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-90 mb-6"
+              src="/images/pierra-logo.png"
+              alt="PIERRA"
+              width={280}
+              height={100}
+              className="h-20 md:h-24 w-auto object-contain brightness-0 invert opacity-90 mb-1"
             />
+           
             <p className="text-brand-secondary/60 text-sm leading-relaxed">
               {t.footer.tagline}
             </p>

@@ -35,6 +35,7 @@ const Hero = () => {
   });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const fontWeight = useTransform(scrollYProgress, [0, 0.3], [400, 700]);
 
   return (
     <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-28 md:pt-32">
@@ -59,7 +60,7 @@ const Hero = () => {
       >
         <motion.p
           variants={itemVariants}
-          className="text-brand-accent font-sans text-sm tracking-[0.3em] uppercase mb-6"
+          className="text-brand-accent font-sans text-sm tracking-[0.4em] uppercase mb-6"
         >
           {t.hero.tagline}
         </motion.p>
@@ -73,12 +74,15 @@ const Hero = () => {
               transition: { duration: 1 },
             },
           }}
-          className="font-serif text-5xl md:text-7xl lg:text-8xl text-brand-secondary leading-[1.1] mb-8"
+          className="font-serif text-6xl md:text-8xl lg:text-9xl text-brand-secondary leading-[0.95] mb-8 tracking-tight"
+          style={{ fontVariationSettings: `\"wght\" ${fontWeight.get()}` }}
         >
-          {t.hero.titleLine1}
+          <motion.span style={{ fontVariationSettings: useTransform(fontWeight, w => `\"wght\" ${w}`) }}>
+            {t.hero.titleLine1}
+          </motion.span>
           <br />
           <motion.span
-            className="text-brand inline-block"
+            className="text-brand-accent inline-block"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 import { SkipToContent } from "@/components/SkipToContent";
+import CustomCursor from "@/components/CustomCursor";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -10,29 +12,30 @@ const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const fraunces = Fraunces({
+  variable: "--font-playfair", // Keep the CSS variable name identical to avoid breaking Tailwind config
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  axes: ["SOFT", "WONK", "opsz"],
+  weight: "variable",
 });
 
 export const metadata: Metadata = {
-  title: "Atelier De Luca — Exterior Design & Installation",
+  title: "PIERRA — Exterior Design & Installation",
   description:
     "Expert exterior design and installation services. From terraces and driveways to commercial landscapes — craftsmanship meets precision.",
   keywords: ["exterior design", "pedestal system", "terrace installation", "landscaping montreal", "outdoor architecture"],
-  authors: [{ name: "Atelier De Luca" }],
+  authors: [{ name: "PIERRA" }],
   openGraph: {
-    title: "Atelier De Luca — Exterior Design & Installation",
+    title: "PIERRA — Exterior Design & Installation",
     description: "Expert exterior design and installation services. Craftsmanship meets precision.",
-    url: "https://atelierdeluca.com",
-    siteName: "Atelier De Luca",
+    url: "https://pierra.com",
+    siteName: "PIERRA",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Atelier De Luca — Exterior Design & Installation",
+    title: "PIERRA — Exterior Design & Installation",
     description: "Expert exterior design and installation services. Craftsmanship meets precision.",
   },
   alternates: {
@@ -49,8 +52,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+      <body className={`${inter.variable} ${fraunces.variable} antialiased`}>
         <SkipToContent />
+        <CustomCursor />
+        <ScrollProgress />
         <Providers>
           <main id="main-content">
             {children}

@@ -13,12 +13,13 @@ const containerVariants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  hidden: { opacity: 0, y: 50, scale: 0.93, filter: "blur(6px)" },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { type: "spring", stiffness: 100, damping: 20 },
+    filter: "blur(0px)",
+    transition: { type: "spring", stiffness: 70, damping: 20 },
   },
 };
 
@@ -26,22 +27,29 @@ const Testimonials = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="testimonials" className="py-24 bg-brand-tertiary text-brand-secondary">
-      <div className="container mx-auto px-6">
+    <section id="testimonials" className="relative py-28 bg-brand-tertiary text-brand-secondary overflow-hidden">
+      {/* Skewed top divider */}
+      <div
+        className="absolute top-0 left-0 right-0 h-20 bg-card z-10"
+        style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 40%)" }}
+      />
+
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8 }}
+          className="mb-16"
         >
-          <p className="text-brand-accent font-sans text-sm tracking-[0.3em] uppercase mb-4">
+          <p className="text-brand-accent font-sans text-sm tracking-[0.4em] uppercase mb-4">
             {t.testimonials.tagline}
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-brand-secondary mb-4">
+          {/* Editorial oversized heading */}
+          <h2 className="font-serif text-5xl md:text-7xl text-brand-secondary mb-4 tracking-tight leading-[0.95]">
             {t.testimonials.title}
           </h2>
-          <p className="text-brand-secondary/60 max-w-xl mx-auto">
+          <p className="text-brand-secondary/55 max-w-xl text-lg">
             {t.testimonials.description}
           </p>
         </motion.div>
@@ -57,17 +65,17 @@ const Testimonials = () => {
             <motion.div
               key={idx}
               variants={itemVariants}
-              className="bg-brand-secondary/5 border border-brand-secondary/10 rounded-2xl p-8 flex flex-col"
+              className="bg-white/5 border border-white/8 rounded-2xl p-8 flex flex-col hover:bg-white/8 hover:border-primary/30 transition-all duration-500"
             >
-              <Quote className="w-8 h-8 text-brand-accent mb-6 opacity-60" />
-              <p className="text-brand-secondary/80 text-sm leading-relaxed italic flex-1 mb-6">
+              <Quote className="w-8 h-8 text-brand-accent mb-6 opacity-40" />
+              <p className="text-brand-secondary/80 text-sm leading-relaxed italic flex-1 mb-8 font-sans">
                 &ldquo;{item.quote}&rdquo;
               </p>
-              <div>
+              <div className="border-t border-brand-secondary/10 pt-5">
                 <p className="font-serif text-lg text-brand-secondary">
                   {item.author}
                 </p>
-                <p className="text-brand-secondary/50 text-xs mt-1">
+                <p className="text-brand-secondary/45 text-xs mt-1 tracking-wide uppercase">
                   {item.role}
                 </p>
               </div>
