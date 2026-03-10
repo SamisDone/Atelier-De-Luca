@@ -30,7 +30,7 @@ const Testimonials = () => {
     <section id="testimonials" className="relative py-28 bg-brand-tertiary text-brand-secondary overflow-hidden min-h-[80svh] flex items-center">
       {/* Skewed top divider */}
       <div
-        className="absolute top-0 left-0 right-0 h-20 bg-card z-10"
+        className="absolute top-0 left-0 right-0 h-20 bg-background z-10"
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 40%)" }}
       />
 

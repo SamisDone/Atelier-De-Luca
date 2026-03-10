@@ -164,7 +164,7 @@ export default function Financing() {
 
       {/* Skewed bottom divider */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-24 bg-card z-10"
+        className="absolute bottom-0 left-0 right-0 h-24 bg-background z-10"
         style={{ clipPath: "polygon(0 40%, 100% 0, 100% 100%, 0 100%)" }}
       />
     </section>

@@ -35,12 +35,6 @@ const Services = () => {
 
   return (
     <section id="services" className="relative py-28 bg-card overflow-hidden min-h-[90svh] flex items-center">
-      {/* Skewed top divider */}
-      <div
-        className="absolute top-0 left-0 right-0 h-20 bg-background -translate-y-1/2"
-        style={{ clipPath: "polygon(0 0, 100% 0, 100% 40%, 0 100%)" }}
-      />
-
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
