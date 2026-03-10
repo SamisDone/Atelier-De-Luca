@@ -16,21 +16,21 @@ export default function ScrollProgress() {
   const iconY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center h-[50vh]">
+    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center h-[50vh] mix-blend-difference text-white">
       {/* Track line */}
-      <div className="relative w-px h-full bg-foreground/10">
+      <div className="relative w-px h-full bg-white/30">
         {/* Filled progress */}
         <motion.div
-          className="absolute top-0 left-0 w-full bg-primary origin-top"
+          className="absolute top-0 left-0 w-full bg-white origin-top"
           style={{ height: iconY }}
         />
 
         {/* Floating "P" indicator */}
         <motion.div
-          className="absolute left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/20"
+          className="absolute left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-lg"
           style={{ top: iconY }}
         >
-          <span className="text-primary-foreground text-xs font-serif font-bold select-none">
+          <span className="text-black text-xs font-serif font-bold select-none">
             P
           </span>
         </motion.div>
@@ -46,8 +46,8 @@ export default function ScrollProgress() {
               style={{ top: dotPosition }}
               aria-label={`Jump to ${section.label}`}
             >
-              <div className="w-2 h-2 rounded-full bg-foreground/20 group-hover:bg-primary group-hover:scale-150 transition-all duration-300" />
-              <span className="absolute right-6 text-[10px] text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-sans tracking-widest uppercase">
+              <div className="w-2 h-2 rounded-full bg-white/40 group-hover:bg-white group-hover:scale-150 transition-all duration-300" />
+              <span className="absolute right-6 text-[10px] text-white/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-sans tracking-widest uppercase">
                 {section.label}
               </span>
             </a>
