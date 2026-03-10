@@ -28,7 +28,7 @@ const About = () => {
       </motion.div>
       <div className="absolute inset-0 bg-brand-tertiary/60 z-0" />
 
-      <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-around py-20 pb-28">
+      <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-around pt-28 pb-20">
         {/* Asymmetric two-column editorial layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center w-full">
           {/* Left column — tagline & large heading */}

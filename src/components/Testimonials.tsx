@@ -34,7 +34,7 @@ const Testimonials = () => {
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 40%)" }}
       />
 
-      <div className="container mx-auto px-6 relative z-10 w-full h-full flex flex-col justify-around py-20">
+      <div className="container mx-auto px-6 relative z-10 w-full h-full flex flex-col justify-around pt-28 pb-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

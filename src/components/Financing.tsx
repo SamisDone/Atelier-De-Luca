@@ -82,7 +82,7 @@ export default function Financing() {
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/30 rounded-full blur-[120px] animate-pulse" />
       </motion.div>
       
-      <div className="container mx-auto px-6 relative z-10 w-full h-full flex flex-col justify-around py-20 pb-28">
+      <div className="container mx-auto px-6 relative z-10 w-full h-full flex flex-col justify-around pt-28 pb-20">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 w-full h-full">
           <div className="flex-1 space-y-8">
             <motion.div

@@ -9,7 +9,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="h-[100svh] w-full flex-shrink-0 snap-start bg-background relative overflow-hidden flex flex-col items-center justify-center">
-      <div className="container relative z-10 mx-auto px-6 h-full flex flex-col justify-center py-20 pb-32">
+      <div className="container relative z-10 mx-auto px-6 h-full flex flex-col justify-center pt-28 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}

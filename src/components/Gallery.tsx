@@ -54,7 +54,7 @@ const Gallery = () => {
       {/* Skewed top divider */}
       <div className="absolute top-0 left-0 right-0 h-20 bg-card" style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 40%)" }} />
 
-      <div className="container mx-auto px-6 h-full w-full flex flex-col justify-around pt-24 pb-16">
+      <div className="container mx-auto px-6 h-full w-full flex flex-col justify-around pt-28 pb-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

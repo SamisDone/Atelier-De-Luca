@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 import Providers from "./providers";
 import { SkipToContent } from "@/components/SkipToContent";
 import CustomCursor from "@/components/CustomCursor";
@@ -42,7 +43,6 @@ export const metadata: Metadata = {
   },
 };
 
-import Script from "next/script";
 
 export default function RootLayout({
   children,

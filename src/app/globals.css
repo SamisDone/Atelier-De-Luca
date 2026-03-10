@@ -82,12 +82,12 @@
   /* tailwindcss v3 base layers */
   html {
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
     overscroll-behavior-y: none;
   }
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-    overscroll-behavior-y: none;
   }
 }
 
@@ -150,13 +150,43 @@
   .text-balance {
     text-wrap: balance;
   }
+}
 
-  /* Hide Google Translate Top Bar */
-  .goog-te-banner-frame.skiptranslate, 
-  iframe.goog-te-banner-frame {
-    display: none !important;
-  }
-  body {
-    top: 0px !important;
-  }
+/* ============================================================
+   Google Translate — hide ALL injected UI while keeping
+   translation functional. These rules MUST live outside
+   @layer so they have the highest possible specificity.
+   ============================================================ */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Google Translate pushes body down with top: Npx — reset it */
+body {
+  top: 0 !important;
+  position: static !important;
+}
+
+/* Hide the default widget dropdown if somehow visible */
+.goog-te-gadget {
+  font-size: 0 !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Hide the top-level skiptranslate div wrapper */
+body > .skiptranslate {
+  display: none !important;
+  height: 0 !important;
 }

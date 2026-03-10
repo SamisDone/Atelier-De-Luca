@@ -35,7 +35,7 @@ const Services = () => {
 
   return (
     <section id="services" className="relative h-[100svh] w-full flex-shrink-0 snap-start flex flex-col items-center justify-center overflow-hidden bg-card">
-      <div className="container mx-auto px-6 h-full w-full flex flex-col justify-around py-20">
+      <div className="container mx-auto px-6 h-full w-full flex flex-col justify-around pt-28 pb-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -10,11 +10,9 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 
-import { ScrollContainerProvider } from "@/components/ScrollContainerContext";
-
 export default function Home() {
   return (
-    <ScrollContainerProvider>
+    <div className="w-full bg-background relative">
       <ScrollProgress />
       <Navbar />
       <Hero />
@@ -26,6 +24,6 @@ export default function Home() {
       <Testimonials />
       <Contact />
       <Footer />
-    </ScrollContainerProvider>
+    </div>
   );
 }
