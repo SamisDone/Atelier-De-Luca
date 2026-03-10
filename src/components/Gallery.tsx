@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -27,8 +27,7 @@ const Gallery = () => {
   const categories = [t.gallery.filterAll, ...new Set(projects.map((p) => p.category))];
   const filtered = active === t.gallery.filterAll ? projects : projects.filter((p) => p.category === active);
 
-  // Duplicate the items for seamless infinite scroll
-  const carouselItems = useMemo(() => [...filtered, ...filtered], [filtered]);
+
 
   return (
     <section id="gallery" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden bg-background">
@@ -75,19 +74,19 @@ const Gallery = () => {
           </div>
         </div>
 
-        {/* Static horizontal scroll layout — full-width, no container */}
-        <div className="w-full overflow-x-auto scrollbar-hide pb-8">
-          <div className="flex gap-6 px-6">
+        {/* Grid layout showing all images */}
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((project, idx) => (
               <div
                 key={`${project.title}-${idx}`}
-                className="group relative flex-shrink-0 w-[320px] sm:w-[400px] aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer"
+                className="group relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer"
               >
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  sizes="400px"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
                 />
                 {/* Premium gradient overlay on hover */}
