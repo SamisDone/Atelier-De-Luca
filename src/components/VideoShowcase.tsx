@@ -24,7 +24,7 @@ const VideoShowcase = () => {
   const showcaseImages = [...baseImages, ...baseImages];
 
   return (
-    <section id="videos" className="bg-background relative overflow-hidden min-h-[100svh] w-full flex flex-col items-center justify-around pt-28 pb-12">
+    <section id="craftsmanship" className="bg-background relative overflow-hidden min-h-[100svh] w-full flex flex-col items-center justify-around pt-28 pb-12">
       <div className="container mx-auto px-6 relative z-10 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
