@@ -50,7 +50,7 @@ const Gallery = () => {
   const filtered = active === t.gallery.filterAll ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section id="gallery" className="relative py-28 bg-background overflow-hidden">
+    <section id="gallery" className="relative py-28 bg-background overflow-hidden min-h-[90svh] flex items-center">
       {/* Skewed top divider */}
       <div className="absolute top-0 left-0 right-0 h-20 bg-card -translate-y-1/2" style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 40%)" }} />
 
@@ -105,6 +105,7 @@ const Gallery = () => {
                 viewport={{ once: true, margin: "-50px" }}
                 exit="hidden"
                 transition={{ delay: idx * 0.08 }}
+                data-cursor="VIEW"
                 className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer"
               >
                 <Image

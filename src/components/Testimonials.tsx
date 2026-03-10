@@ -27,7 +27,7 @@ const Testimonials = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="testimonials" className="relative py-28 bg-brand-tertiary text-brand-secondary overflow-hidden">
+    <section id="testimonials" className="relative py-28 bg-brand-tertiary text-brand-secondary overflow-hidden min-h-[80svh] flex items-center">
       {/* Skewed top divider */}
       <div
         className="absolute top-0 left-0 right-0 h-20 bg-card z-10"
@@ -65,6 +65,7 @@ const Testimonials = () => {
             <motion.div
               key={idx}
               variants={itemVariants}
+              data-cursor="READ"
               className="bg-white/5 border border-white/8 rounded-2xl p-8 flex flex-col hover:bg-white/8 hover:border-primary/30 transition-all duration-500"
             >
               <Quote className="w-8 h-8 text-brand-accent mb-6 opacity-40" />

@@ -3,6 +3,7 @@ import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 import { SkipToContent } from "@/components/SkipToContent";
+import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
 
 const inter = Inter({
@@ -52,7 +53,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${fraunces.variable} antialiased`}>
+        <div className="grain-overlay" />
         <SkipToContent />
+        <CustomCursor />
         <ScrollProgress />
         <Providers>
           <main id="main-content">

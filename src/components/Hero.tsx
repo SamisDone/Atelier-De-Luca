@@ -39,7 +39,13 @@ const Hero = () => {
 
   return (
     <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-28 md:pt-32">
-      <motion.div style={{ y }} className="absolute inset-0 -top-[20%] h-[120%] w-full z-0">
+      <motion.div 
+        style={{ y }} 
+        className="absolute inset-0 -top-[20%] h-[120%] w-full z-0"
+        initial={{ scale: 1.1, filter: "blur(10px)" }}
+        animate={{ scale: 1, filter: "blur(0px)" }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+      >
         <Image
           src="/images/nolita.jpg"
           alt="Premium exterior design and installation"
@@ -59,33 +65,34 @@ const Hero = () => {
         animate="visible"
       >
         <motion.p
-          variants={itemVariants}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+          }}
           className="text-brand-accent font-sans text-sm tracking-[0.4em] uppercase mb-6"
         >
           {t.hero.tagline}
         </motion.p>
 
         <motion.h1
-          variants={{
-            hidden: { opacity: 0, y: 40 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { duration: 1 },
-            },
-          }}
           className="font-serif text-6xl md:text-8xl lg:text-9xl text-brand-secondary leading-[0.95] mb-8 tracking-tight"
           style={{ fontVariationSettings: `\"wght\" ${fontWeight.get()}` }}
         >
-          <motion.span style={{ fontVariationSettings: useTransform(fontWeight, w => `\"wght\" ${w}`) }}>
+          <motion.span 
+            className="inline-block overflow-hidden pb-1"
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+            style={{ fontVariationSettings: useTransform(fontWeight, w => `\"wght\" ${w}`) }}
+          >
             {t.hero.titleLine1}
           </motion.span>
           <br />
           <motion.span
-            className="text-brand-accent inline-block"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
+            className="text-brand-accent inline-block overflow-hidden"
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
           >
             {t.hero.titleLine2}
           </motion.span>

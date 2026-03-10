@@ -34,7 +34,7 @@ const Services = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="services" className="relative py-28 bg-card overflow-hidden">
+    <section id="services" className="relative py-28 bg-card overflow-hidden min-h-[90svh] flex items-center">
       {/* Skewed top divider */}
       <div
         className="absolute top-0 left-0 right-0 h-20 bg-background -translate-y-1/2"
@@ -72,6 +72,7 @@ const Services = () => {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: idx * 0.12 }}
               className="group cursor-pointer"
+              data-cursor="EXPLORE"
             >
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-6">
                 <Image

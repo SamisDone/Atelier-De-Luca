@@ -8,13 +8,14 @@ const Contact = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="py-24 bg-background relative overflow-hidden flex items-center justify-center">
+    <section id="contact" className="py-24 bg-background relative overflow-hidden flex items-center justify-center min-h-[80svh]">
       <div className="container relative z-10 mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, type: "spring", stiffness: 80, damping: 20 }}
+          data-cursor="CONNECT"
           className="bg-card rounded-3xl p-8 md:p-12 shadow-xl border border-border/50 text-center"
         >
           <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">

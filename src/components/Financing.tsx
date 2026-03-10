@@ -69,7 +69,7 @@ export default function Financing() {
   const t = content[language as keyof typeof content] || content.en;
 
   return (
-    <section ref={sectionRef} id="financing" className="relative py-28 bg-brand-tertiary text-brand-secondary overflow-hidden">
+    <section ref={sectionRef} id="financing" className="relative py-28 bg-brand-tertiary text-brand-secondary overflow-hidden min-h-[90svh] flex items-center">
       {/* Skewed top divider */}
       <div
         className="absolute top-0 left-0 right-0 h-24 bg-background z-10"
