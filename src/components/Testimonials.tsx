@@ -65,7 +65,6 @@ const Testimonials = () => {
             <motion.div
               key={idx}
               variants={itemVariants}
-              data-cursor="READ"
               className="bg-white/5 border border-white/8 rounded-2xl p-8 flex flex-col hover:bg-white/8 hover:border-primary/30 transition-all duration-500"
             >
               <Quote className="w-8 h-8 text-brand-accent mb-6 opacity-40" />

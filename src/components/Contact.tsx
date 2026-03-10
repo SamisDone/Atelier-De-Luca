@@ -15,7 +15,6 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, type: "spring", stiffness: 80, damping: 20 }}
-          data-cursor="CONNECT"
           className="bg-card rounded-3xl p-8 md:p-12 shadow-xl border border-border/50 text-center"
         >
           <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
