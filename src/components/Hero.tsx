@@ -38,7 +38,7 @@ const Hero = () => {
   const fontWeight = useTransform(scrollYProgress, [0, 0.3], [400, 700]);
 
   return (
-    <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-28 md:pt-32">
+    <section ref={ref} className="relative h-[100svh] w-full flex-shrink-0 snap-start flex items-center justify-center overflow-hidden">
       <motion.div 
         style={{ y }} 
         className="absolute inset-0 -top-[20%] h-[120%] w-full z-0"

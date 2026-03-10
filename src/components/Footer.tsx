@@ -10,9 +10,9 @@ const Footer = () => {
   const { t, language } = useLanguage();
 
   return (
-    <footer className="bg-brand-tertiary text-brand-secondary">
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-brand-tertiary text-brand-secondary snap-end relative z-20">
+      <div className="container mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="md:col-span-1">
             <Image
               src="/images/pierra-logo.png"

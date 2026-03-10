@@ -8,27 +8,27 @@ const Contact = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="py-24 bg-background relative overflow-hidden flex items-center justify-center min-h-[80svh]">
-      <div className="container relative z-10 mx-auto px-6">
+    <section id="contact" className="h-[100svh] w-full flex-shrink-0 snap-start bg-background relative overflow-hidden flex flex-col items-center justify-center">
+      <div className="container relative z-10 mx-auto px-6 h-full flex flex-col justify-center py-20 pb-32">
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, type: "spring", stiffness: 80, damping: 20 }}
-          className="bg-card rounded-3xl p-8 md:p-12 shadow-xl border border-border/50 text-center"
+          className="bg-card rounded-3xl p-6 md:p-8 shadow-xl border border-border/50 text-center w-full max-w-4xl mx-auto"
         >
           <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
             {t.contact.tagline}
           </p>
-          <h2 className="font-serif text-4xl mb-6 text-foreground">
+          <h2 className="font-serif text-3xl md:text-4xl mb-4 text-foreground">
             {t.contact.title}
           </h2>
-          <p className="text-muted-foreground mb-10 max-w-xl mx-auto">
+          <p className="text-muted-foreground mb-6 text-sm md:text-base max-w-xl mx-auto">
             {t.contact.description}
           </p>
           
-          <form className="space-y-6 mx-auto text-left" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <form className="space-y-4 mx-auto text-left" onSubmit={(e) => e.preventDefault()}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium leading-none text-foreground">{t.contact.nameLabel}</label>
                 <input
@@ -54,7 +54,7 @@ const Contact = () => {
               <label htmlFor="message" className="text-sm font-medium leading-none text-foreground">{t.contact.messageLabel}</label>
               <textarea
                 id="message"
-                className="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-y"
+                className="flex min-h-[100px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-y"
                 placeholder={t.contact.messagePlaceholder}
                 required
               />

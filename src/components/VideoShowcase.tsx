@@ -75,8 +75,8 @@ const VideoShowcase = () => {
   }, []);
 
   return (
-    <section className="py-24 bg-background">
-      <div className="container mx-auto px-6 mb-16">
+    <section id="videos" className="bg-background relative overflow-hidden h-[100svh] w-full flex-shrink-0 snap-start flex flex-col items-center justify-around py-12">
+      <div className="container mx-auto px-6 relative z-10 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

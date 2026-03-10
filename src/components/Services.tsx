@@ -34,14 +34,14 @@ const Services = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="services" className="relative py-24 bg-card overflow-hidden">
-      <div className="container mx-auto px-6">
+    <section id="services" className="relative h-[100svh] w-full flex-shrink-0 snap-start flex flex-col items-center justify-center overflow-hidden bg-card">
+      <div className="container mx-auto px-6 h-full w-full flex flex-col justify-around py-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-16"
+          className="mb-8"
         >
           <p className="text-primary font-sans text-sm tracking-[0.4em] uppercase mb-4 transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]">
             {t.services.tagline}
@@ -59,7 +59,7 @@ const Services = () => {
               transition={{ delay: idx * 0.12 }}
               className="group cursor-pointer"
             >
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-6">
+              <div className="relative aspect-[16/10] sm:aspect-[4/4.5] rounded-2xl overflow-hidden mb-6">
                 <Image
                   src={serviceImages[idx]}
                   alt={service.title}
@@ -75,7 +75,7 @@ const Services = () => {
                   </h3>
                 </div>
               </div>
-              <h3 className="font-serif text-2xl text-foreground mb-3 group-hover:text-primary transition-colors duration-300 tracking-tight">
+              <h3 className="font-serif text-xl sm:text-2xl text-foreground mb-2 group-hover:text-primary transition-colors duration-300 tracking-tight">
                 {service.title}
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed">

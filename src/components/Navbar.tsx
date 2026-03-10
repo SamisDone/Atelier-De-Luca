@@ -50,7 +50,7 @@ const Navbar = () => {
               width={280}
               height={100}
               className={`h-20 md:h-24 w-auto object-contain transition-all duration-500 mb-0.5 brightness-0 ${
-                scrolled ? "" : "invert"
+                scrolled ? "dark:invert" : "invert"
               }`}
             />
             

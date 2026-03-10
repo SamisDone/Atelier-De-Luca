@@ -27,20 +27,20 @@ const Testimonials = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="testimonials" className="relative py-28 bg-brand-tertiary text-brand-secondary overflow-hidden min-h-[80svh] flex items-center">
+    <section id="testimonials" className="relative h-[100svh] w-full flex-shrink-0 snap-start flex flex-col items-center justify-center overflow-hidden bg-brand-tertiary text-brand-secondary">
       {/* Skewed top divider */}
       <div
         className="absolute top-0 left-0 right-0 h-20 bg-background z-10"
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 40%)" }}
       />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative z-10 w-full h-full flex flex-col justify-around py-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-16"
+          className="mb-8"
         >
           <p className="text-brand-accent font-sans text-sm tracking-[0.4em] uppercase mb-4">
             {t.testimonials.tagline}
@@ -55,7 +55,7 @@ const Testimonials = () => {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

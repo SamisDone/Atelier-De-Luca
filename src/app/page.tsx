@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="h-[100svh] w-full overflow-y-scroll overflow-x-hidden snap-y snap-mandatory bg-background relative scroll-smooth scrollbar-hide">
       <Navbar />
       <Hero />
       <About />

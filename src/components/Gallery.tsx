@@ -50,38 +50,38 @@ const Gallery = () => {
   const filtered = active === t.gallery.filterAll ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section id="gallery" className="relative py-24 bg-background overflow-hidden">
+    <section id="gallery" className="relative h-[100svh] w-full flex-shrink-0 snap-start flex flex-col items-center justify-center overflow-hidden bg-background">
       {/* Skewed top divider */}
       <div className="absolute top-0 left-0 right-0 h-20 bg-card" style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 40%)" }} />
 
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 h-full w-full flex flex-col justify-around pt-24 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-16"
+          className="mb-6 flex flex-col items-start"
         >
           <p className="text-primary font-sans text-sm tracking-[0.4em] uppercase mb-4">
             {t.gallery.tagline}
           </p>
           {/* Editorial oversized heading */}
-          <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl text-foreground mb-6 leading-[0.95] tracking-tight">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-foreground mb-4 leading-[0.95] tracking-tight">
             {t.gallery.title}
           </h2>
-          <p className="text-muted-foreground max-w-xl text-lg leading-relaxed">
+          <p className="text-muted-foreground max-w-xl text-sm md:text-lg leading-relaxed">
             {t.gallery.description}
           </p>
         </motion.div>
 
         {/* Filter pills */}
-        <div className="flex flex-wrap gap-3 mb-14">
+        <div className="flex flex-wrap gap-2 mb-8">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActive(cat)}
               className={cn(
-                "px-6 py-2.5 rounded-full text-sm font-sans transition-all duration-300 border",
+                "px-5 py-2 rounded-full text-xs font-sans transition-all duration-300 border",
                 active === cat
                   ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20"
                   : "bg-transparent text-muted-foreground border-border hover:border-primary/40 hover:text-foreground"
@@ -93,7 +93,7 @@ const Gallery = () => {
         </div>
 
         {/* Gallery grid with mask reveals */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {filtered.map((project, idx) => (
               <motion.div
@@ -105,7 +105,7 @@ const Gallery = () => {
                 viewport={{ once: true, margin: "-50px" }}
                 exit="hidden"
                 transition={{ delay: idx * 0.08 }}
-                className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer"
+                className="group relative overflow-hidden rounded-2xl aspect-[16/10] sm:aspect-[4/3] cursor-pointer"
               >
                 <Image
                   src={project.image}

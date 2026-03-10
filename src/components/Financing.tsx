@@ -69,7 +69,7 @@ export default function Financing() {
   const t = content[language as keyof typeof content] || content.en;
 
   return (
-    <section ref={sectionRef} id="financing" className="relative py-24 bg-brand-tertiary text-brand-secondary overflow-hidden">
+    <section ref={sectionRef} id="financing" className="relative h-[100svh] w-full flex-shrink-0 snap-start flex flex-col items-center justify-center overflow-hidden bg-brand-tertiary text-brand-secondary">
       {/* Skewed top divider */}
       <div
         className="absolute top-0 left-0 right-0 h-24 bg-background z-10"
@@ -82,8 +82,8 @@ export default function Financing() {
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/30 rounded-full blur-[120px] animate-pulse" />
       </motion.div>
       
-      <div className="container mx-auto px-6 relative z-10 pt-4 pb-12">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+      <div className="container mx-auto px-6 relative z-10 w-full h-full flex flex-col justify-around py-20 pb-28">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 w-full h-full">
           <div className="flex-1 space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -95,7 +95,7 @@ export default function Financing() {
                 {t.tagline}
               </span>
               {/* Editorial oversized heading */}
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif text-brand-secondary leading-[0.95] tracking-tight transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-brand-secondary leading-[0.95] tracking-tight transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]">
                 {t.title}
               </h2>
             </motion.div>
@@ -105,7 +105,7 @@ export default function Financing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg md:text-xl text-brand-secondary/80 font-sans max-w-2xl leading-relaxed"
+              className="text-base md:text-lg text-brand-secondary/80 font-sans max-w-2xl leading-relaxed"
             >
               {t.description}
             </motion.p>

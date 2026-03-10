@@ -80,9 +80,14 @@
 
 @layer base {
   /* tailwindcss v3 base layers */
+  html {
+    scroll-behavior: smooth;
+    overscroll-behavior-y: none;
+  }
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    overscroll-behavior-y: none;
   }
 }
 
@@ -144,5 +149,14 @@
 
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Hide Google Translate Top Bar */
+  .goog-te-banner-frame.skiptranslate, 
+  iframe.goog-te-banner-frame {
+    display: none !important;
+  }
+  body {
+    top: 0px !important;
   }
 }
