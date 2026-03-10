@@ -75,24 +75,10 @@ const Gallery = () => {
           </div>
         </div>
 
-        {/* Auto-scrolling horizontal carousel — full-width, no container */}
-        <div className="w-full overflow-hidden">
-          <motion.div
-            className="flex gap-6"
-            animate={{
-              x: [0, -(filtered.length * (400 + 24))],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: filtered.length * 4,
-                ease: "linear",
-              },
-            }}
-            key={active} // Reset animation when filter changes
-          >
-            {carouselItems.map((project, idx) => (
+        {/* Static horizontal scroll layout — full-width, no container */}
+        <div className="w-full overflow-x-auto scrollbar-hide pb-8">
+          <div className="flex gap-6 px-6">
+            {filtered.map((project, idx) => (
               <div
                 key={`${project.title}-${idx}`}
                 className="group relative flex-shrink-0 w-[320px] sm:w-[400px] aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer"
@@ -114,7 +100,7 @@ const Gallery = () => {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

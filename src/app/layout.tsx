@@ -4,7 +4,6 @@ import "./globals.css";
 import Script from "next/script";
 import Providers from "./providers";
 import { SkipToContent } from "@/components/SkipToContent";
-import CustomCursor from "@/components/CustomCursor";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -54,7 +53,6 @@ export default function RootLayout({
       <body className={`${inter.variable} ${fraunces.variable} antialiased`}>
         <div className="grain-overlay" />
         <SkipToContent />
-        <CustomCursor />
         <Providers>
           <main id="main-content">
             {children}
