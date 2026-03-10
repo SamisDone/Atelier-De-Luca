@@ -26,7 +26,7 @@ const About = () => {
           className="object-cover"
         />
       </motion.div>
-      <div className="absolute inset-0 bg-brand-tertiary/80 z-0" />
+      <div className="absolute inset-0 bg-brand-tertiary/60 z-0" />
 
       <div className="relative z-10 container mx-auto px-6 py-32">
         {/* Asymmetric two-column editorial layout */}

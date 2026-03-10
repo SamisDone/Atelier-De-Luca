@@ -55,7 +55,7 @@ const Hero = () => {
           className="object-cover object-center"
         />
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-tertiary/95 via-brand-tertiary/85 to-brand-tertiary/95 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-tertiary/65 via-brand-tertiary/45 to-brand-tertiary/65 z-0" />
 
       <motion.div
         style={{ opacity }}
