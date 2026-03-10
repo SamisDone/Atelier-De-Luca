@@ -50,7 +50,7 @@ const Gallery = () => {
   const filtered = active === t.gallery.filterAll ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section id="gallery" className="relative py-28 bg-background overflow-hidden min-h-[90svh] flex items-center">
+    <section id="gallery" className="relative py-24 bg-background overflow-hidden">
       {/* Skewed top divider */}
       <div className="absolute top-0 left-0 right-0 h-20 bg-card" style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 40%)" }} />
 

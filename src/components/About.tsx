@@ -16,7 +16,7 @@ const About = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
 
   return (
-    <section ref={ref} id="about" className="relative overflow-hidden min-h-[90svh] flex items-center">
+    <section ref={ref} id="about" className="relative overflow-hidden pt-32 pb-24">
       <motion.div style={{ y }} className="absolute inset-0 -top-[15%] h-[130%] w-full z-0">
         <Image
           src="/images/londana.jpg"
@@ -28,9 +28,9 @@ const About = () => {
       </motion.div>
       <div className="absolute inset-0 bg-brand-tertiary/60 z-0" />
 
-      <div className="relative z-10 container mx-auto px-6 py-32">
+      <div className="relative z-10 container mx-auto px-6">
         {/* Asymmetric two-column editorial layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start mb-16">
           {/* Left column — tagline & large heading */}
           <motion.div
             className="lg:col-span-5 [&_[data-in-view]]:revealed"

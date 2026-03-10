@@ -69,7 +69,7 @@ export default function Financing() {
   const t = content[language as keyof typeof content] || content.en;
 
   return (
-    <section ref={sectionRef} id="financing" className="relative py-28 bg-brand-tertiary text-brand-secondary overflow-hidden min-h-[90svh] flex items-center">
+    <section ref={sectionRef} id="financing" className="relative py-24 bg-brand-tertiary text-brand-secondary overflow-hidden">
       {/* Skewed top divider */}
       <div
         className="absolute top-0 left-0 right-0 h-24 bg-background z-10"
@@ -82,7 +82,7 @@ export default function Financing() {
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/30 rounded-full blur-[120px] animate-pulse" />
       </motion.div>
       
-      <div className="container mx-auto px-6 relative z-10 pt-8">
+      <div className="container mx-auto px-6 relative z-10 pt-4 pb-12">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           <div className="flex-1 space-y-8">
             <motion.div
@@ -90,21 +90,12 @@ export default function Financing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="[&_[data-in-view]]:revealed"
-              onViewportEnter={() => {
-                setTimeout(() => {
-                  const els = document.querySelectorAll('#financing .ink-reveal');
-                  els.forEach(el => el.classList.add('revealed'));
-                }, 100);
-              }}
             >
               <span className="text-brand-accent font-sans text-sm tracking-[0.4em] uppercase mb-6 block">
                 {t.tagline}
               </span>
               {/* Editorial oversized heading */}
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif text-brand-secondary leading-[0.95] tracking-tight ink-reveal transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]"
-                  {...( { "data-in-view": true } as object )}
-              >
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif text-brand-secondary leading-[0.95] tracking-tight transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]">
                 {t.title}
               </h2>
             </motion.div>
