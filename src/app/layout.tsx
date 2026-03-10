@@ -3,7 +3,6 @@ import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 import { SkipToContent } from "@/components/SkipToContent";
-import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
 
 const inter = Inter({
@@ -39,7 +38,7 @@ export const metadata: Metadata = {
     description: "Expert exterior design and installation services. Craftsmanship meets precision.",
   },
   alternates: {
-    canonical: "https://atelierdeluca.com",
+    canonical: "https://pierra.com",
   },
 };
 
@@ -54,7 +53,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${fraunces.variable} antialiased`}>
         <SkipToContent />
-        <CustomCursor />
         <ScrollProgress />
         <Providers>
           <main id="main-content">

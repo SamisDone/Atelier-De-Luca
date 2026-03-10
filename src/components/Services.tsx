@@ -72,7 +72,6 @@ const Services = () => {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: idx * 0.12 }}
               className="group cursor-pointer"
-              data-cursor="explore"
             >
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-6">
                 <Image

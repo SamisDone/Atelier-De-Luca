@@ -105,7 +105,6 @@ const Gallery = () => {
                 viewport={{ once: true, margin: "-50px" }}
                 exit="hidden"
                 transition={{ delay: idx * 0.08 }}
-                data-cursor="view"
                 className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer"
               >
                 <Image
