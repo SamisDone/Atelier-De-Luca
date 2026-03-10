@@ -50,9 +50,9 @@ const Gallery = () => {
   const filtered = active === t.gallery.filterAll ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section id="gallery" className="relative py-28 bg-brand-primary overflow-hidden min-h-[90svh] flex items-center">
+    <section id="gallery" className="relative py-28 bg-background overflow-hidden min-h-[90svh] flex items-center">
       {/* Skewed top divider */}
-      <div className="absolute top-0 left-0 right-0 h-20 bg-brand-primary -translate-y-1/2" style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 40%)" }} />
+      <div className="absolute top-0 left-0 right-0 h-20 bg-card -translate-y-1/2" style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 40%)" }} />
 
       <div className="container mx-auto px-6">
         <motion.div
@@ -62,14 +62,14 @@ const Gallery = () => {
           transition={{ duration: 0.8 }}
           className="mb-16"
         >
-          <p className="text-brand-tertiary/70 font-sans text-sm tracking-[0.4em] uppercase mb-4">
+          <p className="text-primary font-sans text-sm tracking-[0.4em] uppercase mb-4">
             {t.gallery.tagline}
           </p>
           {/* Editorial oversized heading */}
-          <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl text-brand-tertiary mb-6 leading-[0.95] tracking-tight">
+          <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl text-foreground mb-6 leading-[0.95] tracking-tight">
             {t.gallery.title}
           </h2>
-          <p className="text-brand-tertiary/60 max-w-xl text-lg leading-relaxed">
+          <p className="text-muted-foreground max-w-xl text-lg leading-relaxed">
             {t.gallery.description}
           </p>
         </motion.div>
@@ -83,8 +83,8 @@ const Gallery = () => {
               className={cn(
                 "px-6 py-2.5 rounded-full text-sm font-sans transition-all duration-300 border",
                 active === cat
-                  ? "bg-brand-tertiary text-brand-primary border-brand-tertiary shadow-lg shadow-black/20"
-                  : "bg-transparent text-brand-tertiary/60 border-brand-tertiary/30 hover:border-brand-tertiary/60 hover:text-brand-tertiary"
+                  ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20"
+                  : "bg-transparent text-muted-foreground border-border hover:border-primary/40 hover:text-foreground"
               )}
             >
               {cat}

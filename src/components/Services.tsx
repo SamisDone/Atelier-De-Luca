@@ -34,10 +34,10 @@ const Services = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="services" className="relative py-28 bg-brand-primary overflow-hidden min-h-[90svh] flex items-center">
+    <section id="services" className="relative py-28 bg-card overflow-hidden min-h-[90svh] flex items-center">
       {/* Skewed top divider */}
       <div
-        className="absolute top-0 left-0 right-0 h-20 bg-brand-primary -translate-y-1/2"
+        className="absolute top-0 left-0 right-0 h-20 bg-background -translate-y-1/2"
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 40%, 0 100%)" }}
       />
 
@@ -55,7 +55,7 @@ const Services = () => {
             }, 100);
           }}
         >
-          <p className="text-brand-tertiary/70 font-sans text-sm tracking-[0.4em] uppercase mb-4 ink-reveal transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]"
+          <p className="text-primary font-sans text-sm tracking-[0.4em] uppercase mb-4 ink-reveal transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]"
              {...( { "data-in-view": true } as object )}
           >
             {t.services.tagline}
@@ -90,10 +90,10 @@ const Services = () => {
                   </h3>
                 </div>
               </div>
-              <h3 className="font-serif text-2xl text-brand-tertiary mb-3 group-hover:text-brand-tertiary/70 transition-colors duration-300 tracking-tight">
+              <h3 className="font-serif text-2xl text-foreground mb-3 group-hover:text-primary transition-colors duration-300 tracking-tight">
                 {service.title}
               </h3>
-              <p className="text-brand-tertiary/60 text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {service.description}
               </p>
             </motion.div>

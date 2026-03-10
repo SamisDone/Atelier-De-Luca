@@ -33,7 +33,7 @@ const Navbar = () => {
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-brand-primary/95 backdrop-blur-md border-b border-brand-tertiary/10 shadow-sm"
+            ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
             : "bg-transparent"
         }`}
       >
@@ -41,7 +41,7 @@ const Navbar = () => {
           <Link
             href="/"
             className={`flex flex-col items-center justify-center transition-colors duration-500 notranslate ${
-              scrolled ? "text-brand-tertiary hover:text-brand-tertiary/80" : "text-brand-tertiary hover:text-brand-tertiary/80"
+              scrolled ? "text-primary hover:text-primary/80" : "text-brand-secondary hover:text-brand-secondary/80"
             }`}
           >
             <Image
@@ -49,7 +49,9 @@ const Navbar = () => {
               alt="PIERRA"
               width={280}
               height={100}
-              className={`h-20 md:h-24 w-auto object-contain transition-all duration-500 mb-0.5 brightness-0 invert`}
+              className={`h-20 md:h-24 w-auto object-contain transition-all duration-500 mb-0.5 brightness-0 ${
+                scrolled ? "" : "invert"
+              }`}
             />
             
           </Link>
@@ -60,8 +62,8 @@ const Navbar = () => {
                 href={item.href}
                 className={`text-sm font-sans tracking-wide transition-colors duration-200 ${
                   scrolled
-                    ? "text-brand-tertiary/80 hover:text-brand-tertiary"
-                    : "text-brand-tertiary/80 hover:text-brand-tertiary"
+                    ? "text-foreground/80 hover:text-foreground"
+                    : "text-brand-secondary/80 hover:text-brand-secondary"
                 }`}
               >
                 {item.label}
@@ -71,8 +73,8 @@ const Navbar = () => {
               onClick={toggleLanguage}
               className={`flex items-center gap-1.5 text-sm font-sans tracking-wide transition-colors duration-200 px-3 py-1.5 rounded-full border ${
                 scrolled
-                  ? "text-brand-tertiary/80 hover:text-brand-tertiary border-brand-tertiary/30"
-                  : "text-brand-tertiary/80 hover:text-brand-tertiary border-brand-tertiary/30"
+                  ? "text-foreground/80 hover:text-foreground border-border"
+                  : "text-brand-secondary/80 hover:text-brand-secondary border-brand-secondary/30"
               }`}
               aria-label="Toggle language"
             >
@@ -85,8 +87,8 @@ const Navbar = () => {
               onClick={toggleLanguage}
               className={`flex items-center gap-1 text-sm font-sans px-2.5 py-1 rounded-full border ${
                 scrolled
-                  ? "text-brand-tertiary/80 border-brand-tertiary/30"
-                  : "text-brand-tertiary/80 border-brand-tertiary/30"
+                  ? "text-foreground/80 border-border"
+                  : "text-brand-secondary/80 border-brand-secondary/30"
               }`}
               aria-label="Toggle language"
             >
@@ -99,9 +101,9 @@ const Navbar = () => {
               aria-label="Toggle menu"
             >
               {mobileOpen ? (
-                <X className={`w-6 h-6 text-brand-tertiary`} />
+                <X className={`w-6 h-6 ${scrolled ? "text-foreground" : "text-brand-secondary"}`} />
               ) : (
-                <Menu className={`w-6 h-6 text-brand-tertiary`} />
+                <Menu className={`w-6 h-6 ${scrolled ? "text-foreground" : "text-brand-secondary"}`} />
               )}
             </button>
           </div>
@@ -116,7 +118,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-brand-primary/98 backdrop-blur-lg pt-24 px-6"
+            className="fixed inset-0 z-40 bg-background/98 backdrop-blur-lg pt-24 px-6"
           >
             <nav className="flex flex-col gap-6">
               {navItems.map((item, idx) => (
@@ -128,7 +130,7 @@ const Navbar = () => {
                 >
                   <Link
                     href={item.href}
-                    className="font-serif text-3xl text-brand-tertiary hover:text-brand-tertiary/70 transition-colors"
+                    className="font-serif text-3xl text-foreground hover:text-brand transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >
                     {item.label}

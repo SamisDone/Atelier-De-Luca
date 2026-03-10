@@ -39,8 +39,23 @@ const Hero = () => {
 
   return (
     <section ref={ref} className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-28 md:pt-32">
-      <div className="absolute inset-0 bg-brand-primary z-0" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-0" />
+      <motion.div 
+        style={{ y }} 
+        className="absolute inset-0 -top-[20%] h-[120%] w-full z-0"
+        initial={{ scale: 1.1, filter: "blur(10px)" }}
+        animate={{ scale: 1, filter: "blur(0px)" }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+      >
+        <Image
+          src="/images/nolita.jpg"
+          alt="Premium exterior design and installation"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </motion.div>
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-tertiary/65 via-brand-tertiary/45 to-brand-tertiary/65 z-0" />
 
       <motion.div
         style={{ opacity }}
@@ -54,13 +69,13 @@ const Hero = () => {
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
           }}
-          className="text-brand-tertiary/70 font-sans text-sm tracking-[0.4em] uppercase mb-6"
+          className="text-brand-accent font-sans text-sm tracking-[0.4em] uppercase mb-6"
         >
           {t.hero.tagline}
         </motion.p>
 
         <motion.h1
-          className="font-serif text-6xl md:text-8xl lg:text-9xl text-brand-tertiary leading-[0.95] mb-8 tracking-tight"
+          className="font-serif text-6xl md:text-8xl lg:text-9xl text-brand-secondary leading-[0.95] mb-8 tracking-tight"
           style={{ fontVariationSettings: `\"wght\" ${fontWeight.get()}` }}
         >
           <motion.span 
@@ -74,7 +89,7 @@ const Hero = () => {
           </motion.span>
           <br />
           <motion.span
-            className="text-brand-tertiary/70 inline-block overflow-hidden"
+            className="text-brand-accent inline-block overflow-hidden"
             initial={{ y: "100%", opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
@@ -85,7 +100,7 @@ const Hero = () => {
 
         <motion.p
           variants={itemVariants}
-          className="text-brand-tertiary/80 font-sans text-lg md:text-xl max-w-2xl mb-10"
+          className="text-brand-secondary/80 font-sans text-lg md:text-xl max-w-2xl mb-10"
         >
           {t.hero.description}
         </motion.p>
@@ -100,7 +115,7 @@ const Hero = () => {
           <Button
             variant="hero-outline"
             size="lg"
-            className="text-base px-10 border-brand-tertiary/30 text-brand-tertiary hover:bg-brand-tertiary hover:text-brand-primary"
+            className="text-base px-10 border-brand-secondary text-brand-secondary hover:bg-brand-secondary hover:text-brand-tertiary"
             asChild
           >
             <a href="#contact">{t.hero.contactUs}</a>
@@ -120,12 +135,12 @@ const Hero = () => {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="text-brand-tertiary/40 text-xs tracking-widest uppercase">{t.hero.scroll}</span>
-          <div className="w-6 h-10 border-2 border-brand-tertiary/30 rounded-full flex items-start justify-center p-2">
+          <span className="text-brand-secondary/40 text-xs tracking-widest uppercase">{t.hero.scroll}</span>
+          <div className="w-6 h-10 border-2 border-brand-secondary/30 rounded-full flex items-start justify-center p-2">
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1.5 h-1.5 bg-brand-tertiary rounded-full"
+              className="w-1.5 h-1.5 bg-brand-secondary rounded-full"
             />
           </div>
         </motion.div>
