@@ -139,12 +139,6 @@
     mask-image: radial-gradient(circle 100% at center, black 100%, transparent 100%);
   }
 
-  /* Hide default cursor on desktop for CustomCursor */
-  @media (hover: hover) and (pointer: fine) {
-    *, *::before, *::after {
-      cursor: none !important;
-    }
-  }
 
   .text-balance {
     text-wrap: balance;
