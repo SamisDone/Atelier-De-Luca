@@ -46,7 +46,7 @@ const Navbar = () => {
             : "bg-transparent"
         }`}
       >
-        <div className="container mx-auto px-6 h-24 md:h-28 flex items-center justify-between">
+        <div className="container mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
           <Link
             href="/"
             className={`flex flex-col items-center justify-center transition-colors duration-500 notranslate ${
@@ -58,7 +58,7 @@ const Navbar = () => {
               alt="PIERRA"
               width={280}
               height={100}
-              className={`h-20 md:h-24 w-auto object-contain transition-all duration-500 mb-0.5 brightness-0 ${
+              className={`h-12 md:h-16 w-auto object-contain transition-all duration-500 mb-0.5 brightness-0 ${
                 scrolled ? "dark:invert" : "invert"
               }`}
             />

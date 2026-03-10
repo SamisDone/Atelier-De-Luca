@@ -59,7 +59,7 @@ const Hero = () => {
 
       <motion.div
         style={{ opacity }}
-        className="relative z-10 container mx-auto px-6 text-left md:text-left max-w-5xl"
+        className="relative z-10 container mx-auto px-6 text-left md:text-left max-w-5xl mt-[8vh]"
         variants={containerVariants}
         initial="hidden"
         animate="visible"

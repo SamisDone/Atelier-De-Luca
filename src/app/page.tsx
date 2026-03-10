@@ -8,12 +8,14 @@ import Financing from "@/components/Financing";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/ScrollProgress";
 
 import { ScrollContainerProvider } from "@/components/ScrollContainerContext";
 
 export default function Home() {
   return (
     <ScrollContainerProvider>
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <About />

@@ -4,7 +4,6 @@ import "./globals.css";
 import Providers from "./providers";
 import { SkipToContent } from "@/components/SkipToContent";
 import CustomCursor from "@/components/CustomCursor";
-import ScrollProgress from "@/components/ScrollProgress";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -56,7 +55,6 @@ export default function RootLayout({
         <div className="grain-overlay" />
         <SkipToContent />
         <CustomCursor />
-        <ScrollProgress />
         <Providers>
           <main id="main-content">
             {children}
