@@ -41,17 +41,9 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-16 [&_[data-in-view]]:revealed"
-          onViewportEnter={() => {
-            setTimeout(() => {
-              const els = document.querySelectorAll('#services .ink-reveal');
-              els.forEach(el => el.classList.add('revealed'));
-            }, 100);
-          }}
+          className="mb-16"
         >
-          <p className="text-primary font-sans text-sm tracking-[0.4em] uppercase mb-4 ink-reveal transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]"
-             {...( { "data-in-view": true } as object )}
-          >
+          <p className="text-primary font-sans text-sm tracking-[0.4em] uppercase mb-4 transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]">
             {t.services.tagline}
           </p>
         </motion.div>

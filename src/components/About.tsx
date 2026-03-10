@@ -33,26 +33,17 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start mb-16">
           {/* Left column — tagline & large heading */}
           <motion.div
-            className="lg:col-span-5 [&_[data-in-view]]:revealed"
+            className="lg:col-span-5"
             style={{ y: textY }}
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
-            onViewportEnter={() => {
-              // Add revealed class to children with ink-reveal
-              setTimeout(() => {
-                const els = document.querySelectorAll('#about .ink-reveal');
-                els.forEach(el => el.classList.add('revealed'));
-              }, 100);
-            }}
           >
             <p className="text-brand-accent font-sans text-sm tracking-[0.4em] uppercase mb-6">
               {t.about.tagline}
             </p>
-            <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl text-brand-secondary leading-[0.9] tracking-tight ink-reveal transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]"
-                {...( { "data-in-view": true } as object ) /* Hack to trigger revealed class from motion parent */}
-            >
+            <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl text-brand-secondary leading-[0.9] tracking-tight transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]">
               {t.about.title}
             </h2>
           </motion.div>
