@@ -15,7 +15,7 @@ import { type SpecItem } from "@/i18n/translations/en";
 const SpecsTable = () => {
   const { t } = useLanguage();
   return (
-    <section id="specifications" className="py-24 bg-card">
+    <section id="specifications" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-24 bg-card snap-start">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

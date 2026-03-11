@@ -11,7 +11,7 @@ const stats = [
 
 const Stats = () => {
   return (
-    <section className="py-24 bg-brand/10 border-y border-border">
+    <section className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-24 bg-brand/10 border-y border-border overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
           className="grid grid-cols-2 md:grid-cols-4 gap-8"
@@ -37,10 +37,10 @@ const Stats = () => {
               } as any}
               className="text-center"
             >
-              <p className="font-serif text-4xl md:text-5xl text-brand mb-2">
+              <p className="font-serif text-5xl md:text-7xl text-brand mb-2">
                 {stat.value}
               </p>
-              <p className="text-muted-foreground text-sm font-sans tracking-wide uppercase">
+              <p className="text-muted-foreground text-base font-sans tracking-wide uppercase">
                 {stat.label}
               </p>
             </motion.div>

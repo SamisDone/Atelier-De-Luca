@@ -82,7 +82,7 @@ const CalculatorContent = () => {
   };
 
   return (
-    <section id="calculator" className="py-24 bg-background">
+    <section id="calculator" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30, scale: 0.95 }}
@@ -91,13 +91,13 @@ const CalculatorContent = () => {
           transition={{ duration: 0.7, type: "spring", stiffness: 90, damping: 20 }}
           className="text-center mb-16"
         >
-          <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
+            <p className="text-brand font-sans text-base tracking-[0.3em] uppercase mb-4">
             {t.calculator.tagline}
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-4">
+            <h2 className="font-serif text-5xl md:text-7xl text-foreground mb-4">
             {t.calculator.title}
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+            <p className="text-muted-foreground max-w-xl mx-auto text-lg">
             {t.calculator.description}
           </p>
         </motion.div>
@@ -219,12 +219,12 @@ const CalculatorContent = () => {
                 className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4"
               >
                 <div className="bg-brand/10 rounded-lg p-6 text-center">
-                  <p className="text-3xl font-serif text-brand-tertiary font-bold">{result.tiles}</p>
-                  <p className="text-sm text-muted-foreground mt-1">{t.calculator.resultTiles}</p>
+                  <p className="text-5xl font-serif text-brand-tertiary font-bold">{result.tiles}</p>
+                  <p className="text-base text-muted-foreground mt-1">{t.calculator.resultTiles}</p>
                 </div>
                 <div className="bg-brand-accent/20 rounded-lg p-6 text-center">
-                  <p className="text-3xl font-serif text-brand-tertiary font-bold">{result.pedestals}</p>
-                  <p className="text-sm text-muted-foreground mt-1">{t.calculator.resultPedestals}</p>
+                  <p className="text-5xl font-serif text-brand-tertiary font-bold">{result.pedestals}</p>
+                  <p className="text-base text-muted-foreground mt-1">{t.calculator.resultPedestals}</p>
                 </div>
               </motion.div>
             )}

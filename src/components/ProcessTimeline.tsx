@@ -28,7 +28,7 @@ const steps = [
 
 const ProcessTimeline = () => {
   return (
-    <section className="py-24 bg-brand-tertiary/5 border-t border-border">
+    <section className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-24 bg-brand-tertiary/5 border-t border-border overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,13 +37,13 @@ const ProcessTimeline = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
+          <p className="text-brand font-sans text-base tracking-[0.3em] uppercase mb-4">
             Our Process
           </p>
-          <h2 className="font-serif text-4xl md:text-6xl text-foreground mb-4">
+          <h2 className="font-serif text-5xl md:text-7xl text-foreground mb-4">
             How We Work
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto text-lg">
+          <p className="text-muted-foreground max-w-xl mx-auto text-xl">
             A seamless journey from initial concept to stunning completion.
           </p>
         </motion.div>
@@ -79,8 +79,8 @@ const ProcessTimeline = () => {
                 <span className="text-brand/40 font-serif text-6xl absolute -top-4 left-1/2 -translate-x-1/2 z-0 select-none">
                   {String(idx + 1).padStart(2, "0")}
                 </span>
-                <h3 className="font-serif text-xl text-foreground mb-3">{step.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <h3 className="font-serif text-2xl text-foreground mb-3">{step.title}</h3>
+                <p className="text-muted-foreground text-base leading-relaxed">
                   {step.description}
                 </p>
               </motion.div>

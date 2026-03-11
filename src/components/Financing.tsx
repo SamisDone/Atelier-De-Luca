@@ -69,7 +69,7 @@ export default function Financing() {
   const t = content[language as keyof typeof content] || content.en;
 
   return (
-    <section ref={sectionRef} id="financing" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden bg-brand-tertiary text-brand-secondary">
+    <section ref={sectionRef} id="financing" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden snap-start bg-brand-tertiary text-brand-secondary">
       {/* Skewed top divider */}
       <div
         className="absolute top-0 left-0 right-0 h-24 bg-background z-10"
@@ -91,11 +91,11 @@ export default function Financing() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-brand-accent font-sans text-sm tracking-[0.4em] uppercase mb-6 block">
+              <span className="text-brand-accent font-sans text-base tracking-[0.4em] uppercase mb-6 block">
                 {t.tagline}
               </span>
               {/* Editorial oversized heading */}
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-brand-secondary leading-[0.95] tracking-tight transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]">
+              <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif text-brand-secondary leading-[0.95] tracking-tight transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]">
                 {t.title}
               </h2>
             </motion.div>
@@ -105,7 +105,7 @@ export default function Financing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-base md:text-lg text-brand-secondary/80 font-sans max-w-2xl leading-relaxed"
+              className="text-lg md:text-xl text-brand-secondary/80 font-sans max-w-2xl leading-relaxed"
             >
               {t.description}
             </motion.p>
@@ -142,8 +142,8 @@ export default function Financing() {
                   <div className="w-14 h-14 rounded-xl bg-brand-accent/15 flex items-center justify-center mb-6">
                     <Icon className="w-7 h-7 text-brand-accent" />
                   </div>
-                  <h3 className="text-xl font-serif text-brand-secondary mb-3">{feature.title}</h3>
-                  <p className="text-brand-secondary/65 font-sans text-sm leading-relaxed">
+                  <h3 className="text-2xl font-serif text-brand-secondary mb-3">{feature.title}</h3>
+                  <p className="text-brand-secondary/65 font-sans text-base leading-relaxed">
                     {feature.description}
                   </p>
                 </motion.div>

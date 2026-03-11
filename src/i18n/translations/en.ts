@@ -58,7 +58,7 @@ export interface Translations {
     resultPedestals: string;
     loading: string;
   };
-  services: { tagline: string; items: TranslationItem[] };
+  services: { tagline: string; title: string; items: TranslationItem[] };
   about: { tagline: string; title: string; description1: string; description2: string; stats: StatItem[] };
   features: { tagline: string; title: string; description: string; items: TranslationItem[] };
   gallery: { tagline: string; title: string; description: string; filterAll: string; projects: ProjectItem[] };
@@ -158,9 +158,9 @@ const en: Translations = {
     loading: "Loading Calculator...",
   },
 
-  // Services
   services: {
-    tagline: "Our Services",
+    tagline: "Expertise",
+    title: "Our Services",
     items: [
       {
         title: "Design",

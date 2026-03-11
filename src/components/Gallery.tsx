@@ -30,7 +30,7 @@ const Gallery = () => {
 
 
   return (
-    <section id="gallery" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden bg-background">
+    <section id="gallery" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-24 bg-background overflow-hidden snap-start">
       {/* Skewed top divider */}
       <div className="absolute top-0 left-0 right-0 h-20 bg-card" style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 40%)" }} />
 
@@ -44,13 +44,13 @@ const Gallery = () => {
             transition={{ duration: 0.8 }}
             className="mb-6 flex flex-col items-start"
           >
-            <p className="text-primary font-sans text-sm tracking-[0.4em] uppercase mb-4">
+            <p className="text-primary font-sans text-base tracking-[0.4em] uppercase mb-4">
               {t.gallery.tagline}
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-foreground mb-4 leading-[0.95] tracking-tight">
+            <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl text-foreground mb-4 leading-[0.95] tracking-tight">
               {t.gallery.title}
             </h2>
-            <p className="text-muted-foreground max-w-xl text-sm md:text-lg leading-relaxed">
+            <p className="text-muted-foreground max-w-xl text-base md:text-xl leading-relaxed">
               {t.gallery.description}
             </p>
           </motion.div>
@@ -94,7 +94,7 @@ const Gallery = () => {
                   <p className="text-brand-accent text-xs tracking-[0.3em] uppercase mb-1.5">
                     {project.category}
                   </p>
-                  <h3 className="font-serif text-2xl text-white leading-tight">{project.title}</h3>
+                  <h3 className="font-serif text-3xl text-white leading-tight">{project.title}</h3>
                   <p className="text-white/60 text-sm mt-1">{project.location}</p>
                 </div>
               </div>

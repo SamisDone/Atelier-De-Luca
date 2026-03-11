@@ -24,7 +24,7 @@ const VideoShowcase = () => {
   const showcaseImages = [...baseImages, ...baseImages];
 
   return (
-    <section id="craftsmanship" className="bg-background relative overflow-hidden min-h-[100svh] w-full flex flex-col items-center justify-around pt-28 pb-12">
+    <section id="craftsmanship" className="bg-background relative overflow-hidden min-h-[100svh] w-full flex flex-col items-center justify-around pt-28 pb-12 snap-start">
       <div className="container mx-auto px-6 relative z-10 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -33,10 +33,10 @@ const VideoShowcase = () => {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
+          <p className="text-brand font-sans text-base tracking-[0.3em] uppercase mb-4">
             {t.videoShowcase.tagline}
           </p>
-          <h2 className="font-serif text-4xl md:text-6xl text-foreground mb-4">
+          <h2 className="font-serif text-5xl md:text-7xl text-foreground mb-4">
             {t.videoShowcase.title}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">

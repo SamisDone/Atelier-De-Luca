@@ -28,7 +28,7 @@ const Features = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="features" className="py-24 bg-brand-tertiary/5 border-t border-border">
+    <section id="features" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-24 bg-brand-tertiary/5 border-t border-border overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,13 +37,13 @@ const Features = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
+          <p className="text-brand font-sans text-base tracking-[0.3em] uppercase mb-4">
             {t.features.tagline}
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-4">
+          <h2 className="font-serif text-5xl md:text-7xl text-foreground mb-4">
             {t.features.title}
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             {t.features.description}
           </p>
         </motion.div>
@@ -66,8 +66,8 @@ const Features = () => {
                 <div className="w-16 h-16 rounded-full bg-brand/10 text-brand flex items-center justify-center mb-6">
                   <Icon className="w-8 h-8" />
                 </div>
-                <h3 className="font-serif text-2xl text-foreground mb-4">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <h3 className="font-serif text-3xl text-foreground mb-4">{feature.title}</h3>
+                <p className="text-muted-foreground text-base leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>

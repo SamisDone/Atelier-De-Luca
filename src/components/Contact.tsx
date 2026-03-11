@@ -8,7 +8,7 @@ const Contact = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="min-h-[100svh] w-full bg-background relative overflow-hidden flex flex-col items-center justify-center">
+    <section id="contact" className="relative min-h-[110svh] md:min-h-[100svh] w-full flex flex-col items-center justify-center py-24 overflow-hidden snap-start">
       <div className="container relative z-10 mx-auto px-6 h-full flex flex-col justify-center pt-28 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
@@ -17,13 +17,13 @@ const Contact = () => {
           transition={{ duration: 0.8, type: "spring", stiffness: 80, damping: 20 }}
           className="bg-card rounded-3xl p-6 md:p-8 shadow-xl border border-border/50 text-center w-full max-w-4xl mx-auto"
         >
-          <p className="text-brand font-sans text-sm tracking-[0.3em] uppercase mb-4">
+          <p className="text-brand font-sans text-base tracking-[0.3em] uppercase mb-4">
             {t.contact.tagline}
           </p>
-          <h2 className="font-serif text-3xl md:text-4xl mb-4 text-foreground">
+          <h2 className="font-serif text-4xl md:text-6xl mb-4 text-foreground">
             {t.contact.title}
           </h2>
-          <p className="text-muted-foreground mb-6 text-sm md:text-base max-w-xl mx-auto">
+          <p className="text-muted-foreground mb-6 text-base md:text-lg max-w-xl mx-auto">
             {t.contact.description}
           </p>
           
