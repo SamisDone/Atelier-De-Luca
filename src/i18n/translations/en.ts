@@ -83,20 +83,20 @@ const en: Translations = {
   // Hero
   hero: {
     tagline: "Design & Exterior Installation",
-    titleLine1: "Pioneering the Future of",
-    titleLine2: "Outdoor Living",
+    titleLine1: "The Next Horizon Of",
+    titleLine2: "Modern Landscapes",
     description:
-      "Where expert design meets flawless execution. Complete exterior installations and landscape construction for discerning homeowners and architects.",
+      "Elevating exterior spaces through visionary design and masterful installation. From private retreats to grand commercial landscapes, defining the next horizon of outdoor excellence.",
     viewProjects: "View Projects",
     contactUs: "Contact Us",
     scroll: "Scroll",
   },
 
-  // Systems
+  // System
   systems: {
     tagline: "The System",
     title: "Why PIERRA Pedestals",
-    description: "Engineered advantages that make our pedestal system the choice of architects worldwide.",
+    description: "Engineered advantages that make the PIERRA pedestal system the choice of architects worldwide.",
     items: [
       {
         title: "Superior Drainage",
@@ -185,9 +185,9 @@ const en: Translations = {
     tagline: "About Us",
     title: "Who We Are",
     description1:
-      "PIERRA is a premier exterior design and installation firm with a team of skilled professionals. We design and build exceptional outdoor environments — from private gardens and roof-top terrasses to large-scale commercial landscapes.",
+      "PIERRA represents the pinnacle of exterior architecture and specialized installation. Masterful environments are realized through a focus on structural integrity and aesthetic harmony, catering to the most sophisticated residential and commercial landscapes.",
     description2:
-      "Every project is driven by a commitment to craftsmanship, quality, and timeless design — executed by our dedicated team of designers, landscape architects, builders, and installation specialists.",
+      "Technical innovation and artistic vision converge in every installation. Excellence is attained through the coordinated mastery of expert designers and construction specialists, ensuring each project becomes a landmark of external design.",
     stats: [
       { value: "500+", label: "Projects Completed" },
       { value: "50+", label: "Dedicated Team Members" },
@@ -200,7 +200,7 @@ const en: Translations = {
     tagline: "Why Choose Us",
     title: "Expert Installation & Landscaping",
     description:
-      "From concept to completion, our dedicated team handles every detail of your outdoor transformation.",
+      "From concept to completion, every detail of the outdoor transformation is handled with precision.",
     items: [
       {
         title: "Precision Craftsmanship",
@@ -210,7 +210,7 @@ const en: Translations = {
       {
         title: "Built to Last",
         description:
-          "We use only premium materials and proven construction techniques, ensuring your outdoor space endures for decades.",
+          "Premium materials and proven construction techniques ensure every outdoor space endures for decades.",
       },
       {
         title: "On-Time Delivery",
@@ -220,7 +220,7 @@ const en: Translations = {
       {
         title: "Full-Service Team",
         description:
-          "Landscape architects, skilled installers, and project managers work together so you have a single point of contact.",
+          "Landscape architects, skilled installers, and project managers work in unison to provide a single point of contact.",
       },
     ],
   },
@@ -246,7 +246,7 @@ const en: Translations = {
   videoShowcase: {
     tagline: "See Our Work",
     title: "Craftsmanship in Motion",
-    description: "A glimpse into the spaces we've brought to life.",
+    description: "A glimpse into spaces brought to life through expert craftsmanship.",
     labels: [
       "Driveway",
       "Walkway",
@@ -264,7 +264,7 @@ const en: Translations = {
     tagline: "Client Stories",
     title: "Trusted by Homeowners & Builders",
     description:
-      "Hear from the clients who trusted us to design and build their outdoor spaces.",
+      "Hear from clients who trusted PIERRA to design and build their outdoor spaces.",
     items: [
       {
         quote:
@@ -292,7 +292,7 @@ const en: Translations = {
     tagline: "Start Your Project",
     title: "Request a Free Consultation",
     description:
-      "Ready to transform your outdoor space? Tell us about your project and our team will schedule a site visit to discuss your design and installation needs.",
+      "Ready to transform an outdoor space? Project details can be shared to schedule a site visit and discuss design and installation needs.",
     nameLabel: "Name",
     namePlaceholder: "John Doe",
     emailLabel: "Email",

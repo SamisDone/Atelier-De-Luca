@@ -79,7 +79,7 @@ const Hero = () => {
           style={{ fontVariationSettings: `\"wght\" ${fontWeight.get()}` }}
         >
           <motion.span 
-            className="inline-block overflow-hidden pb-1"
+            className="inline-block overflow-hidden pb-1 whitespace-nowrap"
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
@@ -89,7 +89,7 @@ const Hero = () => {
           </motion.span>
           <br />
           <motion.span
-            className="text-brand-accent inline-block overflow-hidden"
+            className="text-brand-accent inline-block overflow-hidden whitespace-nowrap"
             initial={{ y: "100%", opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
@@ -100,7 +100,7 @@ const Hero = () => {
 
         <motion.p
           variants={itemVariants}
-          className="text-brand-secondary/80 font-sans text-lg md:text-xl max-w-2xl mb-10"
+          className="text-brand-secondary/80 font-sans text-xl md:text-2xl max-w-3xl mb-10"
         >
           {t.hero.description}
         </motion.p>

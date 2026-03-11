@@ -40,7 +40,7 @@ const Navbar = () => {
             : "bg-transparent"
         }`}
       >
-        <div className="container mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
+        <div className="container mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
           <Link
             href="/"
             className={`flex flex-col items-center justify-center transition-colors duration-500 notranslate ${
@@ -50,20 +50,20 @@ const Navbar = () => {
             <Image
               src="/images/pierra-logo.png"
               alt="PIERRA"
-              width={280}
-              height={100}
-              className={`h-12 md:h-16 w-auto object-contain transition-all duration-500 mb-0.5 brightness-0 ${
+              width={320}
+              height={120}
+              className={`h-14 md:h-20 w-auto object-contain transition-all duration-500 mb-0.5 brightness-0 ${
                 scrolled ? "" : "invert"
               }`}
             />
             
           </Link>
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-sans tracking-wide transition-colors duration-200 ${
+                className={`text-base font-sans tracking-wide transition-colors duration-200 ${
                   scrolled
                     ? "text-foreground/80 hover:text-foreground"
                     : "text-brand-secondary/80 hover:text-brand-secondary"
@@ -74,7 +74,7 @@ const Navbar = () => {
             ))}
             <button
               onClick={toggleLanguage}
-              className={`flex items-center gap-1.5 text-sm font-sans tracking-wide transition-colors duration-200 px-3 py-1.5 rounded-full border ${
+              className={`flex items-center gap-1.5 text-base font-sans tracking-wide transition-colors duration-200 px-4 py-2 rounded-full border ${
                 scrolled
                   ? "text-foreground/80 hover:text-foreground border-border"
                   : "text-brand-secondary/80 hover:text-brand-secondary border-brand-secondary/30"
@@ -121,7 +121,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background/98 backdrop-blur-lg pt-24 px-6"
+            className="fixed inset-0 z-40 bg-background/98 backdrop-blur-lg pt-28 px-6"
           >
             <nav className="flex flex-col gap-6">
               {navItems.map((item, idx) => (

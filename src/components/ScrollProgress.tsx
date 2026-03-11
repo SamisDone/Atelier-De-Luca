@@ -7,7 +7,7 @@ const sections = [
   { id: "services", label: "Services" },
   { id: "gallery", label: "Gallery" },
   { id: "financing", label: "Financing" },
-  { id: "videos", label: "Craftsmanship" },
+  { id: "craftsmanship", label: "Craftsmanship" },
   { id: "testimonials", label: "Reviews" },
   { id: "contact", label: "Contact" },
 ];
