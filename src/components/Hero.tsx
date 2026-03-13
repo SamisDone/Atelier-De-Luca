@@ -38,7 +38,7 @@ const Hero = () => {
   const fontWeight = useTransform(scrollYProgress, [0, 0.3], [400, 700]);
 
   return (
-    <section ref={ref} className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden pt-20 md:pt-0">
+    <section ref={ref} className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden pt-24 md:pt-32">
       <motion.div 
         style={{ y }} 
         className="absolute inset-0 -top-[20%] h-[120%] w-full z-0"
@@ -69,13 +69,13 @@ const Hero = () => {
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
           }}
-          className="text-brand-accent font-sans text-xs sm:text-sm tracking-[0.4em] uppercase mb-4 md:mb-6"
+          className="text-brand-accent font-sans text-xs sm:text-sm tracking-[0.4em] uppercase mb-2 md:mb-4"
         >
           {t.hero.tagline}
         </motion.p>
 
         <motion.h1
-          className="font-serif text-4xl sm:text-6xl md:text-8xl lg:text-9xl text-brand-secondary leading-[1.1] md:leading-[0.95] mb-6 md:mb-8 tracking-tight"
+          className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-brand-secondary leading-[1.1] md:leading-[0.95] mb-4 md:mb-6 tracking-tight text-balance"
           style={{ fontVariationSettings: `\"wght\" ${fontWeight.get()}` }}
         >
           <motion.span 
@@ -100,7 +100,7 @@ const Hero = () => {
 
         <motion.p
           variants={itemVariants}
-          className="text-brand-secondary/80 font-sans text-lg md:text-2xl max-w-3xl mb-8 md:mb-10"
+          className="text-brand-secondary/80 font-sans text-lg md:text-xl lg:text-2xl max-w-3xl mb-6 md:mb-8"
         >
           {t.hero.description}
         </motion.p>
