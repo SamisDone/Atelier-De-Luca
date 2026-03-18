@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces } from "next/font/google";
-import "./globals.css";
+import { Fraunces, Inter } from "next/font/google";
 import Script from "next/script";
-import Providers from "./providers";
+
+import Providers from "@/components/providers";
 import { SkipToContent } from "@/components/SkipToContent";
+
+import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -42,7 +44,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -52,13 +53,17 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${fraunces.variable} antialiased`}>
         <div className="grain-overlay" />
+
         <SkipToContent />
+
         <Providers>
           <main id="main-content">
             {children}
           </main>
         </Providers>
-        <div id="google_translate_element" style={{ display: 'none' }}></div>
+
+        <div id="google_translate_element" style={{ display: 'none' }} />
+
         <Script
           id="google-translate-init"
           strategy="afterInteractive"
@@ -78,6 +83,7 @@ export default function RootLayout({
             }
           `}
         </Script>
+        
         <Script
           src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
           strategy="afterInteractive"

@@ -3,6 +3,15 @@ export interface TranslationItem {
   description: string;
 }
 
+export interface ServiceItem extends TranslationItem {
+  image: string;
+}
+
+export interface CraftmenshipWork {
+  image: string,
+  label: string
+}
+
 export interface StatItem {
   value: string;
   label: string;
@@ -12,24 +21,13 @@ export interface ProjectItem {
   title: string;
   category: string;
   location: string;
+  image: string;
 }
 
 export interface TestimonialItem {
   quote: string;
   author: string;
   role: string;
-}
-
-export interface SpecItem {
-  property: string;
-  value: string;
-  standard: string;
-  rating: string;
-}
-
-export interface SystemBenefit {
-  title: string;
-  description: string;
 }
 
 /**
@@ -39,37 +37,23 @@ export interface SystemBenefit {
  */
 export interface Translations {
   nav: { services: string; about: string; gallery: string; financing: string; craftsmanship: string; testimonials: string; contact: string };
-  hero: { tagline: string; titleLine1: string; titleLine2: string; description: string; viewProjects: string; contactUs: string; scroll: string };
-  systems: { tagline: string; title: string; description: string; items: SystemBenefit[] };
-  specs: { tagline: string; title: string; description: string; columns: { property: string; value: string; standard: string; rating: string }; items: SpecItem[] };
-  calculator: {
-    tagline: string;
-    title: string;
-    description: string;
-    areaLabel: string;
-    areaPlaceholder: string;
-    tileLabel: string;
-    tilePlaceholder: string;
-    heightLabel: string;
-    heightPlaceholder: string;
-    wastageLabel: string;
-    submit: string;
-    resultTiles: string;
-    resultPedestals: string;
-    loading: string;
-  };
-  services: { tagline: string; title: string; items: TranslationItem[] };
-  about: { tagline: string; title: string; description1: string; description2: string; stats: StatItem[] };
-  features: { tagline: string; title: string; description: string; items: TranslationItem[] };
+  hero: { tagline: string; titleLine1: string; titleLine2: string; description: string; viewProjects: string; contactUs: string; scroll: string, image: {
+    path: string,
+    alt: string,
+  } };
+  services: { tagline: string; title: string; items: ServiceItem[] };
+  about: { tagline: string; title: string; description1: string; description2: string; stats: StatItem[], image: {
+    path: string,
+    alt: string
+  } };
   gallery: { tagline: string; title: string; description: string; filterAll: string; projects: ProjectItem[] };
-  videoShowcase: { tagline: string; title: string; description: string; labels: string[] };
+  craftmenship: { tagline: string; title: string; description: string; works: CraftmenshipWork[] };
   testimonials: { tagline: string; title: string; description: string; items: TestimonialItem[] };
   contact: { tagline: string; title: string; description: string; nameLabel: string; namePlaceholder: string; emailLabel: string; emailPlaceholder: string; messageLabel: string; messagePlaceholder: string; submit: string };
   footer: { tagline: string; quickLinks: string; ourServices: string; contactTitle: string; servicesList: string[]; contactInfo: { email: string; phone: string; address: string }; copyright: string; privacyPolicy: string; termsOfService: string };
 }
 
 const en: Translations = {
-  // Navbar
   nav: {
     services: "Services",
     about: "About",
@@ -80,7 +64,6 @@ const en: Translations = {
     contact: "Contact",
   },
 
-  // Hero
   hero: {
     tagline: "Design & Exterior Installation",
     titleLine1: "The Next Horizon Of",
@@ -90,97 +73,12 @@ const en: Translations = {
     viewProjects: "View Projects",
     contactUs: "Contact Us",
     scroll: "Scroll",
+    image: {
+      path: "/images/hero/nolita.jpg",
+      alt: "Premium exterior design and installation"
+    }
   },
 
-  // System
-  systems: {
-    tagline: "The System",
-    title: "Why PIERRA Pedestals",
-    description: "Engineered advantages that make the PIERRA pedestal system the choice of architects worldwide.",
-    items: [
-      {
-        title: "Superior Drainage",
-        description: "The elevated pedestal system creates a void beneath tiles, allowing rainwater to flow freely to drainage points — eliminating pooling and surface damage.",
-      },
-      {
-        title: "Precision Leveling",
-        description: "Adjustable pedestals compensate for uneven substrates, delivering a perfectly flat finished surface with slope correction up to 5%.",
-      },
-      {
-        title: "Thermal Insulation",
-        description: "The air gap beneath tiles acts as natural insulation, reducing heat transfer to the structure below and keeping surfaces cooler underfoot.",
-      },
-      {
-        title: "Zero-Maintenance Access",
-        description: "Individual tiles lift out for easy access to waterproofing membranes, cables, and drainage — no demolition required.",
-      },
-    ],
-  },
-
-  // Specs
-  specs: {
-    tagline: "Performance Data",
-    title: "Technical Specifications",
-    description: "Every PIERRA installation exceeds international standards for exterior applications.",
-    columns: {
-      property: "Property",
-      value: "Value",
-      standard: "Standard",
-      rating: "Rating",
-    },
-    items: [
-      { property: "Tile Thickness", value: "20mm", standard: "EN 14411", rating: "Class BIa" },
-      { property: "Load-Bearing Capacity", value: "≥ 1,000 kg", standard: "ISO 10545-4", rating: "Superior" },
-      { property: "Slip Resistance", value: "R11 / C", standard: "DIN 51130", rating: "Anti-slip" },
-      { property: "Water Absorption", value: "< 0.5%", standard: "ISO 10545-3", rating: "Frost-proof" },
-      { property: "Flexural Strength", value: "≥ 45 N/mm²", standard: "ISO 10545-4", rating: "Heavy duty" },
-      { property: "Abrasion Resistance", value: "Class 5", standard: "ISO 10545-7", rating: "Maximum" },
-      { property: "Chemical Resistance", value: "UA / ULA", standard: "ISO 10545-13", rating: "Highest" },
-      { property: "Thermal Shock", value: "Resistant", standard: "ISO 10545-9", rating: "All climates" },
-    ],
-  },
-
-  // Calculator
-  calculator: {
-    tagline: "Project Planning",
-    title: "Installation Calculator",
-    description: "Estimate the tiles and pedestals required for your exterior project.",
-    areaLabel: "Project Area (m²)",
-    areaPlaceholder: "e.g. 50",
-    tileLabel: "Tile Size",
-    tilePlaceholder: "Select tile size",
-    heightLabel: "Pedestal Height Range",
-    heightPlaceholder: "Select height",
-    wastageLabel: "Wastage Allowance",
-    submit: "Calculate Requirements",
-    resultTiles: "Tiles Required",
-    resultPedestals: "Pedestals Required",
-    loading: "Loading Calculator...",
-  },
-
-  services: {
-    tagline: "Expertise",
-    title: "Our Services",
-    items: [
-      {
-        title: "Design",
-        description:
-          "From initial concept to detailed plans, our design team creates tailored exterior environments that balance aesthetics, functionality, and the unique character of every site.",
-      },
-      {
-        title: "Residential Landscaping",
-        description:
-          "Complete exterior transformations for homes — specialized in driveways, walkways, pools, roof-top terrasses, garden landscaping, and tailored outdoor surfaces.",
-      },
-      {
-        title: "Commercial & Municipal",
-        description:
-          "Large-scale exterior design and installation for public spaces, corporate plazas, hospitality venues, and commercial developments — built to last.",
-      },
-    ],
-  },
-
-  // About
   about: {
     tagline: "About Us",
     title: "Who We Are",
@@ -193,39 +91,37 @@ const en: Translations = {
       { value: "50+", label: "Dedicated Team Members" },
       { value: "15+", label: "Years of Experience" },
     ],
+    image: {
+      path: "/images/about/londana.jpg",
+      alt: "Aerial view of landscaping project"
+    }
   },
-
-  // Features
-  features: {
-    tagline: "Why Choose Us",
-    title: "Expert Installation & Landscaping",
-    description:
-      "From concept to completion, every detail of the outdoor transformation is handled with precision.",
+  
+  services: {
+    tagline: "Expertise",
+    title: "Our Services",
     items: [
       {
-        title: "Precision Craftsmanship",
+        title: "Design",
         description:
-          "Every project is executed with meticulous attention to detail — from grading and drainage to the final tile placement.",
+          "From initial concept to detailed plans, our design team creates tailored exterior environments that balance aesthetics, functionality, and the unique character of every site.",
+        image: "/images/services/venza.jpg"
       },
       {
-        title: "Built to Last",
+        title: "Residential Landscaping",
         description:
-          "Premium materials and proven construction techniques ensure every outdoor space endures for decades.",
+          "Complete exterior transformations for homes — specialized in driveways, walkways, pools, roof-top terrasses, garden landscaping, and tailored outdoor surfaces.",
+        image: "/images/services/oslo.jpg"
       },
       {
-        title: "On-Time Delivery",
+        title: "Commercial & Municipal",
         description:
-          "Our experienced crews follow tight project timelines, keeping you informed at every stage from excavation to completion.",
-      },
-      {
-        title: "Full-Service Team",
-        description:
-          "Landscape architects, skilled installers, and project managers work in unison to provide a single point of contact.",
+          "Large-scale exterior design and installation for public spaces, corporate plazas, hospitality venues, and commercial developments — built to last.",
+        image: "/images/services/striato.jpg"
       },
     ],
   },
 
-  // Gallery
   gallery: {
     tagline: "Our Work",
     title: "Featured Projects",
@@ -233,33 +129,64 @@ const en: Translations = {
       "Explore our featured landscaping and installation projects across residential and commercial spaces.",
     filterAll: "All",
     projects: [
-      { title: "Modern Estate Patio", category: "Pool", location: "Montreal" },
-      { title: "Grand Entrance Driveway", category: "Driveway", location: "Westmount" },
-      { title: "Terraced Garden Retreat", category: "Walkway", location: "Outremont" },
-      { title: "Classic Stone Facade", category: "Roof", location: "Laval" },
-      { title: "Contemporary Exterior", category: "Top Terrasse", location: "Brossard" },
-      { title: "Multi-Level Retaining Wall", category: "Landscape", location: "Mount Royal" },
+      { title: "Modern Estate Patio", category: "Pool", location: "Montreal", image: "/images/gallery/pool.jpg" },
+      { title: "Terraced Garden", category: "Walkway", location: "Outremont", image: "/images/gallery/walkway-2.jpg" },
+      { title: "Multi-Level Retaining", category: "Landscape", location: "Mount Royal", image: "/images/gallery/landscape-1.jpg" },
+      { title: "Contemporary", category: "Top Terrasse", location: "Brossard", image: "/images/gallery/terrasse-1.jpg" },
+      { title: "Grand Entrance Driveway", category: "Driveway", location: "Westmount", image: "/images/gallery/driveway-2.jpg" },
+      { title: "Contemporary Exterior", category: "Top Terrasse", location: "Brossard", image: "/images/gallery/terrasse-2.jpg" },
+      { title: "Terraced Garden Retreat", category: "Walkway", location: "Outremont", image: "/images/gallery/walkway-3.jpg" },
+      { title: "Classic Stone Facade", category: "Roof", location: "Laval", image: "/images/gallery/roof.jpg" },
+      { title: "Multi-Level Retaining Wall", category: "Landscape", location: "Mount Royal", image: "/images/gallery/landscape-2.jpg" },
+      { title: "Entrance Driveway", category: "Driveway", location: "Westmount", image: "/images/gallery/driveway-1.jpg" },
+      { title: "Terraced", category: "Walkway", location: "Outremont", image: "/images/gallery/walkway-1.jpg" },
+      { title: "Contemporary", category: "Top Terrasse", location: "Brossard", image: "/images/gallery/terrasse-3.jpg" },
+      { title: "Modern Patio", category: "Pool", location: "Montreal", image: "/images/gallery/pool-1.jpg" },
+      { title: "Grand Driveway", category: "Driveway", location: "Westmount", image: "/images/gallery/driveway-3.jpg" },
+      { title: "Multi-Level Wall", category: "Landscape", location: "Mount Royal", image: "/images/gallery/landscape.jpg" },
     ],
   },
 
-  // Video Showcase
-  videoShowcase: {
+  craftmenship: {
     tagline: "See Our Work",
     title: "Craftsmanship in Motion",
     description: "A glimpse into spaces brought to life through expert craftsmanship.",
-    labels: [
-      "Driveway",
-      "Walkway",
-      "Pool",
-      "Roof",
-      "Top Terrasse",
-      "Custom Patios",
-      "Retaining Walls",
-      "Exterior Living",
+    works: [
+      {
+        image: "/images/craftmenship/proma-xl.jpg",
+        label: "Floor"
+      },
+      {
+        image: "/images/gallery/driveway-3.jpg",
+        label: "Driveway",
+      },
+      {
+        image: "/images/craftmenship/clayden.jpg",
+        label: "Walkway",
+      },
+      {
+        image: "/images/gallery/pool-1.jpg",
+        label: "Pool",
+      },
+      {
+        image: "/images/gallery/roof.jpg",
+        label: "Roof",
+      },
+      {
+        image: "/images/services/venza.jpg",
+        label: "Driveway",
+      },
+      {
+        image: "/images/gallery/landscape-1.jpg",
+        label: "Landscape",
+      },
+      {
+        image: "/images/hero/nolita.jpg",
+        label: "Walkway"
+      }
     ],
   },
 
-  // Testimonials
   testimonials: {
     tagline: "Client Stories",
     title: "Trusted by Homeowners & Builders",
@@ -287,7 +214,6 @@ const en: Translations = {
     ],
   },
 
-  // Contact
   contact: {
     tagline: "Start Your Project",
     title: "Request a Free Consultation",
@@ -302,7 +228,6 @@ const en: Translations = {
     submit: "Request Consultation",
   },
 
-  // Footer
   footer: {
     tagline:
       "Exterior design and installation. Where expert vision meets flawless execution.",

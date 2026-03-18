@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://atelierdeluca.com/sitemap.xml",
+    sitemap: "https://piera.com/sitemap.xml",
   };
 }
