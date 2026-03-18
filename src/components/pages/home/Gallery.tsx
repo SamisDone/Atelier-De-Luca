@@ -9,12 +9,12 @@ import { cn } from "@/lib/utils";
 
 const Gallery = () => {
   const [active, setActive] = useState("All");
-  const { t } = useLanguage();
+  const { messages } = useLanguage();
 
-  const projects = t.gallery.projects
+  const projects = messages.gallery.projects
 
-  const categories = [t.gallery.filterAll, ...new Set(projects.map((p) => p.category))];
-  const filtered = active === t.gallery.filterAll ? projects : projects.filter((p) => p.category === active);
+  const categories = [messages.gallery.filterAll, ...new Set(projects.map((p) => p.category))];
+  const filtered = active === messages.gallery.filterAll ? projects : projects.filter((p) => p.category === active);
 
   return (
     <section id="gallery" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-24 bg-background overflow-hidden snap-start">
@@ -29,13 +29,13 @@ const Gallery = () => {
             className="mb-6 flex flex-col items-start"
           >
             <p className="text-primary font-sans text-base tracking-[0.4em] uppercase mb-4">
-              {t.gallery.tagline}
+              {messages.gallery.tagline}
             </p>
             <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl text-foreground mb-4 leading-[0.95] tracking-tight">
-              {t.gallery.title}
+              {messages.gallery.title}
             </h2>
             <p className="text-muted-foreground max-w-xl text-base md:text-xl leading-relaxed">
-              {t.gallery.description}
+              {messages.gallery.description}
             </p>
           </motion.div>
 

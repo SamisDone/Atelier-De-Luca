@@ -11,9 +11,9 @@ import { useLanguage } from "@/i18n/LanguageContext";
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { t, language, toggleLanguage } = useLanguage();
+  const { messages, language, toggleLanguage } = useLanguage();
 
-  const navKeys = Object.keys(t.nav) as (keyof typeof t.nav)[]
+  const navKeys = Object.keys(messages.nav) as (keyof typeof messages.nav)[]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +25,7 @@ const Navbar = () => {
   }, []);
 
   const navItems = navKeys.map((key) => ({
-    label: t.nav[key],
+    label: messages.nav[key],
     href: `#${key}`,
   }));
 

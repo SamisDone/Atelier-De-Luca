@@ -1,68 +1,69 @@
 "use client";
 
-import { createContext, useContext, useState, useCallback, ReactNode, useEffect } from "react";
+import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useState } from "react";
+
 import en, { type Translations } from "@/i18n/translations/en";
 
 type Language = "en" | "fr";
 
 interface LanguageContextType {
   language: Language;
-  t: Translations;
+  messages: Translations;
   setLanguage: (lang: Language) => void;
   toggleLanguage: () => void;
 }
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en");
+  const getInitialLanguage = (): Language => {
+    if (typeof document === "undefined") return "en";
+
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; googtrans=`);
+    const currentTrans = parts.length === 2 ? parts.pop()?.split(";").shift() : undefined;
+
+    return currentTrans === "/en/fr" ? "fr" : "en";
+  };
+
+  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
 
   // Sync with googtrans cookie and HTML lang
   useEffect(() => {
-    const getCookie = (name: string) => {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop()?.split(";").shift();
-    };
-
-    const currentTrans = getCookie("googtrans");
-    if (currentTrans === "/en/fr") {
-      setLanguage("fr");
-      document.documentElement.lang = "fr";
-    } else {
-      setLanguage("en");
-      document.documentElement.lang = "en";
-    }
+    document.documentElement.lang = language;
   }, [language]);
+
+  const applyLanguage = useCallback((nextLanguage: Language) => {
+    document.cookie = `googtrans=/en/${nextLanguage}; path=/`;
+    setLanguageState(nextLanguage);
+
+    const select = document.querySelector(".goog-te-combo");
+    if (select instanceof HTMLSelectElement) {
+      if (select.value !== nextLanguage) {
+        select.value = nextLanguage;
+        select.dispatchEvent(new Event("change"));
+      }
+      return;
+    }
+
+    window.location.reload();
+  }, []);
 
   const toggleLanguage = useCallback(() => {
-    const nextLang = language === "en" ? "fr" : "en";
-    
-    // Set cookie
-    document.cookie = `googtrans=/en/${nextLang}; path=/`; 
-    
-    // Manage state
-    setLanguage(nextLang);
-    document.documentElement.lang = nextLang;
+    applyLanguage(language === "en" ? "fr" : "en");
+  }, [language, applyLanguage]);
 
-    // Trigger Google Translate engine
-    const select = document.querySelector(".goog-te-combo") as HTMLSelectElement;
-    if (select) {
-      select.value = nextLang;
-      select.dispatchEvent(new Event("change"));
-    } else {
-      window.location.reload();
-    }
-  }, [language]);
+  const value = useMemo(
+    () => ({
+      language,
+      messages: en,
+      setLanguage: applyLanguage,
+      toggleLanguage,
+    }),
+    [language, applyLanguage, toggleLanguage]
+  );
 
   return (
-    <LanguageContext.Provider
-      value={{
-        language,
-        t: en, // Always provide English keys; Google translates the DOM
-        setLanguage,
-        toggleLanguage,
-      }}
-    >
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );

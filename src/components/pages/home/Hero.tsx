@@ -30,7 +30,7 @@ const itemVariants = {
 
 const Hero = () => {
   const ref = useRef(null);
-  const { t } = useLanguage();
+  const { messages } = useLanguage();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -49,8 +49,8 @@ const Hero = () => {
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <Image
-          src={t.hero.image.path}
-          alt={t.hero.image.alt}
+          src={messages.hero.image.path}
+          alt={messages.hero.image.alt}
           fill
           priority
           sizes="100vw"
@@ -73,7 +73,7 @@ const Hero = () => {
           }}
           className="text-brand-accent font-sans text-xs sm:text-sm tracking-[0.4em] uppercase mb-2 md:mb-4"
         >
-          {t.hero.tagline}
+          {messages.hero.tagline}
         </motion.p>
 
         <motion.h1
@@ -87,7 +87,7 @@ const Hero = () => {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
             style={{ fontVariationSettings: useTransform(fontWeight, w => `\"wght\" ${w}`) }}
           >
-            {t.hero.titleLine1}
+            {messages.hero.titleLine1}
           </motion.span>
           <br />
           <motion.span
@@ -96,7 +96,7 @@ const Hero = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
           >
-            {t.hero.titleLine2}
+            {messages.hero.titleLine2}
           </motion.span>
         </motion.h1>
 
@@ -104,7 +104,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-brand-secondary/80 font-sans text-lg md:text-xl lg:text-2xl max-w-3xl mb-6 md:mb-8"
         >
-          {t.hero.description}
+          {messages.hero.description}
         </motion.p>
 
         <motion.div
@@ -112,7 +112,7 @@ const Hero = () => {
           className="flex flex-col sm:flex-row gap-4"
         >
           <Button variant="hero" size="lg" className="text-base px-10" asChild>
-            <a href="#gallery">{t.hero.viewProjects}</a>
+            <a href="#gallery">{messages.hero.viewProjects}</a>
           </Button>
           <Button
             variant="hero-outline"
@@ -120,7 +120,7 @@ const Hero = () => {
             className="text-base px-10 border-brand-secondary text-brand-secondary hover:bg-brand-secondary hover:text-brand-tertiary"
             asChild
           >
-            <a href="#contact">{t.hero.contactUs}</a>
+            <a href="#contact">{messages.hero.contactUs}</a>
           </Button>
         </motion.div>
       </motion.div>
@@ -137,7 +137,7 @@ const Hero = () => {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="text-brand-secondary/40 text-xs tracking-widest uppercase">{t.hero.scroll}</span>
+          <span className="text-brand-secondary/40 text-xs tracking-widest uppercase">{messages.hero.scroll}</span>
           <div className="w-6 h-10 border-2 border-brand-secondary/30 rounded-full flex items-start justify-center p-2">
             <motion.div
               animate={{ y: [0, 12, 0] }}

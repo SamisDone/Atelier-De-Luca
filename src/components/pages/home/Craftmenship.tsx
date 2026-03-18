@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const Craftmenship = () => {
-  const { t } = useLanguage();
+  const { messages } = useLanguage();
 
-  const baseImages = t.craftmenship.works
+  const baseImages = messages.craftmenship.works
   const showcaseImages = [...baseImages, ...baseImages];
 
   return (
@@ -21,13 +21,13 @@ const Craftmenship = () => {
           className="text-center"
         >
           <p className="text-brand font-sans text-base tracking-[0.3em] uppercase mb-4">
-            {t.craftmenship.tagline}
+            {messages.craftmenship.tagline}
           </p>
           <h2 className="font-serif text-4xl sm:text-5xl md:text-7xl text-foreground mb-4">
-            {t.craftmenship.title}
+            {messages.craftmenship.title}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            {t.craftmenship.description}
+            {messages.craftmenship.description}
           </p>
         </motion.div>
       </div>

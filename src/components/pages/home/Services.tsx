@@ -25,7 +25,7 @@ const maskReveal: Variants = {
 };
 
 const Services = () => {
-  const { t } = useLanguage();
+  const { messages } = useLanguage();
 
   return (
     <section id="services" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-24 bg-background snap-start">
@@ -38,15 +38,15 @@ const Services = () => {
           className="mb-8"
         >
           <p className="text-primary font-sans text-base tracking-[0.4em] uppercase mb-4 transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]">
-            {t.services.tagline}
+            {messages.services.tagline}
           </p>
           <h2 className="font-serif text-5xl md:text-7xl text-foreground mb-4">
-            {t.services.title}
+            {messages.services.title}
           </h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {t.services.items.map((service, idx) => (
+          {messages.services.items.map((service, idx) => (
             <motion.div
               key={idx}
               variants={maskReveal}

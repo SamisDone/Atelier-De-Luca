@@ -25,7 +25,7 @@ const itemVariants: Variants = {
 };
 
 const Testimonials = () => {
-  const { t } = useLanguage();
+  const { messages } = useLanguage();
 
   return (
     <section id="testimonials" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-24 bg-brand-tertiary overflow-hidden snap-start text-brand-secondary">
@@ -44,14 +44,14 @@ const Testimonials = () => {
           className="mb-8"
         >
           <p className="text-brand-accent font-sans text-base tracking-[0.4em] uppercase mb-4">
-            {t.testimonials.tagline}
+            {messages.testimonials.tagline}
           </p>
           {/* Editorial oversized heading */}
           <h2 className="font-serif text-5xl sm:text-6xl md:text-8xl text-brand-secondary mb-4 tracking-tight leading-[0.95]">
-            {t.testimonials.title}
+            {messages.testimonials.title}
           </h2>
           <p className="text-brand-secondary/55 max-w-xl text-xl">
-            {t.testimonials.description}
+            {messages.testimonials.description}
           </p>
         </motion.div>
 
@@ -62,7 +62,7 @@ const Testimonials = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {t.testimonials.items.map((item, idx) => (
+          {messages.testimonials.items.map((item, idx) => (
             <motion.div
               key={idx}
               variants={itemVariants}

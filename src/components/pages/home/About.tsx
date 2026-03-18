@@ -8,7 +8,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 
 const About = () => {
   const ref = useRef(null);
-  const { t } = useLanguage();
+  const { messages } = useLanguage();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -20,8 +20,8 @@ const About = () => {
     <section ref={ref} id="about" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-24 bg-brand-secondary overflow-hidden snap-start">
       <motion.div style={{ y }} className="absolute inset-0 -top-[15%] h-[130%] w-full z-0">
         <Image
-          src={t.about.image.path}
-          alt={t.about.image.alt}
+          src={messages.about.image.path}
+          alt={messages.about.image.alt}
           fill
           sizes="100vw"
           className="object-cover"
@@ -42,10 +42,10 @@ const About = () => {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <p className="text-brand-accent font-sans text-base tracking-[0.4em] uppercase mb-6">
-              {t.about.tagline}
+              {messages.about.tagline}
             </p>
             <h2 className="font-serif text-5xl md:text-6xl lg:text-8xl text-brand-secondary leading-[0.9] tracking-tight transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]">
-              {t.about.title}
+              {messages.about.title}
             </h2>
           </motion.div>
 
@@ -58,10 +58,10 @@ const About = () => {
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
           >
             <p className="text-brand-secondary/85 text-lg md:text-xl leading-relaxed mb-4 font-sans max-w-xl">
-              {t.about.description1}
+              {messages.about.description1}
             </p>
             <p className="text-brand-secondary/65 text-base md:text-lg leading-relaxed font-sans max-w-xl">
-              {t.about.description2}
+              {messages.about.description2}
             </p>
           </motion.div>
         </div>
@@ -77,7 +77,7 @@ const About = () => {
             visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
           }}
         >
-          {t.about.stats.map((stat, idx) => (
+          {messages.about.stats.map((stat, idx) => (
             <motion.div
               key={idx}
               variants={{
@@ -88,10 +88,10 @@ const About = () => {
                   scale: 1,
                   transition: { type: "spring", stiffness: 80, damping: 15 },
                 },
-              } as any}
+              }}
               className="text-center"
             >
-              <p className="font-serif text-4xl md:text-6xl lg:text-7xl text-brand-secondary font-bold mb-2 tracking-tight">
+              <p translate="no" className="font-serif text-4xl md:text-6xl lg:text-7xl text-brand-secondary font-bold mb-2 tracking-tight">
                 {stat.value}
               </p>
               <p className="text-brand-secondary/45 text-xs font-sans tracking-widest uppercase">
