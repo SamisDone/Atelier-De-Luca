@@ -152,6 +152,9 @@ const frManual: DeepPartial<Translations> = {
         label: "Allée piétonne"
       }
     ],
+  },
+  footer: {
+    tagline: "Conception et réalisation. Quand une vision experte rencontre une exécution irréprochable."
   }
 };
 

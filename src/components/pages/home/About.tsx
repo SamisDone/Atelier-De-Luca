@@ -44,7 +44,7 @@ const About = () => {
             <p className="text-brand-accent font-sans text-base tracking-[0.4em] uppercase mb-6">
               {messages.about.tagline}
             </p>
-            <h2 className="font-serif text-5xl md:text-6xl lg:text-8xl text-brand-secondary leading-[0.9] tracking-tight transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]">
+            <h2 className="font-serif text-5xl md:text-6xl lg:text-8xl text-brand-secondary leading-[0.9] tracking-tight transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700] text-balance">
               {messages.about.title}
             </h2>
           </motion.div>

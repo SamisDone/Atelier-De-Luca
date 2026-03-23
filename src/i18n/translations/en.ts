@@ -132,14 +132,14 @@ const en: Translations = {
       { title: "Modern Estate Patio", category: "Pool", location: "Montreal", image: "/images/gallery/pool.jpg" },
       { title: "Terraced Garden", category: "Walkway", location: "Outremont", image: "/images/gallery/walkway-2.jpg" },
       { title: "Multi-Level Retaining", category: "Landscape", location: "Mount Royal", image: "/images/gallery/landscape-1.jpg" },
-      { title: "Contemporary", category: "Top Terrasse", location: "Brossard", image: "/images/gallery/terrasse-1.jpg" },
+      { title: "Contemporary", category: "Roof Top Terrasse", location: "Brossard", image: "/images/gallery/terrasse-1.jpg" },
       { title: "Grand Entrance Driveway", category: "Driveway", location: "Westmount", image: "/images/gallery/driveway-2.jpg" },
-      { title: "Contemporary Exterior", category: "Top Terrasse", location: "Brossard", image: "/images/gallery/terrasse-2.jpg" },
+      { title: "Contemporary Exterior", category: "Roof Top Terrasse", location: "Brossard", image: "/images/gallery/terrasse-2.jpg" },
       { title: "Terraced Garden Retreat", category: "Walkway", location: "Outremont", image: "/images/gallery/walkway-3.jpg" },
       { title: "Multi-Level Retaining Wall", category: "Landscape", location: "Mount Royal", image: "/images/gallery/landscape-2.jpg" },
       { title: "Entrance Driveway", category: "Driveway", location: "Westmount", image: "/images/gallery/driveway-1.jpg" },
       { title: "Terraced", category: "Walkway", location: "Outremont", image: "/images/gallery/walkway-1.jpg" },
-      { title: "Contemporary", category: "Top Terrasse", location: "Brossard", image: "/images/gallery/terrasse-3.jpg" },
+      { title: "Contemporary", category: "Roof Top Terrasse", location: "Brossard", image: "/images/gallery/terrasse-3.jpg" },
       { title: "Modern Patio", category: "Pool", location: "Montreal", image: "/images/gallery/pool-1.jpg" },
       { title: "Grand Driveway", category: "Driveway", location: "Westmount", image: "/images/gallery/driveway-3.jpg" },
       { title: "Multi-Level Wall", category: "Landscape", location: "Mount Royal", image: "/images/gallery/landscape.jpg" },
@@ -225,7 +225,7 @@ const en: Translations = {
 
   footer: {
     tagline:
-      "Exterior design and installation. Where expert vision meets flawless execution.",
+      "Exterior design and build. Where expert vision meets flawless execution.",
     quickLinks: "Quick Links",
     ourServices: "Our Services",
     contactTitle: "Contact",
