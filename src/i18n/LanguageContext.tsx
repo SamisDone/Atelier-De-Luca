@@ -3,6 +3,8 @@
 import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useState } from "react";
 
 import en, { type Translations } from "@/i18n/translations/en";
+import frManual from "@/i18n/translations/fr-manual";
+import { deepMerge } from "@/lib/deep-merge";
 
 type Language = "en" | "fr";
 
@@ -52,14 +54,19 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     applyLanguage(language === "en" ? "fr" : "en");
   }, [language, applyLanguage]);
 
+  const messages = useMemo<Translations>(
+    () => (language === "fr" ? deepMerge<Translations>(en, frManual) : en),
+    [language]
+  );
+
   const value = useMemo(
     () => ({
       language,
-      messages: en,
+      messages,
       setLanguage: applyLanguage,
       toggleLanguage,
     }),
-    [language, applyLanguage, toggleLanguage]
+    [language, messages, applyLanguage, toggleLanguage]
   );
 
   return (

@@ -65,11 +65,11 @@ const en: Translations = {
   },
 
   hero: {
-    tagline: "Design & Exterior Installation",
+    tagline: "DESIGN & BUILD",
     titleLine1: "The Next Horizon Of",
     titleLine2: "Modern Landscapes",
     description:
-      "Elevating exterior spaces through visionary design and masterful installation. From private retreats to grand commercial landscapes, defining the next horizon of outdoor excellence.",
+      "Elevating exterior spaces through visionary design and master craftsmanship . From private havens to grand commercial landscapes, defining the next horizon of outdoor excellence.",
     viewProjects: "View Projects",
     contactUs: "Contact Us",
     scroll: "Scroll",
@@ -83,7 +83,7 @@ const en: Translations = {
     tagline: "About Us",
     title: "Who We Are",
     description1:
-      "PIERRA represents the pinnacle of exterior architecture and specialized installation. Masterful environments are realized through a focus on structural integrity and aesthetic harmony, catering to the most sophisticated residential and commercial landscapes.",
+      "PIERRA represents the pinnacle of exterior architecture and specialized installation. Well structured environments are realized through a focus on structural integrity and aesthetic harmony, catering to the most sophisticated residential and commercial landscapes.",
     description2:
       "Technical innovation and artistic vision converge in every installation. Excellence is attained through the coordinated mastery of expert designers and construction specialists, ensuring each project becomes a landmark of external design.",
     stats: [
@@ -136,7 +136,6 @@ const en: Translations = {
       { title: "Grand Entrance Driveway", category: "Driveway", location: "Westmount", image: "/images/gallery/driveway-2.jpg" },
       { title: "Contemporary Exterior", category: "Top Terrasse", location: "Brossard", image: "/images/gallery/terrasse-2.jpg" },
       { title: "Terraced Garden Retreat", category: "Walkway", location: "Outremont", image: "/images/gallery/walkway-3.jpg" },
-      { title: "Classic Stone Facade", category: "Roof", location: "Laval", image: "/images/gallery/roof.jpg" },
       { title: "Multi-Level Retaining Wall", category: "Landscape", location: "Mount Royal", image: "/images/gallery/landscape-2.jpg" },
       { title: "Entrance Driveway", category: "Driveway", location: "Westmount", image: "/images/gallery/driveway-1.jpg" },
       { title: "Terraced", category: "Walkway", location: "Outremont", image: "/images/gallery/walkway-1.jpg" },
@@ -167,10 +166,6 @@ const en: Translations = {
       {
         image: "/images/gallery/pool-1.jpg",
         label: "Pool",
-      },
-      {
-        image: "/images/gallery/roof.jpg",
-        label: "Roof",
       },
       {
         image: "/images/services/venza.jpg",
