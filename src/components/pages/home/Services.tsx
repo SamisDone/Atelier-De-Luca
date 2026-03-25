@@ -28,7 +28,7 @@ const Services = () => {
   const { messages } = useLanguage();
 
   return (
-    <section id="services" className="relative w-full flex flex-col items-center justify-center py-12 md:py-16 bg-background snap-start">
+    <section id="services" className="relative w-full flex flex-col items-center justify-center py-0 md:py-16 bg-background snap-start">
       <div className="container mx-auto px-6 h-full w-full flex flex-col justify-around pt-8 md:pt-12 pb-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -64,7 +64,7 @@ const Services = () => {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 {/* Title overlay on hover */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
                   <h3 className="font-serif text-2xl md:text-3xl text-white leading-tight">

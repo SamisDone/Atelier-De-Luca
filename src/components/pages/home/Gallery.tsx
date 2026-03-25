@@ -17,7 +17,7 @@ const Gallery = () => {
   const filtered = active === messages.gallery.filterAll ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section id="gallery" className="relative w-full flex flex-col items-center justify-center py-12 md:py-16 bg-background overflow-hidden snap-start">
+    <section id="gallery" className="relative w-full flex flex-col items-center justify-center pt-12 md:pt-16 bg-background overflow-hidden snap-start">
       <div className="w-full flex flex-col pt-8 md:pt-12 pb-8 relative z-10">
         {/* Header section with container */}
         <div className="container mx-auto px-6">
@@ -75,11 +75,11 @@ const Gallery = () => {
                   className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
                 />
                 {/* Premium gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 flex flex-col justify-end p-7">
-                  <p className="text-primary text-xs tracking-[0.3em] uppercase mb-1.5">
+                <div className="absolute inset-0 bg-gradient-to-t text-white from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 flex flex-col justify-end p-7">
+                  <p className="text-xs tracking-[0.3em] uppercase mb-1.5">
                     {project.category}
                   </p>
-                  <h3 className="font-serif text-2xl md:text-3xl text-white leading-tight">{project.title}</h3>
+                  <h3 className="font-serif text-2xl md:text-3xl leading-tight">{project.title}</h3>
                   <p className="text-white/60 text-sm mt-1">{project.location}</p>
                 </div>
               </div>

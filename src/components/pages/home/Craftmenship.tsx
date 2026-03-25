@@ -11,7 +11,7 @@ const Craftmenship = () => {
   const showcaseImages = [...baseImages, ...baseImages];
 
   return (
-    <section id="craftsmanship" className="bg-background relative overflow-hidden w-full flex flex-col items-center justify-around pt-12 md:pt-16 pb-8 snap-start">
+    <section id="craftsmanship" className="bg-background relative overflow-hidden w-full flex flex-col items-center justify-around py-12 md:py-16 snap-start">
       <div className="container mx-auto px-6 relative z-10 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ const Craftmenship = () => {
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                 style={{ backgroundImage: `url(${img.image})` }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-tertiary/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
               <div className="absolute bottom-6 left-6">
                 <p className="text-brand-secondary font-serif text-lg md:text-xl pointer-events-none">
                   {img.label}

@@ -57,7 +57,7 @@ const Navbar = () => {
             />
             
           </Link>
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -84,7 +84,7 @@ const Navbar = () => {
               <span className="notranslate">{language === "en" ? "FR" : "EN"}</span>
             </button>
           </div>
-          <div className="flex items-center gap-3 md:hidden">
+          <div className="flex items-center gap-3 lg:hidden">
             <button
               onClick={toggleLanguage}
               className={`flex items-center gap-1 text-sm font-sans uppercase px-2.5 py-1 rounded-full border ${
@@ -120,7 +120,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background/98 backdrop-blur-lg pt-28 px-6"
+            className="fixed inset-0 z-40 bg-background/50 backdrop-blur-lg pt-28 px-6"
           >
             <nav className="flex flex-col gap-6">
               {navItems.map((item, idx) => (

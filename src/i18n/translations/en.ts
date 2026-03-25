@@ -55,8 +55,8 @@ export interface Translations {
 
 const en: Translations = {
   nav: {
-    services: "Services",
     about: "About",
+    services: "Services",
     gallery: "Gallery",
     financing: "Financing",
     craftsmanship: "Craftsmanship",

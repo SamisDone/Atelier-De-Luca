@@ -17,16 +17,17 @@ const About = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
 
   return (
-    <section ref={ref} id="about" className="relative w-full flex flex-col items-center justify-center py-12 md:py-16 bg-brand-secondary overflow-hidden snap-start">
+    <section ref={ref} id="about" className="relative w-full flex flex-col items-center justify-center pt-12 pb-20 md:pt-16 md:pb-24 bg-brand-secondary overflow-hidden snap-start">
       <motion.div style={{ y }} className="absolute inset-0 -top-[15%] h-[130%] w-full z-0">
         <Image
           src={messages.about.image.path}
           alt={messages.about.image.alt}
           fill
           sizes="100vw"
-          className="object-cover"
+          className="object-cover blur-sm"
         />
       </motion.div>
+      
       <div className="absolute inset-0 bg-brand-tertiary/80 backdrop-blur-[2px] z-0" />
 
       <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-around pt-12 md:pt-16 pb-12">
@@ -68,7 +69,7 @@ const About = () => {
 
         {/* Stats row with staggered reveal */}
         <motion.div
-          className="grid grid-cols-3 gap-4 md:gap-6 border-t border-brand-secondary/15 pt-8 mt-8 md:mt-0"
+          className="grid grid-cols-3 gap-4 md:gap-6 border-t border-brand-secondary/15 pt-8 mt-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}

@@ -43,8 +43,8 @@ const Hero = () => {
       <motion.div 
         style={{ y }} 
         className="absolute inset-0 -top-[20%] h-[120%] w-full z-0"
-        initial={{ scale: 1.1, filter: "blur(10px)" }}
-        animate={{ scale: 1, filter: "blur(0px)" }}
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <Image
@@ -53,7 +53,7 @@ const Hero = () => {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover blur-sm object-center"
         />
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-b from-brand-tertiary/70 via-brand-tertiary/50 to-brand-tertiary/70 backdrop-blur-[1px] z-0" />

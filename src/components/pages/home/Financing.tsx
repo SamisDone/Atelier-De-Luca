@@ -1,21 +1,13 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { ArrowRight, CreditCard, Clock, ShieldCheck } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { motion } from "framer-motion";
+import { ArrowRight, Clock, CreditCard, ShieldCheck } from "lucide-react";
+import { useRef } from "react";
 
 export default function Financing() {
   const { language } = useLanguage();
   const sectionRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  // Parallax layering for depth
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const cardY = useTransform(scrollYProgress, [0, 1], ["0%", "-8%"]);
 
   const content = {
     en: {
@@ -75,14 +67,8 @@ export default function Financing() {
         className="absolute top-0 left-0 right-0 h-24 bg-background z-10"
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 60%, 0 100%)" }}
       />
-
-      {/* Dynamic parallax background glow */}
-      <motion.div className="absolute inset-0 opacity-15 pointer-events-none" style={{ y: bgY }}>
-        <div className="absolute top-1/3 -left-32 w-[500px] h-[500px] bg-primary/40 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/30 rounded-full blur-[120px] animate-pulse" />
-      </motion.div>
       
-      <div className="container mx-auto px-6 relative z-10 w-full h-full flex flex-col justify-around pt-12 md:pt-16 pb-12 md:pb-16">
+      <div className="container mx-auto px-6 relative z-10 w-full h-full flex flex-col justify-around pt-32 pb-28 md:pt-36 md:pb-32">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 w-full h-full">
           <div className="flex-1 space-y-6 md:space-y-8">
             <motion.div
@@ -116,7 +102,7 @@ export default function Financing() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <button className="group relative w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 border-2 border-brand-secondary text-brand-secondary text-xs font-sans tracking-widest uppercase overflow-hidden mt-4 rounded-full hover:bg-brand-secondary hover:text-brand-tertiary transition-all duration-300">
+              <button className="group relative w-full flex items-center justify-center sm:w-auto px-8 sm:px-10 py-3 sm:py-4 border-2 border-brand-secondary text-brand-secondary text-xs font-sans tracking-widest uppercase overflow-hidden mt-4 rounded-full hover:bg-brand-secondary hover:text-brand-tertiary transition-all duration-300">
                 <span className="relative z-10 flex items-center gap-3">
                   {t.cta}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
@@ -126,7 +112,7 @@ export default function Financing() {
           </div>
 
           {/* Cards with parallax depth */}
-          <motion.div className="flex-1 w-full grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:gap-8" style={{ y: cardY }}>
+          <motion.div className="flex-1 w-full grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:gap-8" initial={{ scale: 0.5 }} animate={{ scale: 1 }}>
             {t.features.map((feature, index) => {
               const Icon = feature.icon;
               return (
