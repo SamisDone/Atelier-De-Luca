@@ -11,7 +11,7 @@ const Craftmenship = () => {
   const showcaseImages = [...baseImages, ...baseImages];
 
   return (
-    <section id="craftsmanship" className="bg-background relative overflow-hidden min-h-[100svh] w-full flex flex-col items-center justify-around pt-28 pb-12 snap-start">
+    <section id="craftsmanship" className="bg-background relative overflow-hidden min-h-[100svh] w-full flex flex-col items-center justify-around pt-20 md:pt-28 pb-12 snap-start">
       <div className="container mx-auto px-6 relative z-10 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -20,13 +20,13 @@ const Craftmenship = () => {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <p className="text-brand font-sans text-base tracking-[0.3em] uppercase mb-4">
+          <p className="text-primary font-sans text-sm tracking-[0.3em] uppercase mb-4">
             {messages.craftmenship.tagline}
           </p>
-          <h2 className="font-serif text-4xl sm:text-5xl md:text-7xl text-foreground mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-foreground mb-4 tracking-tight">
             {messages.craftmenship.title}
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
             {messages.craftmenship.description}
           </p>
         </motion.div>
@@ -62,7 +62,7 @@ const Craftmenship = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-tertiary/70 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <p className="text-brand-secondary font-serif text-xl md:text-2xl pointer-events-none">
+                <p className="text-brand-secondary font-serif text-lg md:text-xl pointer-events-none">
                   {img.label}
                 </p>
               </div>

@@ -82,20 +82,20 @@ export default function Financing() {
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/30 rounded-full blur-[120px] animate-pulse" />
       </motion.div>
       
-      <div className="container mx-auto px-6 relative z-10 w-full h-full flex flex-col justify-around pt-28 pb-20">
+      <div className="container mx-auto px-6 relative z-10 w-full h-full flex flex-col justify-around pt-20 md:pt-28 pb-16 md:pb-20">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 w-full h-full">
-          <div className="flex-1 space-y-8">
+          <div className="flex-1 space-y-6 md:space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-brand-accent font-sans text-base tracking-[0.4em] uppercase mb-6 block">
+              <span className="text-primary font-sans text-sm tracking-[0.3em] uppercase mb-6 block">
                 {t.tagline}
               </span>
               {/* Editorial oversized heading */}
-              <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif text-brand-secondary leading-[0.95] tracking-tight transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]">
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif text-brand-secondary leading-[0.95] tracking-tight">
                 {t.title}
               </h2>
             </motion.div>
@@ -105,7 +105,7 @@ export default function Financing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg md:text-xl text-brand-secondary/80 font-sans max-w-2xl leading-relaxed"
+              className="text-base md:text-lg text-brand-secondary/80 font-sans max-w-2xl leading-relaxed"
             >
               {t.description}
             </motion.p>
@@ -116,18 +116,17 @@ export default function Financing() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <button className="group relative px-10 py-4 bg-primary text-primary-foreground text-sm font-sans tracking-widest uppercase overflow-hidden mt-4 rounded-full">
+              <button className="group relative px-10 py-4 border-2 border-brand-secondary text-brand-secondary text-xs font-sans tracking-widest uppercase overflow-hidden mt-4 rounded-full hover:bg-brand-secondary hover:text-brand-tertiary transition-all duration-300">
                 <span className="relative z-10 flex items-center gap-3">
                   {t.cta}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
                 </span>
-                <div className="absolute inset-0 bg-white/15 transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out z-0 rounded-full" />
               </button>
             </motion.div>
           </div>
 
           {/* Cards with parallax depth */}
-          <motion.div className="flex-1 w-full grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8" style={{ y: cardY }}>
+          <motion.div className="flex-1 w-full grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 lg:gap-8" style={{ y: cardY }}>
             {t.features.map((feature, index) => {
               const Icon = feature.icon;
               return (
@@ -137,13 +136,13 @@ export default function Financing() {
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: 0.3 + index * 0.12 }}
-                  className={`bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 ${index === 2 ? 'sm:col-span-2' : ''}`}
+                  className={`bg-white/5 border border-white/10 p-6 md:p-8 rounded-2xl hover:bg-white/10 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 ${index === 2 ? 'sm:col-span-2' : ''}`}
                 >
-                  <div className="w-14 h-14 rounded-xl bg-brand-accent/15 flex items-center justify-center mb-6">
-                    <Icon className="w-7 h-7 text-brand-accent" />
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-primary/15 flex items-center justify-center mb-4 md:mb-6">
+                    <Icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-serif text-brand-secondary mb-3">{feature.title}</h3>
-                  <p className="text-brand-secondary/65 font-sans text-base leading-relaxed">
+                  <h3 className="text-xl md:text-2xl font-serif text-brand-secondary mb-3">{feature.title}</h3>
+                  <p className="text-brand-secondary/65 font-sans text-sm md:text-base leading-relaxed">
                     {feature.description}
                   </p>
                 </motion.div>

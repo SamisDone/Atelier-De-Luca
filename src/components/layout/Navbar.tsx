@@ -44,27 +44,25 @@ const Navbar = () => {
         <div className="container mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
           <Link
             href="/"
-            className={`flex flex-col items-center justify-center transition-colors duration-500 notranslate ${
-              scrolled ? "text-primary hover:text-primary/80" : "text-brand-secondary hover:text-brand-secondary/80"
-            }`}
+            className="flex items-center overflow-visible transition-colors duration-500 notranslate"
           >
             <Image
-              src="/images/pierra-logo.png"
+              src={scrolled ? "/images/pierra-logo-wordmark-cropped.png" : "/images/pierra-logo-wordmark-cropped.png"}
               alt="PIERRA"
-              width={320}
-              height={120}
-              className={`h-14 md:h-20 w-auto object-contain transition-all duration-500 mb-0.5 brightness-0 ${
-                scrolled ? "" : "invert"
+              width={745}
+              height={324}
+              className={`w-[160px] md:w-[200px] h-auto object-contain transition-all duration-500 ${
+                scrolled ? "" : "brightness-0 invert"
               }`}
             />
             
           </Link>
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-base font-sans tracking-wide transition-colors duration-200 ${
+                className={`text-sm font-sans uppercase tracking-tight transition-colors duration-200 ${
                   scrolled
                     ? "text-foreground/80 hover:text-foreground"
                     : "text-brand-secondary/80 hover:text-brand-secondary"
@@ -75,7 +73,7 @@ const Navbar = () => {
             ))}
             <button
               onClick={toggleLanguage}
-              className={`flex items-center gap-1.5 text-base font-sans tracking-wide transition-colors duration-200 px-4 py-2 rounded-full border ${
+              className={`flex items-center gap-1.5 text-sm font-sans uppercase tracking-tight transition-colors duration-200 px-4 py-2 rounded-full border ${
                 scrolled
                   ? "text-foreground/80 hover:text-foreground border-border"
                   : "text-brand-secondary/80 hover:text-brand-secondary border-brand-secondary/30"
@@ -89,7 +87,7 @@ const Navbar = () => {
           <div className="flex items-center gap-3 md:hidden">
             <button
               onClick={toggleLanguage}
-              className={`flex items-center gap-1 text-sm font-sans px-2.5 py-1 rounded-full border ${
+              className={`flex items-center gap-1 text-sm font-sans uppercase px-2.5 py-1 rounded-full border ${
                 scrolled
                   ? "text-foreground/80 border-border"
                   : "text-brand-secondary/80 border-brand-secondary/30"
@@ -134,7 +132,7 @@ const Navbar = () => {
                 >
                   <Link
                     href={item.href}
-                    className="font-serif text-3xl text-foreground hover:text-brand transition-colors"
+                    className="font-serif text-3xl text-foreground hover:text-primary transition-colors uppercase tracking-tight"
                     onClick={() => setMobileOpen(false)}
                   >
                     {item.label}

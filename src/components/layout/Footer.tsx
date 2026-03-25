@@ -16,11 +16,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="md:col-span-1">
             <Image
-              src="/images/pierra-logo.png"
+              src="/images/pierra-logo-wordmark-cropped.png"
               alt="PIERRA"
-              width={280}
-              height={100}
-              className="h-20 md:h-24 w-auto object-contain brightness-0 invert opacity-90 mb-1"
+              width={745}
+              height={324}
+              className="w-[180px] md:w-[220px] h-auto object-contain brightness-0 invert opacity-90 mb-3"
             />
            
             <p className="text-brand-secondary/60 text-sm leading-relaxed">
@@ -35,7 +35,7 @@ const Footer = () => {
                 <li key={key}>
                   <Link
                     href={`#${key}`}
-                    className="text-brand-secondary/60 hover:text-brand-secondary text-sm transition-colors duration-200"
+                    className="text-brand-secondary/60 hover:text-brand-secondary text-sm transition-colors duration-200 uppercase tracking-tight"
                   >
                     {messages.nav[key]}
                   </Link>

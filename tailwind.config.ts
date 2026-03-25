@@ -70,8 +70,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        sans: ['var(--font-body)', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        serif: ['var(--font-heading)', 'Georgia', 'serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

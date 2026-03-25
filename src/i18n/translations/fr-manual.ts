@@ -16,19 +16,19 @@ const frManual: DeepPartial<Translations> = {
       {
         title: "Conception",
         description: "De l'idée initiale aux plans détaillés, notre équipe de conception crée des environnements extérieurs sur mesure qui alignent esthétique, fonctionnalité et caractère unique de chaque site.",
-        image: "/images/services/venza.jpg"
+        image: "/images/services/design.jpg"
       },
       {
         title: "Aménagement paysager résidentiel",
         description:
           "Transformations extérieures complètes pour les maisons .Spécialisées dans les allées, les chemins d'accès, les piscines, les terrasses sur le toit, l'aménagement paysager de jardins et les surfaces extérieures sur mesure.",
-        image: "/images/services/oslo.jpg"
+        image: "/images/services/landscape.jpg"
       },
       {
         title: "Commercial et municipal",
         description:
           "Conception et installation extérieures à grande échelle pour les espaces publics, les places d'entreprises, les établissements hôteliers et les développements commerciaux — conçues pour durer.",
-        image: "/images/services/striato.jpg"
+        image: "/images/services/commercial.jpg"
       },
     ]
   },
@@ -39,117 +39,123 @@ const frManual: DeepPartial<Translations> = {
         title: "Patio de propriété moderne",
         category: "Piscine",
         location: "Montréal",
-        image: "/images/gallery/pool.jpg"
+        image: "/images/gallery/pool-new-1.jpg"
       },
       {
         title: "Jardin en terrasses",
         category: "Allée piétonne",
         location: "Outremont",
-        image: "/images/gallery/walkway-2.jpg"
+        image: "/images/gallery/walkway-new-1.jpg"
       },
       {
         title: "Retenue à plusieurs niveaux",
         category: "Paysagement",
         location: "Mont Royal",
-        image: "/images/gallery/landscape-1.jpg"
+        image: "/images/gallery/landscape-new-1.jpg"
       },
       {
         title: "Contemporain",
         category: "Toit Terrasse",
         location: "Brossard",
-        image: "/images/gallery/terrasse-1.jpg"
+        image: "/images/gallery/rooftop-new-1.png"
       },
       {
         title: "Allée d'entrée principale",
         category: "Entrée Véhiculaire",
         location: "Westmount",
-        image: "/images/gallery/driveway-2.jpg"
+        image: "/images/gallery/driveway-new-1.jpg"
       },
       {
         title: "Extérieur contemporain",
         category: "Toit Terrasse",
         location: "Brossard",
-        image: "/images/gallery/terrasse-2.jpg"
+        image: "/images/gallery/rooftop-new-2.png"
       },
       {
         title: "Retraite avec jardin en terrasses",
         category: "Allée piétonne",
         location: "Outremont",
-        image: "/images/gallery/walkway-3.jpg"
+        image: "/images/gallery/walkway-new-2.jpg"
       },
       {
         title: "Mur de soutènement à plusieurs niveaux",
         category: "Paysagement",
         location: "Mont Royal",
-        image: "/images/gallery/landscape-2.jpg"
+        image: "/images/gallery/landscape-new-2.jpg"
       },
       {
         title: "Allée d'entrée",
         category: "Entrée Véhiculaire",
         location: "Westmount",
-        image: "/images/gallery/driveway-1.jpg"
+        image: "/images/gallery/driveway-new-2.jpg"
       },
       {
-        title: "Terrasses",
-        category: "Allée piétonne",
-        location: "Outremont",
-        image: "/images/gallery/walkway-1.jpg"
+        title: "Retraite aquatique",
+        category: "Piscine",
+        location: "Montréal",
+        image: "/images/gallery/pool-new-2.jpg"
       },
       {
         title: "Contemporain",
         category: "Toit Terrasse",
         location: "Brossard",
-        image: "/images/gallery/terrasse-3.jpg"
+        image: "/images/gallery/rooftop-new-3.png"
       },
       {
         title: "Patio moderne",
         category: "Piscine",
         location: "Montréal",
-        image: "/images/gallery/pool-1.jpg"
+        image: "/images/gallery/pool-new-3.jpg"
       },
       {
         title: "Grande allée",
         category: "Entrée Véhiculaire",
         location: "Westmount",
-        image: "/images/gallery/driveway-3.jpg"
+        image: "/images/gallery/driveway-new-3.jpg"
       },
       {
         title: "Mur à plusieurs niveaux",
         category: "Paysagement",
         location: "Mont Royal",
-        image: "/images/gallery/landscape.jpg"
+        image: "/images/gallery/landscape-new-3.jpg"
+      },
+      {
+        title: "Sentier de pierre",
+        category: "Allée piétonne",
+        location: "Outremont",
+        image: "/images/gallery/walkway-new-3.jpg"
       },
     ],
   },
   craftmenship: {
     works: [
       {
-        image: "/images/craftmenship/proma-xl.jpg",
-        label: "Sol"
+        image: "/images/gallery/pool-new-3.jpg",
+        label: "Piscine"
       },
       {
-        image: "/images/gallery/driveway-3.jpg",
+        image: "/images/gallery/driveway-new-3.jpg",
         label: "Entrée Véhiculaire",
       },
       {
-        image: "/images/craftmenship/clayden.jpg",
+        image: "/images/gallery/walkway-new-1.jpg",
         label: "Allée piétonne",
       },
       {
-        image: "/images/gallery/pool-1.jpg",
+        image: "/images/gallery/pool-new-1.jpg",
         label: "Piscine",
       },
       {
-        image: "/images/services/venza.jpg",
-        label: "Entrée Véhiculaire",
+        image: "/images/services/design.jpg",
+        label: "Conception",
       },
       {
-        image: "/images/gallery/landscape-1.jpg",
+        image: "/images/gallery/landscape-new-1.jpg",
         label: "Paysagement",
       },
       {
-        image: "/images/hero/nolita.jpg",
-        label: "Allée piétonne"
+        image: "/images/hero/ora-wall-whistler.jpg",
+        label: "Extérieur"
       }
     ],
   },

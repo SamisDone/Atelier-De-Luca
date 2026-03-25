@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 
 import Providers from "@/components/providers";
@@ -7,17 +7,28 @@ import { SkipToContent } from "@/components/SkipToContent";
 
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+const helveticaNow = localFont({
+  src: "../../public/fonts/helvetica-now-text-regular.ttf",
+  variable: "--font-body",
+  display: "swap",
+  weight: "400",
 });
 
-const fraunces = Fraunces({
-  variable: "--font-playfair", // Keep the CSS variable name identical to avoid breaking Tailwind config
-  subsets: ["latin"],
-  axes: ["SOFT", "WONK", "opsz"],
-  weight: "variable",
+const julesText = localFont({
+  src: [
+    {
+      path: "../../public/fonts/JulesText-Light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/JulesText-LightItalic.ttf",
+      weight: "300",
+      style: "italic",
+    },
+  ],
+  variable: "--font-heading",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -51,7 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${fraunces.variable} antialiased`}>
+      <body className={`${helveticaNow.variable} ${julesText.variable} antialiased`}>
         <div className="grain-overlay" />
 
         <SkipToContent />

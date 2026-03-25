@@ -3,83 +3,83 @@
 @tailwind utilities;
 
 :root {
-  --background: 24 33% 95%;
-  --foreground: 355 22% 25%;
+  /* Brand colours: #f8f3f1 (bg), #571214 (burgundy), #bc8b8b (rose) */
+  --background: 17 37% 96%;
+  --foreground: 358 66% 21%;
 
-  --card: 20 50% 96%;
-  --card-foreground: 355 22% 25%;
+  --card: 17 30% 95%;
+  --card-foreground: 358 66% 21%;
 
-  --popover: 24 33% 95%;
-  --popover-foreground: 355 22% 25%;
+  --popover: 17 37% 96%;
+  --popover-foreground: 358 66% 21%;
 
-  --primary: 4 30% 67%;
+  --primary: 0 27% 64%;
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 24 62% 93%;
-  --secondary-foreground: 355 22% 31%;
+  --secondary: 17 30% 93%;
+  --secondary-foreground: 358 66% 21%;
 
-  --muted: 24 20% 90%;
-  --muted-foreground: 355 10% 45%;
+  --muted: 17 15% 90%;
+  --muted-foreground: 358 15% 45%;
 
-  --accent: 36 30% 72%;
-  --accent-foreground: 355 22% 20%;
+  --accent: 0 27% 64%;
+  --accent-foreground: 358 66% 21%;
 
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
 
-  --border: 24 20% 85%;
-  --input: 24 20% 85%;
-  --ring: 4 30% 67%;
+  --border: 17 15% 85%;
+  --input: 17 15% 85%;
+  --ring: 0 27% 64%;
 
   --radius: 0.5rem;
 
-  --brand: 4 30% 67%;
-  --brand-secondary: 24 62% 93%;
-  --brand-tertiary: 355 35% 18%;
-  --brand-accent: 36 30% 72%;
+  --brand: 0 27% 64%;
+  --brand-secondary: 17 37% 96%;
+  --brand-tertiary: 358 66% 21%;
+  --brand-accent: 0 27% 64%;
 
-  --sidebar-background: 24 33% 95%;
-  --sidebar-foreground: 355 22% 25%;
-  --sidebar-primary: 4 30% 67%;
+  --sidebar-background: 17 37% 96%;
+  --sidebar-foreground: 358 66% 21%;
+  --sidebar-primary: 0 27% 64%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 24 62% 93%;
-  --sidebar-accent-foreground: 355 22% 31%;
-  --sidebar-border: 24 20% 85%;
-  --sidebar-ring: 4 30% 67%;
+  --sidebar-accent: 17 30% 93%;
+  --sidebar-accent-foreground: 358 66% 21%;
+  --sidebar-border: 17 15% 85%;
+  --sidebar-ring: 0 27% 64%;
 
-  --font-inter: var(--font-inter);
-  --font-playfair: var(--font-playfair);
+  --font-body: var(--font-body);
+  --font-heading: var(--font-heading);
 }
 
 .dark {
-  --background: 355 22% 10%;
-  --foreground: 24 62% 93%;
-  --card: 355 22% 14%;
-  --card-foreground: 24 62% 93%;
-  --popover: 355 22% 14%;
-  --popover-foreground: 24 62% 93%;
-  --primary: 4 30% 67%;
+  --background: 358 66% 10%;
+  --foreground: 17 37% 96%;
+  --card: 358 66% 14%;
+  --card-foreground: 17 37% 96%;
+  --popover: 358 66% 14%;
+  --popover-foreground: 17 37% 96%;
+  --primary: 0 27% 64%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 355 22% 18%;
-  --secondary-foreground: 24 62% 93%;
-  --muted: 355 15% 20%;
-  --muted-foreground: 24 20% 60%;
-  --accent: 36 30% 40%;
-  --accent-foreground: 24 62% 93%;
+  --secondary: 358 66% 18%;
+  --secondary-foreground: 17 37% 96%;
+  --muted: 358 15% 20%;
+  --muted-foreground: 17 20% 60%;
+  --accent: 0 27% 50%;
+  --accent-foreground: 17 37% 96%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 210 40% 98%;
-  --border: 355 15% 20%;
-  --input: 355 15% 20%;
-  --ring: 4 30% 67%;
+  --border: 358 15% 20%;
+  --input: 358 15% 20%;
+  --ring: 0 27% 64%;
   
-  --brand: 4 30% 67%;
-  --brand-secondary: 24 62% 93%;
-  --brand-tertiary: 355 35% 18%;
-  --brand-accent: 36 30% 72%;
+  --brand: 0 27% 64%;
+  --brand-secondary: 17 37% 96%;
+  --brand-tertiary: 358 66% 18%;
+  --brand-accent: 0 27% 64%;
 }
 
 @layer base {
-  /* tailwindcss v3 base layers */
   html {
     scroll-behavior: smooth;
     overscroll-behavior-y: none;
@@ -87,6 +87,7 @@
   body {
     @apply bg-background text-foreground overflow-x-hidden;
     font-feature-settings: "rlig" 1, "calt" 1;
+    letter-spacing: -0.01em;
   }
   section {
   }

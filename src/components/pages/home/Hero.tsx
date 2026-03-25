@@ -37,7 +37,6 @@ const Hero = () => {
   });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const fontWeight = useTransform(scrollYProgress, [0, 0.3], [400, 700]);
 
   return (
     <section ref={ref} className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden pt-24 md:pt-32">
@@ -57,7 +56,7 @@ const Hero = () => {
           className="object-cover object-center"
         />
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-tertiary/80 via-brand-tertiary/60 to-brand-tertiary/80 backdrop-blur-[2px] z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-tertiary/70 via-brand-tertiary/50 to-brand-tertiary/70 backdrop-blur-[1px] z-0" />
 
       <motion.div
         style={{ opacity }}
@@ -71,27 +70,25 @@ const Hero = () => {
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
           }}
-          className="text-brand-accent font-sans text-xs sm:text-sm tracking-[0.4em] uppercase mb-2 md:mb-4"
+          className="text-primary font-sans text-xs sm:text-sm tracking-[0.4em] uppercase mb-2 md:mb-4"
         >
           {messages.hero.tagline}
         </motion.p>
 
         <motion.h1
           className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-brand-secondary leading-[1.1] md:leading-[0.95] mb-4 md:mb-6 tracking-tight text-balance"
-          style={{ fontVariationSettings: `\"wght\" ${fontWeight.get()}` }}
         >
           <motion.span 
             className="inline-block overflow-hidden pb-1"
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-            style={{ fontVariationSettings: useTransform(fontWeight, w => `\"wght\" ${w}`) }}
           >
             {messages.hero.titleLine1}
           </motion.span>
           <br />
           <motion.span
-            className="text-brand-accent inline-block overflow-hidden"
+            className="text-brand-secondary/90 inline-block overflow-hidden"
             initial={{ y: "100%", opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
@@ -102,7 +99,7 @@ const Hero = () => {
 
         <motion.p
           variants={itemVariants}
-          className="text-brand-secondary/80 font-sans text-lg md:text-xl lg:text-2xl max-w-3xl mb-6 md:mb-8"
+          className="text-brand-secondary/80 font-sans text-base md:text-lg lg:text-xl max-w-3xl mb-6 md:mb-8"
         >
           {messages.hero.description}
         </motion.p>
@@ -111,13 +108,13 @@ const Hero = () => {
           variants={itemVariants}
           className="flex flex-col sm:flex-row gap-4"
         >
-          <Button variant="hero" size="lg" className="text-base px-10" asChild>
+          <Button variant="hero" size="lg" className="text-sm px-10" asChild>
             <a href="#gallery">{messages.hero.viewProjects}</a>
           </Button>
           <Button
             variant="hero-outline"
             size="lg"
-            className="text-base px-10 border-brand-secondary text-brand-secondary hover:bg-brand-secondary hover:text-brand-tertiary"
+            className="text-sm px-10"
             asChild
           >
             <a href="#contact">{messages.hero.contactUs}</a>

@@ -17,7 +17,7 @@ const About = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
 
   return (
-    <section ref={ref} id="about" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-24 bg-brand-secondary overflow-hidden snap-start">
+    <section ref={ref} id="about" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-16 md:py-24 bg-brand-secondary overflow-hidden snap-start">
       <motion.div style={{ y }} className="absolute inset-0 -top-[15%] h-[130%] w-full z-0">
         <Image
           src={messages.about.image.path}
@@ -29,7 +29,7 @@ const About = () => {
       </motion.div>
       <div className="absolute inset-0 bg-brand-tertiary/80 backdrop-blur-[2px] z-0" />
 
-      <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-around pt-28 pb-20">
+      <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-around pt-20 md:pt-28 pb-16 md:pb-20">
         {/* Asymmetric two-column editorial layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center w-full">
           {/* Left column — tagline & large heading */}
@@ -41,10 +41,10 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <p className="text-brand-accent font-sans text-base tracking-[0.4em] uppercase mb-6">
+            <p className="text-primary font-sans text-sm tracking-[0.3em] uppercase mb-6">
               {messages.about.tagline}
             </p>
-            <h2 className="font-serif text-5xl md:text-6xl lg:text-8xl text-brand-secondary leading-[0.9] tracking-tight transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700] text-balance">
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-brand-secondary leading-[0.9] tracking-tight text-balance">
               {messages.about.title}
             </h2>
           </motion.div>
@@ -57,10 +57,10 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
           >
-            <p className="text-brand-secondary/85 text-lg md:text-xl leading-relaxed mb-4 font-sans max-w-xl">
+            <p className="text-brand-secondary/85 text-base md:text-lg leading-relaxed mb-4 font-sans max-w-xl">
               {messages.about.description1}
             </p>
-            <p className="text-brand-secondary/65 text-base md:text-lg leading-relaxed font-sans max-w-xl">
+            <p className="text-brand-secondary/65 text-sm md:text-base leading-relaxed font-sans max-w-xl">
               {messages.about.description2}
             </p>
           </motion.div>
@@ -68,7 +68,7 @@ const About = () => {
 
         {/* Stats row with staggered reveal */}
         <motion.div
-          className="grid grid-cols-3 gap-6 border-t border-brand-secondary/15 pt-8"
+          className="grid grid-cols-3 gap-4 md:gap-6 border-t border-brand-secondary/15 pt-8 mt-8 md:mt-0"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -91,7 +91,7 @@ const About = () => {
               }}
               className="text-center"
             >
-              <p translate="no" className="font-serif text-4xl md:text-6xl lg:text-7xl text-brand-secondary font-bold mb-2 tracking-tight">
+              <p translate="no" className="font-serif text-3xl md:text-5xl lg:text-7xl text-brand-secondary font-bold mb-2 tracking-tight">
                 {stat.value}
               </p>
               <p className="text-brand-secondary/45 text-xs font-sans tracking-widest uppercase">

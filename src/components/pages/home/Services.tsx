@@ -28,8 +28,8 @@ const Services = () => {
   const { messages } = useLanguage();
 
   return (
-    <section id="services" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-24 bg-background snap-start">
-      <div className="container mx-auto px-6 h-full w-full flex flex-col justify-around pt-28 pb-12 relative z-10">
+    <section id="services" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-16 md:py-24 bg-background snap-start">
+      <div className="container mx-auto px-6 h-full w-full flex flex-col justify-around pt-20 md:pt-28 pb-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,15 +37,15 @@ const Services = () => {
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          <p className="text-primary font-sans text-base tracking-[0.4em] uppercase mb-4 transition-[font-variation-settings] duration-500 hover:[font-variation-settings:'wght'_700]">
+          <p className="text-primary font-sans text-sm tracking-[0.3em] uppercase mb-4">
             {messages.services.tagline}
           </p>
-          <h2 className="font-serif text-5xl md:text-7xl text-foreground mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-foreground mb-4 tracking-tight">
             {messages.services.title}
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {messages.services.items.map((service, idx) => (
             <motion.div
               key={idx}
@@ -67,15 +67,15 @@ const Services = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 {/* Title overlay on hover */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                  <h3 className="font-serif text-3xl text-white leading-tight">
+                  <h3 className="font-serif text-2xl md:text-3xl text-white leading-tight">
                     {service.title}
                   </h3>
                 </div>
               </div>
-              <h3 className="font-serif text-2xl sm:text-3xl text-foreground mb-2 group-hover:text-primary transition-colors duration-300 tracking-tight">
+              <h3 className="font-serif text-xl sm:text-2xl md:text-3xl text-foreground mb-2 group-hover:text-primary transition-colors duration-300 tracking-tight">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground text-base leading-relaxed">
+              <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
                 {service.description}
               </p>
             </motion.div>

@@ -74,7 +74,7 @@ const en: Translations = {
     contactUs: "Contact Us",
     scroll: "Scroll",
     image: {
-      path: "/images/hero/nolita.jpg",
+      path: "/images/hero/ora-wall-whistler.jpg",
       alt: "Premium exterior design and installation"
     }
   },
@@ -105,19 +105,19 @@ const en: Translations = {
         title: "Design",
         description:
           "From initial concept to detailed plans, our design team creates tailored exterior environments that balance aesthetics, functionality, and the unique character of every site.",
-        image: "/images/services/venza.jpg"
+        image: "/images/services/design.jpg"
       },
       {
         title: "Residential Landscaping",
         description:
           "Complete exterior transformations for homes — specialized in driveways, walkways, pools, roof-top terrasses, garden landscaping, and tailored outdoor surfaces.",
-        image: "/images/services/oslo.jpg"
+        image: "/images/services/landscape.jpg"
       },
       {
         title: "Commercial & Municipal",
         description:
           "Large-scale exterior design and installation for public spaces, corporate plazas, hospitality venues, and commercial developments — built to last.",
-        image: "/images/services/striato.jpg"
+        image: "/images/services/commercial.jpg"
       },
     ],
   },
@@ -129,20 +129,21 @@ const en: Translations = {
       "Explore our featured landscaping and installation projects across residential and commercial spaces.",
     filterAll: "All",
     projects: [
-      { title: "Modern Estate Patio", category: "Pool", location: "Montreal", image: "/images/gallery/pool.jpg" },
-      { title: "Terraced Garden", category: "Walkway", location: "Outremont", image: "/images/gallery/walkway-2.jpg" },
-      { title: "Multi-Level Retaining", category: "Landscape", location: "Mount Royal", image: "/images/gallery/landscape-1.jpg" },
-      { title: "Contemporary", category: "Roof Top Terrasse", location: "Brossard", image: "/images/gallery/terrasse-1.jpg" },
-      { title: "Grand Entrance Driveway", category: "Driveway", location: "Westmount", image: "/images/gallery/driveway-2.jpg" },
-      { title: "Contemporary Exterior", category: "Roof Top Terrasse", location: "Brossard", image: "/images/gallery/terrasse-2.jpg" },
-      { title: "Terraced Garden Retreat", category: "Walkway", location: "Outremont", image: "/images/gallery/walkway-3.jpg" },
-      { title: "Multi-Level Retaining Wall", category: "Landscape", location: "Mount Royal", image: "/images/gallery/landscape-2.jpg" },
-      { title: "Entrance Driveway", category: "Driveway", location: "Westmount", image: "/images/gallery/driveway-1.jpg" },
-      { title: "Terraced", category: "Walkway", location: "Outremont", image: "/images/gallery/walkway-1.jpg" },
-      { title: "Contemporary", category: "Roof Top Terrasse", location: "Brossard", image: "/images/gallery/terrasse-3.jpg" },
-      { title: "Modern Patio", category: "Pool", location: "Montreal", image: "/images/gallery/pool-1.jpg" },
-      { title: "Grand Driveway", category: "Driveway", location: "Westmount", image: "/images/gallery/driveway-3.jpg" },
-      { title: "Multi-Level Wall", category: "Landscape", location: "Mount Royal", image: "/images/gallery/landscape.jpg" },
+      { title: "Modern Estate Patio", category: "Pool", location: "Montreal", image: "/images/gallery/pool-new-1.jpg" },
+      { title: "Terraced Garden", category: "Walkway", location: "Outremont", image: "/images/gallery/walkway-new-1.jpg" },
+      { title: "Multi-Level Retaining", category: "Landscape", location: "Mount Royal", image: "/images/gallery/landscape-new-1.jpg" },
+      { title: "Contemporary", category: "Rooftop Terrace", location: "Brossard", image: "/images/gallery/rooftop-new-1.png" },
+      { title: "Grand Entrance Driveway", category: "Driveway", location: "Westmount", image: "/images/gallery/driveway-new-1.jpg" },
+      { title: "Contemporary Exterior", category: "Rooftop Terrace", location: "Brossard", image: "/images/gallery/rooftop-new-2.png" },
+      { title: "Terraced Garden Retreat", category: "Walkway", location: "Outremont", image: "/images/gallery/walkway-new-2.jpg" },
+      { title: "Multi-Level Retaining Wall", category: "Landscape", location: "Mount Royal", image: "/images/gallery/landscape-new-2.jpg" },
+      { title: "Entrance Driveway", category: "Driveway", location: "Westmount", image: "/images/gallery/driveway-new-2.jpg" },
+      { title: "Aquatic Retreat", category: "Pool", location: "Montreal", image: "/images/gallery/pool-new-2.jpg" },
+      { title: "Contemporary Rooftop", category: "Rooftop Terrace", location: "Brossard", image: "/images/gallery/rooftop-new-3.png" },
+      { title: "Modern Patio", category: "Pool", location: "Montreal", image: "/images/gallery/pool-new-3.jpg" },
+      { title: "Grand Driveway", category: "Driveway", location: "Westmount", image: "/images/gallery/driveway-new-3.jpg" },
+      { title: "Multi-Level Wall", category: "Landscape", location: "Mount Royal", image: "/images/gallery/landscape-new-3.jpg" },
+      { title: "Stone Garden Path", category: "Walkway", location: "Outremont", image: "/images/gallery/walkway-new-3.jpg" },
     ],
   },
 
@@ -152,32 +153,32 @@ const en: Translations = {
     description: "A glimpse into spaces brought to life through expert craftsmanship.",
     works: [
       {
-        image: "/images/craftmenship/proma-xl.jpg",
-        label: "Floor"
+        image: "/images/gallery/pool-new-3.jpg",
+        label: "Pool"
       },
       {
-        image: "/images/gallery/driveway-3.jpg",
+        image: "/images/gallery/driveway-new-3.jpg",
         label: "Driveway",
       },
       {
-        image: "/images/craftmenship/clayden.jpg",
+        image: "/images/gallery/walkway-new-1.jpg",
         label: "Walkway",
       },
       {
-        image: "/images/gallery/pool-1.jpg",
+        image: "/images/gallery/pool-new-1.jpg",
         label: "Pool",
       },
       {
-        image: "/images/services/venza.jpg",
-        label: "Driveway",
+        image: "/images/services/design.jpg",
+        label: "Design",
       },
       {
-        image: "/images/gallery/landscape-1.jpg",
+        image: "/images/gallery/landscape-new-1.jpg",
         label: "Landscape",
       },
       {
-        image: "/images/hero/nolita.jpg",
-        label: "Walkway"
+        image: "/images/hero/ora-wall-whistler.jpg",
+        label: "Exterior"
       }
     ],
   },
