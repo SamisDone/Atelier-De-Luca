@@ -40,7 +40,7 @@ const Services = () => {
           <p className="text-primary font-sans text-sm tracking-[0.3em] uppercase mb-4">
             {messages.services.tagline}
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-foreground mb-4 tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-foreground mb-4 tracking-tight">
             {messages.services.title}
           </h2>
         </motion.div>
@@ -56,7 +56,7 @@ const Services = () => {
               transition={{ delay: idx * 0.12 }}
               className="group cursor-pointer"
             >
-              <div className="relative aspect-[16/10] sm:aspect-[4/4.5] rounded-2xl overflow-hidden mb-6">
+              <div className="relative aspect-[4/3] sm:aspect-[4/4.5] rounded-2xl overflow-hidden mb-4 sm:mb-6">
                 <Image
                   src={service.image}
                   alt={service.title}

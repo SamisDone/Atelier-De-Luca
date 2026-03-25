@@ -47,7 +47,7 @@ const Testimonials = () => {
             {messages.testimonials.tagline}
           </p>
           {/* Editorial oversized heading */}
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-brand-secondary mb-4 tracking-tight leading-[0.95]">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-brand-secondary mb-4 tracking-tight leading-[0.95]">
             {messages.testimonials.title}
           </h2>
           <p className="text-brand-secondary/55 max-w-xl text-sm md:text-base">
@@ -66,7 +66,7 @@ const Testimonials = () => {
             <motion.div
               key={idx}
               variants={itemVariants}
-              className="bg-white/5 border border-white/8 rounded-2xl p-6 md:p-8 flex flex-col hover:bg-white/8 hover:border-primary/30 transition-all duration-500"
+              className="bg-white/5 border border-white/8 rounded-2xl p-5 sm:p-6 md:p-8 flex flex-col hover:bg-white/8 hover:border-primary/30 transition-all duration-500"
             >
               <Quote className="w-8 h-8 text-primary mb-6 opacity-40" />
               <p className="text-brand-secondary/80 text-sm md:text-base leading-relaxed italic flex-1 mb-8 font-sans">

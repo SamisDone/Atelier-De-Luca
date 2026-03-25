@@ -31,7 +31,7 @@ const Gallery = () => {
             <p className="text-primary font-sans text-sm tracking-[0.3em] uppercase mb-4">
               {messages.gallery.tagline}
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-foreground mb-4 leading-[0.95] tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-foreground mb-4 leading-[0.95] tracking-tight">
               {messages.gallery.title}
             </h2>
             <p className="text-muted-foreground max-w-xl text-sm md:text-base leading-relaxed">
@@ -46,7 +46,7 @@ const Gallery = () => {
                 key={cat}
                 onClick={() => setActive(cat)}
                 className={cn(
-                  "px-5 py-2 rounded-full text-xs font-sans uppercase tracking-widest transition-all duration-300 border",
+                  "px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-sans uppercase tracking-widest transition-all duration-300 border",
                   active === cat
                     ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20"
                     : "bg-transparent text-muted-foreground border-border hover:border-primary/40 hover:text-foreground"

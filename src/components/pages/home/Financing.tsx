@@ -95,7 +95,7 @@ export default function Financing() {
                 {t.tagline}
               </span>
               {/* Editorial oversized heading */}
-              <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif text-brand-secondary leading-[0.95] tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif text-brand-secondary leading-[0.95] tracking-tight">
                 {t.title}
               </h2>
             </motion.div>
@@ -116,7 +116,7 @@ export default function Financing() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <button className="group relative px-10 py-4 border-2 border-brand-secondary text-brand-secondary text-xs font-sans tracking-widest uppercase overflow-hidden mt-4 rounded-full hover:bg-brand-secondary hover:text-brand-tertiary transition-all duration-300">
+              <button className="group relative w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 border-2 border-brand-secondary text-brand-secondary text-xs font-sans tracking-widest uppercase overflow-hidden mt-4 rounded-full hover:bg-brand-secondary hover:text-brand-tertiary transition-all duration-300">
                 <span className="relative z-10 flex items-center gap-3">
                   {t.cta}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
@@ -126,7 +126,7 @@ export default function Financing() {
           </div>
 
           {/* Cards with parallax depth */}
-          <motion.div className="flex-1 w-full grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 lg:gap-8" style={{ y: cardY }}>
+          <motion.div className="flex-1 w-full grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:gap-8" style={{ y: cardY }}>
             {t.features.map((feature, index) => {
               const Icon = feature.icon;
               return (

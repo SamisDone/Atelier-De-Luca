@@ -23,7 +23,7 @@ const Craftmenship = () => {
           <p className="text-primary font-sans text-sm tracking-[0.3em] uppercase mb-4">
             {messages.craftmenship.tagline}
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-foreground mb-4 tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-foreground mb-4 tracking-tight">
             {messages.craftmenship.title}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">

@@ -22,7 +22,7 @@ const Contact = () => {
           <p className="text-primary font-sans text-sm tracking-[0.3em] uppercase mb-4">
             {messages.contact.tagline}
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl mb-4 text-foreground tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl mb-4 text-foreground tracking-tight">
             {messages.contact.title}
           </h2>
           <p className="text-muted-foreground mb-6 text-sm md:text-base max-w-xl mx-auto">

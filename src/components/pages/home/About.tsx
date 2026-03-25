@@ -44,7 +44,7 @@ const About = () => {
             <p className="text-primary font-sans text-sm tracking-[0.3em] uppercase mb-6">
               {messages.about.tagline}
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-brand-secondary leading-[0.9] tracking-tight text-balance">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-brand-secondary leading-[0.9] tracking-tight text-balance">
               {messages.about.title}
             </h2>
           </motion.div>
@@ -91,7 +91,7 @@ const About = () => {
               }}
               className="text-center"
             >
-              <p translate="no" className="font-serif text-3xl md:text-5xl lg:text-7xl text-brand-secondary font-bold mb-2 tracking-tight">
+              <p translate="no" className="font-serif text-2xl sm:text-3xl md:text-5xl lg:text-7xl text-brand-secondary font-bold mb-1 tracking-tight">
                 {stat.value}
               </p>
               <p className="text-brand-secondary/45 text-xs font-sans tracking-widest uppercase">

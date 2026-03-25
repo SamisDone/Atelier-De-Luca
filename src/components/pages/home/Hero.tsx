@@ -39,7 +39,7 @@ const Hero = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden pt-24 md:pt-32">
+    <section ref={ref} className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden pt-20 md:pt-32">
       <motion.div 
         style={{ y }} 
         className="absolute inset-0 -top-[20%] h-[120%] w-full z-0"
@@ -76,7 +76,7 @@ const Hero = () => {
         </motion.p>
 
         <motion.h1
-          className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-brand-secondary leading-[1.1] md:leading-[0.95] mb-4 md:mb-6 tracking-tight text-balance"
+          className="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-8xl text-brand-secondary leading-[1.1] md:leading-[0.95] mb-3 md:mb-6 tracking-tight text-balance"
         >
           <motion.span 
             className="inline-block overflow-hidden pb-1"
@@ -99,7 +99,7 @@ const Hero = () => {
 
         <motion.p
           variants={itemVariants}
-          className="text-brand-secondary/80 font-sans text-base md:text-lg lg:text-xl max-w-3xl mb-6 md:mb-8"
+          className="text-brand-secondary/80 font-sans text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mb-4 md:mb-8"
         >
           {messages.hero.description}
         </motion.p>
