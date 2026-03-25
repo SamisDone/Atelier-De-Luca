@@ -10,8 +10,8 @@ const Contact = () => {
   const { messages } = useLanguage();
 
   return (
-    <section id="contact" className="relative min-h-[100svh] md:min-h-[100svh] w-full flex flex-col items-center justify-center py-16 md:py-24 overflow-hidden snap-start">
-      <div className="container relative z-10 mx-auto px-6 h-full flex flex-col justify-center pt-20 md:pt-28 pb-16 md:pb-20">
+    <section id="contact" className="relative w-full flex flex-col items-center justify-center py-12 md:py-16 overflow-hidden snap-start">
+      <div className="container relative z-10 mx-auto px-6 h-full flex flex-col justify-center pt-8 md:pt-12 pb-8 md:pb-12">
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}

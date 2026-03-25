@@ -69,7 +69,7 @@ export default function Financing() {
   const t = content[language as keyof typeof content] || content.en;
 
   return (
-    <section ref={sectionRef} id="financing" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden snap-start bg-brand-tertiary text-brand-secondary">
+    <section ref={sectionRef} id="financing" className="relative w-full flex flex-col items-center justify-center overflow-hidden snap-start bg-brand-tertiary text-brand-secondary">
       {/* Skewed top divider */}
       <div
         className="absolute top-0 left-0 right-0 h-24 bg-background z-10"
@@ -82,7 +82,7 @@ export default function Financing() {
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/30 rounded-full blur-[120px] animate-pulse" />
       </motion.div>
       
-      <div className="container mx-auto px-6 relative z-10 w-full h-full flex flex-col justify-around pt-20 md:pt-28 pb-16 md:pb-20">
+      <div className="container mx-auto px-6 relative z-10 w-full h-full flex flex-col justify-around pt-12 md:pt-16 pb-12 md:pb-16">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 w-full h-full">
           <div className="flex-1 space-y-6 md:space-y-8">
             <motion.div

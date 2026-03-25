@@ -17,8 +17,8 @@ const Gallery = () => {
   const filtered = active === messages.gallery.filterAll ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section id="gallery" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-16 md:py-24 bg-background overflow-hidden snap-start">
-      <div className="w-full flex flex-col pt-20 md:pt-28 pb-16 relative z-10">
+    <section id="gallery" className="relative w-full flex flex-col items-center justify-center py-12 md:py-16 bg-background overflow-hidden snap-start">
+      <div className="w-full flex flex-col pt-8 md:pt-12 pb-8 relative z-10">
         {/* Header section with container */}
         <div className="container mx-auto px-6">
           <motion.div

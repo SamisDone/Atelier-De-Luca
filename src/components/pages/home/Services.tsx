@@ -28,8 +28,8 @@ const Services = () => {
   const { messages } = useLanguage();
 
   return (
-    <section id="services" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-16 md:py-24 bg-background snap-start">
-      <div className="container mx-auto px-6 h-full w-full flex flex-col justify-around pt-20 md:pt-28 pb-12 relative z-10">
+    <section id="services" className="relative w-full flex flex-col items-center justify-center py-12 md:py-16 bg-background snap-start">
+      <div className="container mx-auto px-6 h-full w-full flex flex-col justify-around pt-8 md:pt-12 pb-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

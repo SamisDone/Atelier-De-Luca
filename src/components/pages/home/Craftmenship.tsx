@@ -11,7 +11,7 @@ const Craftmenship = () => {
   const showcaseImages = [...baseImages, ...baseImages];
 
   return (
-    <section id="craftsmanship" className="bg-background relative overflow-hidden min-h-[100svh] w-full flex flex-col items-center justify-around pt-20 md:pt-28 pb-12 snap-start">
+    <section id="craftsmanship" className="bg-background relative overflow-hidden w-full flex flex-col items-center justify-around pt-12 md:pt-16 pb-8 snap-start">
       <div className="container mx-auto px-6 relative z-10 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

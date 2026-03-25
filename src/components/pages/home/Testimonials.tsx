@@ -28,14 +28,14 @@ const Testimonials = () => {
   const { messages } = useLanguage();
 
   return (
-    <section id="testimonials" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center py-16 md:py-24 bg-brand-tertiary overflow-hidden snap-start text-brand-secondary">
+    <section id="testimonials" className="relative w-full flex flex-col items-center justify-center py-12 md:py-16 bg-brand-tertiary overflow-hidden snap-start text-brand-secondary">
       {/* Skewed top divider */}
       <div
         className="absolute top-0 left-0 right-0 h-20 bg-background z-10"
         style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 40%)" }}
       />
 
-      <div className="container mx-auto px-6 relative z-10 w-full h-full flex flex-col justify-around pt-20 md:pt-28 pb-12">
+      <div className="container mx-auto px-6 relative z-10 w-full h-full flex flex-col justify-around pt-12 md:pt-16 pb-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
