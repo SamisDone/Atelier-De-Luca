@@ -28,7 +28,7 @@ const Services = () => {
   const { messages } = useLanguage();
 
   return (
-    <section id="services" className="relative w-full flex flex-col items-center justify-center py-0 md:py-16 bg-background snap-start">
+    <section id="services" className="relative w-full flex flex-col items-center justify-center py-0 pt-4 md:py-16 bg-background snap-start">
       <div className="container mx-auto px-6 h-full w-full flex flex-col justify-around pt-8 md:pt-12 pb-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
