@@ -5,73 +5,77 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const Craftmenship = () => {
-  const { messages } = useLanguage();
+	const { messages } = useLanguage();
 
-  const baseImages = messages.craftmenship.works
-  const showcaseImages = [...baseImages, ...baseImages];
+	const baseImages = messages.craftmenship.works;
+	const showcaseImages = [...baseImages, ...baseImages];
 
-  return (
-    <section id="craftsmanship" className="bg-background relative overflow-hidden w-full flex flex-col items-center justify-around py-12 md:py-16 snap-start">
-      <div className="container mx-auto px-6 relative z-10 w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <p className="section-tagline">
-            {messages.craftmenship.tagline}
-          </p>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-foreground mb-4 tracking-tight">
-            {messages.craftmenship.title}
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
-            {messages.craftmenship.description}
-          </p>
-        </motion.div>
-      </div>
+	return (
+		<section
+			id="craftsmanship"
+			className="bg-background relative overflow-hidden w-full flex flex-col items-center justify-around py-24 md:py-32 snap-start"
+		>
+			<div className="container mx-auto px-6 relative z-10 w-full">
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.6 }}
+					className="text-center"
+				>
+					<p className="section-tagline">{messages.craftmenship.tagline}</p>
+					<h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-foreground mb-4 tracking-tight">
+						{messages.craftmenship.title}
+					</h2>
+					<p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
+						{messages.craftmenship.description}
+					</p>
+				</motion.div>
+			</div>
 
-      <div className="w-full overflow-hidden mt-8">
-        <motion.div
-          className="flex gap-3 px-3 w-max"
-          animate={{
-            x: [0, `calc(-50% - 0.375rem)`], // -50% of total width (since items are duplicated) minus half a gap
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: showcaseImages.length * 3, // speed
-              ease: "linear",
-            },
-          }}
-        >
-          {showcaseImages.map((img, i) => (
-            <motion.div
-              key={`${img.label}-${i}`}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "0px 1000px" }} // load early
-              transition={{ duration: 0.6, delay: (i % baseImages.length) * 0.08 }}
-              className="relative flex-shrink-0 w-[55vw] md:w-[30vw] lg:w-[22vw] aspect-[4/5] overflow-hidden group rounded-xl"
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: `url(${img.image})` }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-              <div className="absolute bottom-6 left-6">
-                <p className="font-serif text-brand-secondary text-lg md:text-xl pointer-events-none">
-                  {img.label}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
+			<div className="w-full overflow-hidden mt-8">
+				<motion.div
+					className="flex gap-3 px-3 w-max"
+					animate={{
+						x: [0, `calc(-50% - 0.375rem)`], // -50% of total width (since items are duplicated) minus half a gap
+					}}
+					transition={{
+						x: {
+							repeat: Infinity,
+							repeatType: "loop",
+							duration: showcaseImages.length * 3, // speed
+							ease: "linear",
+						},
+					}}
+				>
+					{showcaseImages.map((img, i) => (
+						<motion.div
+							key={`${img.label}-${i}`}
+							initial={{ opacity: 0, y: 40 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true, margin: "0px 1000px" }} // load early
+							transition={{
+								duration: 0.6,
+								delay: (i % baseImages.length) * 0.08,
+							}}
+							className="relative flex-shrink-0 w-[55vw] md:w-[30vw] lg:w-[22vw] aspect-[4/5] overflow-hidden group rounded-xl"
+						>
+							<div
+								className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+								style={{ backgroundImage: `url(${img.image})` }}
+							/>
+							<div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+							<div className="absolute bottom-6 left-6">
+								<p className="font-serif text-brand-secondary text-lg md:text-xl pointer-events-none">
+									{img.label}
+								</p>
+							</div>
+						</motion.div>
+					))}
+				</motion.div>
+			</div>
+		</section>
+	);
 };
 
 export default Craftmenship;

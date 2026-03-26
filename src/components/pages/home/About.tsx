@@ -18,7 +18,7 @@ const About = () => {
 		<section
 			ref={ref}
 			id="about"
-			className="w-full flex flex-col items-center justify-center pt-12 pb-20 md:pt-16 md:pb-24 bg-brand-secondary overflow-hidden snap-start"
+			className="w-full flex flex-col items-center justify-center pt-14 pb-20 md:pt-16 md:pb-24 bg-brand-secondary overflow-hidden snap-start"
 		>
 			<div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-around pt-12 md:pt-16 pb-12">
 				{/* Asymmetric two-column editorial layout */}
@@ -97,7 +97,7 @@ const About = () => {
 			{/* Skewed bottom divider */}
 			<div
 				className="absolute bottom-0 left-0 right-0 h-24 bg-background z-20"
-				style={{ clipPath: "polygon(0 60%, 100% 0, 100% 100%, 0 100%)" }}
+				style={{ clipPath: "polygon(0 98%, 123% 0, 100% 100%, 0 100%)" }}
 			/>
 		</section>
 	);

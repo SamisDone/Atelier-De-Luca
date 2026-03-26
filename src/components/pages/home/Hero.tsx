@@ -39,7 +39,7 @@ const Hero = () => {
 	return (
 		<section
 			ref={ref}
-			className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden pt-20 md:pt-32"
+			className="relative min-h-[70svh] sm:min-h-[100svh] w-full flex items-center justify-center overflow-hidden pt-20 md:pt-32"
 		>
 			<motion.div
 				style={{ opacity }}
