@@ -3,149 +3,185 @@
 @tailwind utilities;
 
 :root {
-  /* Brand colours: #f8f3f1 (bg), #571214 (burgundy), #bc8b8b (rose) */
-  --background: 17 37% 96%;
-  --foreground: 358 66% 21%;
+	/* Brand colours: #f8f3f1 (bg), #571214 (burgundy), #bc8b8b (rose) */
+	--background: 17 37% 96%;
+	--foreground: 358 66% 21%;
 
-  --card: 17 30% 95%;
-  --card-foreground: 358 66% 21%;
+	--card: 17 30% 95%;
+	--card-foreground: 358 66% 21%;
 
-  --popover: 17 37% 96%;
-  --popover-foreground: 358 66% 21%;
+	--popover: 17 37% 96%;
+	--popover-foreground: 358 66% 21%;
 
-  --primary: 0 27% 64%;
-  --primary-foreground: 0 0% 100%;
+	--primary: 0 27% 64%;
+	--primary-foreground: 0 0% 100%;
 
-  --secondary: 17 30% 93%;
-  --secondary-foreground: 358 66% 21%;
+	--secondary: 17 30% 93%;
+	--secondary-foreground: 358 66% 21%;
 
-  --muted: 17 15% 90%;
-  --muted-foreground: 358 15% 45%;
+	--muted: 17 15% 90%;
+	--muted-foreground: 358 15% 45%;
 
-  --accent: 0 27% 64%;
-  --accent-foreground: 358 66% 21%;
+	--accent: 0 27% 64%;
+	--accent-foreground: 358 66% 21%;
 
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
+	--destructive: 0 84.2% 60.2%;
+	--destructive-foreground: 210 40% 98%;
 
-  --border: 17 15% 85%;
-  --input: 17 15% 85%;
-  --ring: 0 27% 64%;
+	--border: 17 15% 85%;
+	--input: 17 15% 85%;
+	--ring: 0 27% 64%;
 
-  --radius: 0.5rem;
+	--radius: 0.5rem;
 
-  --brand: 0 27% 64%;
-  --brand-secondary: 17 37% 96%;
-  --brand-tertiary: 358 66% 21%;
-  --brand-accent: 0 27% 64%;
+	--brand: 0 27% 64%;
+	--brand-secondary: 17 37% 96%;
+	--brand-tertiary: 358 66% 21%;
+	--brand-accent: 0 27% 64%;
 
-  --sidebar-background: 17 37% 96%;
-  --sidebar-foreground: 358 66% 21%;
-  --sidebar-primary: 0 27% 64%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 17 30% 93%;
-  --sidebar-accent-foreground: 358 66% 21%;
-  --sidebar-border: 17 15% 85%;
-  --sidebar-ring: 0 27% 64%;
+	--sidebar-background: 17 37% 96%;
+	--sidebar-foreground: 358 66% 21%;
+	--sidebar-primary: 0 27% 64%;
+	--sidebar-primary-foreground: 0 0% 100%;
+	--sidebar-accent: 17 30% 93%;
+	--sidebar-accent-foreground: 358 66% 21%;
+	--sidebar-border: 17 15% 85%;
+	--sidebar-ring: 0 27% 64%;
 
-  --font-body: var(--font-body);
-  --font-heading: var(--font-heading);
+	--font-body: var(--font-body);
+	--font-heading: var(--font-heading);
 }
 
 .dark {
-  --background: 358 66% 10%;
-  --foreground: 17 37% 96%;
-  --card: 358 66% 14%;
-  --card-foreground: 17 37% 96%;
-  --popover: 358 66% 14%;
-  --popover-foreground: 17 37% 96%;
-  --primary: 0 27% 64%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 358 66% 18%;
-  --secondary-foreground: 17 37% 96%;
-  --muted: 358 15% 20%;
-  --muted-foreground: 17 20% 60%;
-  --accent: 0 27% 50%;
-  --accent-foreground: 17 37% 96%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 358 15% 20%;
-  --input: 358 15% 20%;
-  --ring: 0 27% 64%;
-  
-  --brand: 0 27% 64%;
-  --brand-secondary: 17 37% 96%;
-  --brand-tertiary: 358 66% 18%;
-  --brand-accent: 0 27% 64%;
+	--background: 358 66% 10%;
+	--foreground: 17 37% 96%;
+	--card: 358 66% 14%;
+	--card-foreground: 17 37% 96%;
+	--popover: 358 66% 14%;
+	--popover-foreground: 17 37% 96%;
+	--primary: 0 27% 64%;
+	--primary-foreground: 0 0% 100%;
+	--secondary: 358 66% 18%;
+	--secondary-foreground: 17 37% 96%;
+	--muted: 358 15% 20%;
+	--muted-foreground: 17 20% 60%;
+	--accent: 0 27% 50%;
+	--accent-foreground: 17 37% 96%;
+	--destructive: 0 62.8% 30.6%;
+	--destructive-foreground: 210 40% 98%;
+	--border: 358 15% 20%;
+	--input: 358 15% 20%;
+	--ring: 0 27% 64%;
+
+	--brand: 0 27% 64%;
+	--brand-secondary: 17 37% 96%;
+	--brand-tertiary: 358 66% 18%;
+	--brand-accent: 0 27% 64%;
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-    overscroll-behavior-y: none;
-  }
-  body {
-    @apply bg-background text-foreground overflow-x-hidden;
-    font-feature-settings: "rlig" 1, "calt" 1;
-    letter-spacing: -0.01em;
-  }
-  section {
-  }
+	html {
+		scroll-behavior: smooth;
+		overscroll-behavior-y: none;
+	}
+	body {
+		@apply bg-background text-foreground overflow-x-hidden;
+		font-feature-settings:
+			"rlig" 1,
+			"calt" 1;
+		letter-spacing: -0.01em;
+	}
+	section {
+	}
 }
 
 @layer utilities {
-  .scrollbar-hide {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
-  }
+	.scrollbar-hide {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none; /* Chrome, Safari and Opera */
+	}
 
-  .grain-overlay {
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    right: -50%;
-    bottom: -50%;
-    width: 200%;
-    height: 200%;
-    background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
-    opacity: 0.04;
-    pointer-events: none;
-    z-index: 10000;
-    animation: noise 0.2s infinite;
-  }
+	.grain-overlay {
+		position: fixed;
+		top: -50%;
+		left: -50%;
+		right: -50%;
+		bottom: -50%;
+		width: 200%;
+		height: 200%;
+		background: transparent
+			url("http://assets.iceable.com/img/noise-transparent.png") repeat 0 0;
+		opacity: 0.04;
+		pointer-events: none;
+		z-index: 10000;
+		animation: noise 0.2s infinite;
+	}
 
-  @keyframes noise {
-    0% { transform: translate(0,0) }
-    10% { transform: translate(-5%,-5%) }
-    20% { transform: translate(-10%,5%) }
-    30% { transform: translate(5%,-10%) }
-    40% { transform: translate(-5%,15%) }
-    50% { transform: translate(-10%,5%) }
-    60% { transform: translate(15%,0) }
-    70% { transform: translate(0,10%) }
-    80% { transform: translate(-15%,0) }
-    90% { transform: translate(10%,5%) }
-    100% { transform: translate(5%,0) }
-  }
+	@keyframes noise {
+		0% {
+			transform: translate(0, 0);
+		}
+		10% {
+			transform: translate(-5%, -5%);
+		}
+		20% {
+			transform: translate(-10%, 5%);
+		}
+		30% {
+			transform: translate(5%, -10%);
+		}
+		40% {
+			transform: translate(-5%, 15%);
+		}
+		50% {
+			transform: translate(-10%, 5%);
+		}
+		60% {
+			transform: translate(15%, 0);
+		}
+		70% {
+			transform: translate(0, 10%);
+		}
+		80% {
+			transform: translate(-15%, 0);
+		}
+		90% {
+			transform: translate(10%, 5%);
+		}
+		100% {
+			transform: translate(5%, 0);
+		}
+	}
 
-  .ink-reveal {
-    mask-image: radial-gradient(circle 0px at center, black 100%, transparent 100%);
-    mask-repeat: no-repeat;
-    mask-position: center;
-    transition: mask-image 1.5s cubic-bezier(0.7, 0, 0.3, 1);
-  }
-  
-  .revealed {
-    mask-image: radial-gradient(circle 100% at center, black 100%, transparent 100%);
-  }
+	.ink-reveal {
+		mask-image: radial-gradient(
+			circle 0px at center,
+			black 100%,
+			transparent 100%
+		);
+		mask-repeat: no-repeat;
+		mask-position: center;
+		transition: mask-image 1.5s cubic-bezier(0.7, 0, 0.3, 1);
+	}
 
+	.revealed {
+		mask-image: radial-gradient(
+			circle 100% at center,
+			black 100%,
+			transparent 100%
+		);
+	}
 
-  .text-balance {
-    text-wrap: balance;
-  }
+	.text-balance {
+		text-wrap: balance;
+	}
+
+	.section-tagline {
+		@apply text-primary text-sm tracking-[0.2em] uppercase mb-4 block;
+	}
 }
 
 /* ============================================================
@@ -160,29 +196,29 @@ iframe.goog-te-banner-frame,
 .goog-te-balloon-frame,
 .goog-tooltip,
 .goog-tooltip:hover {
-  display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  width: 0 !important;
-  overflow: hidden !important;
+	display: none !important;
+	visibility: hidden !important;
+	height: 0 !important;
+	width: 0 !important;
+	overflow: hidden !important;
 }
 
 /* Google Translate pushes body down with top: Npx — reset it */
 body {
-  top: 0 !important;
-  position: static !important;
+	top: 0 !important;
+	position: static !important;
 }
 
 /* Hide the default widget dropdown if somehow visible */
 .goog-te-gadget {
-  font-size: 0 !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  overflow: hidden !important;
+	font-size: 0 !important;
+	visibility: hidden !important;
+	height: 0 !important;
+	overflow: hidden !important;
 }
 
 /* Hide the top-level skiptranslate div wrapper */
 body > .skiptranslate {
-  display: none !important;
-  height: 0 !important;
+	display: none !important;
+	height: 0 !important;
 }

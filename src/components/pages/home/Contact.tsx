@@ -19,7 +19,7 @@ const Contact = () => {
           transition={{ duration: 0.8, type: "spring", stiffness: 80, damping: 20 }}
           className="bg-card rounded-3xl p-6 md:p-8 shadow-xl border border-border/50 text-center w-full max-w-4xl mx-auto"
         >
-          <p className="text-primary font-sans text-sm tracking-[0.3em] uppercase mb-4">
+          <p className="section-tagline">
             {messages.contact.tagline}
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl mb-4 text-foreground tracking-tight">

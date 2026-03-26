@@ -37,7 +37,7 @@ const Services = () => {
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          <p className="text-primary font-sans text-sm tracking-[0.3em] uppercase mb-4">
+          <p className="section-tagline">
             {messages.services.tagline}
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-foreground mb-4 tracking-tight">

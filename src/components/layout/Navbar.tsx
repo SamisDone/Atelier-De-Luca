@@ -9,142 +9,149 @@ import { useEffect, useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const { messages, language, toggleLanguage } = useLanguage();
+	const [scrolled, setScrolled] = useState(false);
+	const [mobileOpen, setMobileOpen] = useState(false);
+	const { messages, language, toggleLanguage } = useLanguage();
 
-  const navKeys = Object.keys(messages.nav) as (keyof typeof messages.nav)[]
+	const navKeys = Object.keys(messages.nav) as (keyof typeof messages.nav)[];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+	useEffect(() => {
+		const handleScroll = () => {
+			setScrolled(window.scrollY > 50);
+		};
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
 
-  const navItems = navKeys.map((key) => ({
-    label: messages.nav[key],
-    href: `#${key}`,
-  }));
+	const navItems = navKeys.map((key) => ({
+		label: messages.nav[key],
+		href: `#${key}`,
+	}));
 
-  return (
-    <>
-      <motion.nav
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
-            : "bg-transparent"
-        }`}
-      >
-        <div className="container mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
-          <Link
-            href="/"
-            className="flex items-center overflow-visible transition-colors duration-500 notranslate"
-          >
-            <Image
-              src={scrolled ? "/images/pierra-logo-wordmark-cropped.png" : "/images/pierra-logo-wordmark-cropped.png"}
-              alt="PIERRA"
-              width={745}
-              height={324}
-              className={`w-[160px] md:w-[200px] h-auto object-contain transition-all duration-500 ${
-                scrolled ? "" : "brightness-0 invert"
-              }`}
-            />
-            
-          </Link>
-          <div className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-sm font-sans uppercase tracking-tight transition-colors duration-200 ${
-                  scrolled
-                    ? "text-foreground/80 hover:text-foreground"
-                    : "text-brand-secondary/80 hover:text-brand-secondary"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <button
-              onClick={toggleLanguage}
-              className={`flex items-center gap-1.5 text-sm font-sans uppercase tracking-tight transition-colors duration-200 px-4 py-2 rounded-full border ${
-                scrolled
-                  ? "text-foreground/80 hover:text-foreground border-border"
-                  : "text-brand-secondary/80 hover:text-brand-secondary border-brand-secondary/30"
-              }`}
-              aria-label="Toggle language"
-            >
-              <Globe className="w-4 h-4" />
-              <span className="notranslate">{language === "en" ? "FR" : "EN"}</span>
-            </button>
-          </div>
-          <div className="flex items-center gap-3 lg:hidden">
-            <button
-              onClick={toggleLanguage}
-              className={`flex items-center gap-1 text-sm font-sans uppercase px-2.5 py-1 rounded-full border ${
-                scrolled
-                  ? "text-foreground/80 border-border"
-                  : "text-brand-secondary/80 border-brand-secondary/30"
-              }`}
-              aria-label="Toggle language"
-            >
-              <Globe className="w-3.5 h-3.5" />
-              <span className="notranslate">{language === "en" ? "FR" : "EN"}</span>
-            </button>
-            <button
-              className="p-2"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileOpen ? (
-                <X className={`w-6 h-6 ${scrolled ? "text-foreground" : "text-brand-secondary"}`} />
-              ) : (
-                <Menu className={`w-6 h-6 ${scrolled ? "text-foreground" : "text-brand-secondary"}`} />
-              )}
-            </button>
-          </div>
-        </div>
-      </motion.nav>
+	return (
+		<>
+			<motion.nav
+				initial={{ opacity: 0, y: -20 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.6 }}
+				className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+					scrolled
+						? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
+						: "bg-transparent"
+				}`}
+			>
+				<div className="container mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+					<Link
+						href="/"
+						className="flex items-center overflow-visible transition-colors duration-500 notranslate"
+					>
+						<Image
+							src="/images/pierra-logo-2.png"
+							alt="PIERRA"
+							width={745}
+							height={324}
+							className={`w-[160px] md:w-[200px] h-auto object-contain transition-all duration-500 ${
+								scrolled ? "" : "brightness-0 invert"
+							}`}
+						/>
+					</Link>
+					<div className="hidden lg:flex items-center gap-8">
+						{navItems.map((item) => (
+							<Link
+								key={item.href}
+								href={item.href}
+								className={`text-sm uppercase tracking-tight transition-colors duration-200 ${
+									scrolled
+										? "text-foreground/80 hover:text-foreground"
+										: "text-brand-secondary/80 hover:text-brand-secondary"
+								}`}
+							>
+								{item.label}
+							</Link>
+						))}
+						<button
+							onClick={toggleLanguage}
+							className={`flex items-center gap-1.5 text-sm uppercase tracking-tight transition-colors duration-200 px-4 py-2 rounded-full border ${
+								scrolled
+									? "text-foreground/80 hover:text-foreground border-border"
+									: "text-brand-secondary/80 hover:text-brand-secondary border-brand-secondary/30"
+							}`}
+							aria-label="Toggle language"
+						>
+							<Globe className="w-4 h-4" />
+							<span className="notranslate">
+								{language === "en" ? "FR" : "EN"}
+							</span>
+						</button>
+					</div>
+					<div className="flex items-center gap-3 lg:hidden">
+						<button
+							onClick={toggleLanguage}
+							className={`flex items-center gap-1 text-sm uppercase px-2.5 py-1 rounded-full border ${
+								scrolled
+									? "text-foreground/80 border-border"
+									: "text-brand-secondary/80 border-brand-secondary/30"
+							}`}
+							aria-label="Toggle language"
+						>
+							<Globe className="w-3.5 h-3.5" />
+							<span className="notranslate">
+								{language === "en" ? "FR" : "EN"}
+							</span>
+						</button>
+						<button
+							className="p-2"
+							onClick={() => setMobileOpen(!mobileOpen)}
+							aria-label="Toggle menu"
+						>
+							{mobileOpen ? (
+								<X
+									className={`w-6 h-6 ${scrolled ? "text-foreground" : "text-brand-secondary"}`}
+								/>
+							) : (
+								<Menu
+									className={`w-6 h-6 ${scrolled ? "text-foreground" : "text-brand-secondary"}`}
+								/>
+							)}
+						</button>
+					</div>
+				</div>
+			</motion.nav>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background/50 backdrop-blur-lg pt-28 px-6"
-          >
-            <nav className="flex flex-col gap-6">
-              {navItems.map((item, idx) => (
-                <motion.div
-                  key={item.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.08 }}
-                >
-                  <Link
-                    href={item.href}
-                    className="font-serif text-3xl text-foreground hover:text-primary transition-colors uppercase tracking-tight"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                </motion.div>
-              ))}
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
-  );
+			{/* Mobile menu */}
+			<AnimatePresence>
+				{mobileOpen && (
+					<motion.div
+						initial={{ opacity: 0, y: -10 }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0, y: -10 }}
+						transition={{ duration: 0.3 }}
+						className="fixed inset-0 z-40 bg-background/50 backdrop-blur-lg pt-28 px-6"
+					>
+						<nav className="flex flex-col gap-6">
+							{navItems.map((item, idx) => (
+								<motion.div
+									key={item.href}
+									initial={{ opacity: 0, x: -20 }}
+									animate={{ opacity: 1, x: 0 }}
+									transition={{ delay: idx * 0.08 }}
+								>
+									<Link
+										href={item.href}
+										className="text-3xl text-foreground hover:text-primary transition-colors uppercase tracking-tight"
+										onClick={() => setMobileOpen(false)}
+									>
+										{item.label}
+									</Link>
+								</motion.div>
+							))}
+						</nav>
+					</motion.div>
+				)}
+			</AnimatePresence>
+		</>
+	);
 };
 
 export default Navbar;

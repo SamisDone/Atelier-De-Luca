@@ -68,7 +68,7 @@ export default function RootLayout({
         <SkipToContent />
 
         <Providers>
-          <main id="main-content">
+          <main id="main-content" className="font-sans">
             {children}
           </main>
         </Providers>

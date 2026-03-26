@@ -20,7 +20,7 @@ const Craftmenship = () => {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <p className="text-primary font-sans text-sm tracking-[0.3em] uppercase mb-4">
+          <p className="section-tagline">
             {messages.craftmenship.tagline}
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-foreground mb-4 tracking-tight">
@@ -62,7 +62,7 @@ const Craftmenship = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <p className="text-brand-secondary font-serif text-lg md:text-xl pointer-events-none">
+                <p className="font-serif text-brand-secondary text-lg md:text-xl pointer-events-none">
                   {img.label}
                 </p>
               </div>

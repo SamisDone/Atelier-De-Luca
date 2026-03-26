@@ -43,7 +43,7 @@ const Testimonials = () => {
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          <p className="text-primary font-sans text-sm tracking-[0.3em] uppercase mb-4">
+          <p className="section-tagline">
             {messages.testimonials.tagline}
           </p>
           {/* Editorial oversized heading */}
@@ -69,7 +69,7 @@ const Testimonials = () => {
               className="bg-white/5 border border-white/8 rounded-2xl p-5 sm:p-6 md:p-8 flex flex-col hover:bg-white/8 hover:border-primary/30 transition-all duration-500"
             >
               <Quote className="w-8 h-8 text-primary mb-6 opacity-40" />
-              <p className="text-brand-secondary/80 text-sm md:text-base leading-relaxed italic flex-1 mb-8 font-sans">
+              <p className="text-brand-secondary/80 text-sm md:text-base leading-relaxed italic flex-1 mb-8">
                 &ldquo;{item.quote}&rdquo;
               </p>
               <div className="border-t border-brand-secondary/10 pt-5">

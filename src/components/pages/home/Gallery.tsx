@@ -28,7 +28,7 @@ const Gallery = () => {
             transition={{ duration: 0.8 }}
             className="mb-6 flex flex-col items-start"
           >
-            <p className="text-primary font-sans text-sm tracking-[0.3em] uppercase mb-4">
+            <p className="section-tagline">
               {messages.gallery.tagline}
             </p>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-foreground mb-4 leading-[0.95] tracking-tight">
@@ -46,7 +46,7 @@ const Gallery = () => {
                 key={cat}
                 onClick={() => setActive(cat)}
                 className={cn(
-                  "px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-sans uppercase tracking-widest transition-all duration-300 border",
+                  "px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs uppercase tracking-widest transition-all duration-300 border",
                   active === cat
                     ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20"
                     : "bg-transparent text-muted-foreground border-border hover:border-primary/40 hover:text-foreground"

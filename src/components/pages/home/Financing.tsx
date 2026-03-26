@@ -77,11 +77,11 @@ export default function Financing() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-primary font-sans text-sm tracking-[0.3em] uppercase mb-6 block">
+              <span className="section-tagline">
                 {t.tagline}
               </span>
               {/* Editorial oversized heading */}
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif text-brand-secondary leading-[0.95] tracking-tight">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-brand-secondary leading-[0.95] tracking-tight">
                 {t.title}
               </h2>
             </motion.div>
@@ -91,7 +91,7 @@ export default function Financing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-base md:text-lg text-brand-secondary/80 font-sans max-w-2xl leading-relaxed"
+              className="text-base md:text-lg text-brand-secondary/80 max-w-2xl leading-relaxed"
             >
               {t.description}
             </motion.p>
@@ -102,7 +102,7 @@ export default function Financing() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <button className="group relative w-full flex items-center justify-center sm:w-auto px-8 sm:px-10 py-3 sm:py-4 border-2 border-brand-secondary text-brand-secondary text-xs font-sans tracking-widest uppercase overflow-hidden mt-4 rounded-full hover:bg-brand-secondary hover:text-brand-tertiary transition-all duration-300">
+              <button className="group relative w-full flex items-center justify-center sm:w-auto px-8 sm:px-10 py-3 sm:py-4 border-2 border-brand-secondary text-brand-secondary text-xs tracking-widest uppercase overflow-hidden mt-4 rounded-full hover:bg-brand-secondary hover:text-brand-tertiary transition-all duration-300">
                 <span className="relative z-10 flex items-center gap-3">
                   {t.cta}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
@@ -127,8 +127,8 @@ export default function Financing() {
                   <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-primary/15 flex items-center justify-center mb-4 md:mb-6">
                     <Icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-serif text-brand-secondary mb-3">{feature.title}</h3>
-                  <p className="text-brand-secondary/65 font-sans text-sm md:text-base leading-relaxed">
+                  <h3 className="font-serif text-xl md:text-2xl text-brand-secondary mb-3">{feature.title}</h3>
+                  <p className="text-brand-secondary/65 text-sm md:text-base leading-relaxed">
                     {feature.description}
                   </p>
                 </motion.div>
