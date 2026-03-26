@@ -41,17 +41,17 @@ const Navbar = () => {
 						: "bg-transparent"
 				}`}
 			>
-				<div className="container mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+				<div className="container mx-auto px-6 h-24 md:h-28 flex items-center justify-between">
 					<Link
 						href="/"
 						className="flex items-center overflow-visible transition-colors duration-500 notranslate"
 					>
 						<Image
-							src="/images/pierra-logo-2.png"
+							src="/images/pierra-logo.png"
 							alt="PIERRA"
-							width={745}
-							height={324}
-							className={`w-[160px] md:w-[200px] h-auto object-contain transition-all duration-500 ${
+							width={366}
+							height={300}
+							className={`w-[100px] md:w-[120px] h-auto object-contain transition-all duration-500 ${
 								scrolled ? "" : "brightness-0 invert"
 							}`}
 						/>
