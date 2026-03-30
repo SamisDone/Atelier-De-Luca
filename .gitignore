@@ -39,12 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# non-project folders
-/Grefino
-/PHOTOS
-/PIERRA WEBSITE
-
-# misc generated files
-recent_files.txt
-bun.lock
